@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Management Studies - Prospectus 2026–27</title>
+    <meta name="description"
+        content="Official landing page for the Faculty of Management Studies. Developing globally competent management professionals with contemporary skills and ethical values.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("4FgF3v--_ILjwkQED");
+        })();
+    </script>
+</head>
+
+<body>
+
+    <!-- University Brand Header -->
+    <!-- HERO SECTION REPLACEMENT — drop-in for your existing page -->
+<!-- Add these Google Fonts to your <head>: -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"> -->
+
+<style>
+  /* ── Hero-only styles ─────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: #0a1628;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  /* Diagonal split background */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 52%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a3a6b 0%, #0d2244 60%, #0a1628 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 0;
+  }
+
+  /* Animated grid overlay */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(250, 200, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(250, 200, 0, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    animation: gridDrift 20s linear infinite;
+  }
+
+  @keyframes gridDrift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* ── LEFT CONTENT ─────────────────────────────── */
+  .hero-content {
+    padding: 100px 60px 100px 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(250, 200, 0, 0.12);
+    border: 1px solid rgba(250, 200, 0, 0.35);
+    color: #fac800;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.9s 0.1s both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #fac800;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: #ffffff;
+    margin: 0 0 8px;
+    animation: fadeUp 0.9s 0.2s both;
+  }
+
+  .hero-title .text-accent {
+    color: #fac800;
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.55;
+    margin: 18px 0 20px;
+    animation: fadeUp 0.9s 0.3s both;
+  }
+
+  .hero-intro {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.9s 0.4s both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.9s 0.5s both;
+  }
+
+  .btn-large {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 14px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: #fac800;
+    color: #0a1628;
+    border: 2px solid #fac800;
+  }
+
+  .btn-primary:hover {
+    background: #ffd93d;
+    border-color: #ffd93d;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(250, 200, 0, 0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .btn-outline:hover {
+    border-color: #fac800;
+    color: #fac800;
+    transform: translateY(-2px);
+  }
+
+  /* ── RIGHT VISUAL PANEL ───────────────────────── */
+  .hero-visual {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0 80px 40px;
+    animation: fadeIn 1.1s 0.3s both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Main image frame */
+  .hero-img-frame {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+      0 40px 80px rgba(0,0,0,0.5),
+      0 0 0 1px rgba(255,255,255,0.06);
+  }
+
+  .hero-img-frame img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85) saturate(1.1);
+  }
+
+  /* Gold overlay line */
+  .hero-img-frame::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #fac800, transparent);
+  }
+
+  /* Stats bar over image */
+  .hero-stats-bar {
+    position: absolute;
+    bottom: -24px;
+    left: -20px;
+    right: 20px;
+    background: rgba(10, 22, 40, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(250, 200, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px 28px;
+    display: flex;
+    gap: 0;
+  }
+
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+
+  .stat-item + .stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10%; bottom: 10%;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .stat-item .count {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #fac800;
+    line-height: 1;
+  }
+
+  .stat-item .label {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* Floating accent card */
+  .hero-accent-card {
+    position: absolute;
+    top: 18%;
+    right: -16px;
+    background: #fac800;
+    color: #0a1628;
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 16px 40px rgba(250, 200, 0, 0.4);
+    animation: floatY 4s ease-in-out infinite;
+    max-width: 200px;
+  }
+
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  .accent-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .accent-text strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .accent-text span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.75;
+    text-transform: uppercase;
+  }
+
+  /* Scrolldown indicator */
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 3;
+    animation: fadeUp 1s 1s both;
+  }
+
+  .hero-scroll-hint span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(250,200,0,0.7), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    50.01% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero::before { width: 100%; clip-path: none; opacity: 0.4; }
+    .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+    .hero-content { padding: 120px 0 40px; text-align: center; }
+    .hero-intro { margin: 0 auto 40px; }
+    .hero-buttons { justify-content: center; }
+    .hero-visual { height: auto; padding: 0 0 100px; justify-content: center; }
+    .hero-img-frame img { height: 320px; }
+    .hero-accent-card { display: none; }
+    .hero-stats-bar { left: 0; right: 0; bottom: -28px; }
+  }
+</style>
+
+<header class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- LEFT: Text Content -->
+      <div class="hero-content">
+        <span class="hero-badge">Prospectus 2026–27</span>
+
+        <h1 class="hero-title">
+          <span class="text-accent">Department of Management Studies</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Developing Globally Competent Management Professionals<br>for the Evolving World
+        </p>
+
+        <p class="hero-intro">
+          Established in 1996, our department is dedicated to developing management professionals with
+          strong leadership skills, innovation, and ethical values. Join us for a transformative journey
+          in Management Studies at SCSVMV.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#courses" class="btn btn-primary btn-large">Explore Programs</a>
+          <a href="#labs" class="btn btn-outline btn-large">View Facilities</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Visual Panel -->
+      <div class="hero-visual">
+
+        <!-- Floating accent badge -->
+        <div class="hero-accent-card">
+          <div class="accent-icon">🏆</div>
+          <div class="accent-text">
+            <strong>NAAC A+</strong>
+            <span>Accredited University</span>
+          </div>
+        </div>
+
+        <!-- Main image -->
+        <div class="hero-img-frame">
+          <img
+            src="assets/hero-page.webp"
+            alt="Campus life at Department of Management Studies"
+            loading="eager"
+          />
+
+          <!-- Stats bar sitting on bottom edge of image -->
+          <div class="hero-stats-bar">
+            <div class="stat-item">
+              <span class="count">25+</span>
+              <span class="label">Years Legacy</span>
+            </div>
+            <div class="stat-item">
+              <span class="count">98%</span>
+              <span class="label">Placement</span>
+            </div>
+            <div class="stat-item">
+              <span class="count">500+</span>
+              <span class="label">Alumni</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-badge">Prospectus 2026–27</span>
+                    <h1 class="hero-title"><span class="text-accent">Department of Management Studies</span></h1>
+                    <p class="hero-subtitle">Developing Globally Competent Management Professionals for the Evolving
+                        World</p>
+                    <p class="hero-intro">
+                        Established in 1996, our department is dedicated to developing management professionals with
+                        strong leadership
+                        skills, innovation, and ethical values. Join us for a transformative journey in Management
+                        Studies at
+                        SCSVMV.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#courses" class="btn btn-primary btn-large">Explore Programs</a>
+                        <a href="#labs" class="btn btn-outline btn-large">View Facilities</a>
+                    </div>
+                </div>
+                <!-- Floating Visual elements -->
+                <!--<div class="hero-image-panel">
+                    <div class="floating-stat-box">
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="count">25+</span>
+                            <span class="label">Years Legacy</span>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-responsive-grid">
+            <div class="about-content">
+                <div class="section-badge">Since 1996</div>
+                <h2 class="section-title">Empowering Leaders for Global Business</h2>
+
+                <div class="hod-profile-card">
+                    <div class="hod-avatar">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="hod-details">
+                        <strong>Dr. M.S. Ramaratnam</strong>
+                        <span>Head of Department - Management Studies</span>
+                    </div>
+                </div>
+
+                <div class="strategy-grid">
+                    <div class="strategy-item">
+                        <h3><i class="fa-regular fa-lightbulb"></i> Vision</h3>
+                        <p>To develop globally competent management professionals rooted in ethical values, equipped
+                            with contemporary skills, and committed to contributing to societal and organizational
+                            growth.</p>
+                    </div>
+                    <div class="strategy-item">
+                        <h3><i class="fa-solid fa-bullseye"></i> Mission</h3>
+                        <p>The program is designed to offer management education that is affordable, industry-oriented,
+                            and rooted in strong values. It emphasizes learning by doing through real-world exposure,
+                            hands-on projects, and regular interaction with industry professionals.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <div class="img-wrapper">
+                    <img src="assets/images/mba-hod.png" alt="Faculty of Management Studies Excellence"
+                        class="main-img">
+                    <div class="stat-card">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Years of Excellence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2 class="section-title text-center">Academic Programs</h2>
+            <p class="section-desc text-center">Comprehensive curriculum designed for future innovators.</p>
+
+            <div class="program-flip-grid">
+
+                <!-- MBA Full Time -->
+                <div class="program-flip-card">
+                    <div class="program-flip-inner">
+                        <div class="program-flip-front">
+                            <div class="program-icon-lg"><i class="fa-solid fa-briefcase"></i></div>
+                            <h3>MBA (Full Time)</h3>
+                            <div class="program-meta-box">
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">Duration</span>
+                                    <span class="program-meta-val">2 Years</span>
+                                </div>
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">Intake</span>
+                                    <span class="program-meta-val">60 Students</span>
+                                </div>
+                            </div>
+                            <div class="flip-hint"><i class="fa-solid fa-rotate"></i> Flip for Details</div>
+                        </div>
+                        <div class="program-flip-back">
+                            <h4>Career Opportunities</h4>
+                            <ul class="program-list">
+                                <li>Manager/Executive (Marketing, Finance, HR)</li>
+                                <li>Business Analyst</li>
+                                <li>Bank Officer</li>
+                                <li>Consultant & Project Manager</li>
+                            </ul>
+                            <h4>Eligibility</h4>
+                            <ul class="program-list">
+                                <li>Any recognized UG Degree</li>
+                                <li>Minimum 50% aggregate marks</li>
+                                <li>National level entrance (ATMA/CAT/MAT/etc.)</li>
+                                <li>Test by SCSVMV</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specializations -->
+                <div class="program-flip-card">
+                    <div class="program-flip-inner">
+                        <div class="program-flip-front">
+                            <div class="program-icon-lg"><i class="fa-solid fa-layer-group"></i></div>
+                            <h3>Dual Specializations</h3>
+                            <div class="program-meta-box">
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">Options</span>
+                                    <span class="program-meta-val">6 Domains</span>
+                                </div>
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">Focus</span>
+                                    <span class="program-meta-val">Dual Majoring</span>
+                                </div>
+                            </div>
+                            <div class="flip-hint"><i class="fa-solid fa-rotate"></i> Flip for Details</div>
+                        </div>
+                        <div class="program-flip-back">
+                            <h4>Specializations Offered</h4>
+                            <ul class="program-list">
+                                <li>Marketing</li>
+                                <li>Finance</li>
+                                <li>Human Resources</li>
+                                <li>Operations</li>
+                                <li>Systems & Banking</li>
+                            </ul>
+                            <h4>Key Highlights</h4>
+                            <ul class="program-list">
+                                <li>Industry-Driven Curriculum</li>
+                                <li>Case Study Methodology</li>
+                                <li>Simulation & Field Projects</li>
+                                <li>Soft Skills & Leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MBA Lateral Entry -->
+                <div class="program-flip-card">
+                    <div class="program-flip-inner">
+                        <div class="program-flip-front">
+                            <div class="program-icon-lg"><i class="fa-solid fa-rocket"></i></div>
+                            <h3>MBA (Lateral Entry)</h3>
+                            <div class="program-meta-box">
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">Duration</span>
+                                    <span class="program-meta-val">1 Year</span>
+                                </div>
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">For</span>
+                                    <span class="program-meta-val">Engineering Grads</span>
+                                </div>
+                            </div>
+                            <div class="flip-hint"><i class="fa-solid fa-rotate"></i> Flip for Details</div>
+                        </div>
+                        <div class="program-flip-back">
+                            <h4>Target Careers</h4>
+                            <ul class="program-list">
+                                <li>Techno-Managerial Roles</li>
+                                <li>Operations/Quality Manager</li>
+                                <li>Business Development</li>
+                                <li>Supply Chain Analyst</li>
+                            </ul>
+                            <h4>Aim</h4>
+                            <ul class="program-list">
+                                <li>Combining Technical Expertise</li>
+                                <li>Accelerated Career Growth</li>
+                                <li>Advanced Management Insights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ph.D. Management -->
+                <div class="program-flip-card">
+                    <div class="program-flip-inner">
+                        <div class="program-flip-front">
+                            <div class="program-icon-lg"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <h3>Ph.D. in Management</h3>
+                            <div class="program-meta-box">
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">Mode</span>
+                                    <span class="program-meta-val">Full/Part Time</span>
+                                </div>
+                                <div class="program-meta-row">
+                                    <span class="program-meta-label">Admission</span>
+                                    <span class="program-meta-val">UGC Norms</span>
+                                </div>
+                            </div>
+                            <div class="flip-hint"><i class="fa-solid fa-rotate"></i> Flip for Details</div>
+                        </div>
+                        <div class="program-flip-back">
+                            <h4>Research Domains</h4>
+                            <ul class="program-list">
+                                <li>International Business</li>
+                                <li>Strategic Management</li>
+                                <li>Tourism & Marketing</li>
+                                <li>Finance, HR, Operations</li>
+                            </ul>
+                            <h4>Outcomes</h4>
+                            <ul class="program-list">
+                                <li>Academic/Research Careers</li>
+                                <li>Corporate Research Analyst</li>
+                                <li>Consultant & Policy Analyst</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Collaborations & MoUs -->
+    <section class="collaborations">
+        <div class="container">
+            <h2 class="section-title text-center">Industry & Academic Collaborations</h2>
+            <div class="collab-grid">
+                <div class="collab-card">
+                    <h3><i class="fa-solid fa-handshake-simple"></i> Key MoUs</h3>
+                    <ul>
+                        <li>Project Management Institute (PMI)</li>
+                        <li>Hand in Hand Academy</li>
+                        <li>City Union Bank</li>
+                        <li>Sutherland Global</li>
+                        <li>Redington Limited</li>
+                    </ul>
+                </div>
+                <div class="collab-card">
+                    <h3><i class="fa-solid fa-users-gear"></i> Academic Interaction</h3>
+                    <ul>
+                        <li>Interaction with Silk Weavers</li>
+                        <li>Guest Lecture: India’s Foreign Trade</li>
+                        <li>Guest Lecture: Impactful Leadership</li>
+                        <li>Workshops on SAP Tools for HR</li>
+                    </ul>
+                </div>
+                <div class="collab-card">
+                    <h3><i class="fa-solid fa-industry"></i> Practical Exposure</h3>
+                    <ul>
+                        <li>Industrial Visit: REDINGTON COLTE</li>
+                        <li>NSS Vigilance Awareness Rally</li>
+                        <li>Social Responsibility Field Survey</li>
+                        <li>MANTRA Student Club Activities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Internship Showcase (Real Data) -->
+            <div class="internship-showcase">
+                <h2 class="section-title text-center">Placement & Internship Highlights</h2>
+                <p class="text-center mb-50">Our students gain real-world experience through internships at leading
+                    organizations.</p>
+                <div class="intern-grid" style="align-items: center;">
+                    <!-- Left Side: Bold Highlight Text -->
+                    <div class="intern-highlight-text">
+                        <p
+                            style="font-size: 4rem; font-weight: 2000px; color: var(--primary-blue); line-height: 1.3; font-family: 'Outfit', sans-serif;">
+                            82 MBA Students <br> Completed Internships
+                        </p>
+                    </div>
+
+                    <!-- Right Side: Static Internship Card -->
+                    <div class="static-intern-card"
+                        style="background: var(--white); padding: 3rem; border-radius: 24px; box-shadow: var(--shadow-lg); min-height: 380px; display: flex; flex-direction: column;">
+                        <h3
+                            style="font-size: 1.4rem; margin-bottom: 2rem; font-family: 'Outfit', sans-serif; color: var(--slate-900);">
+                            Internship Partners</h3>
+                        <div class="participant-tags">
+                            <span class="p-tag">Ashley Alteams India Limited</span>
+                            <span class="p-tag">STAHL India</span>
+                            <span class="p-tag">Redington Limited</span>
+                            <span class="p-tag">L&T Valves Limited</span>
+                            <span class="p-tag">Sundaram Finance</span>
+                            <span class="p-tag">RIP-IT Solutions</span>
+                            <span class="p-tag">Outright Creators</span>
+                            <span class="p-tag">The Ramco Cements</span>
+                            <span class="p-tag">Skill Intern</span>
+                            <span class="p-tag">Shiash Info Solutions</span>
+                            <span class="p-tag">Gemcaps Healthcare</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Excellence Section -->
+    <section class="alumni" id="alumni">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Alumni Excellence</h2>
+                <p class="section-subtitle">Our graduates are leading at top organizations worldwide.</p>
+            </div>
+
+            <div class="alumni-carousel-wrapper">
+                <!-- Track -->
+                <div class="alumni-track-container">
+                    <div class="alumni-track">
+                        <!-- Group 1 -->
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/prasanna.png');"></div>
+                            <div class="alumni-info">
+                                <h4>Prasanna Kumar V</h4>
+                                <span class="alumni-designation">Relationship Manager II</span>
+                                <span class="alumni-org">City Union Bank</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/kaviya.png');">
+                            </div>
+                            <div class="alumni-info">
+                                <h4>Kavitha Y</h4>
+                                <span class="alumni-designation">Management Trainee</span>
+                                <span class="alumni-org">Sundaram Finance</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img"
+                                style="background-image: url('assets/images/lakshmananarayanan.png')"></div>
+                            <div class="alumni-info">
+                                <h4>Lakshminarayanan PS</h4>
+                                <span class="alumni-designation">Accounts Executive</span>
+                                <span class="alumni-org">Redington Limited</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/ganapathy.png');"></div>
+                            <div class="alumni-info">
+                                <h4>Ganapathy S P</h4>
+                                <span class="alumni-designation">Relationship Manager II</span>
+                                <span class="alumni-org">City Union Bank</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/abinav.png');"></div>
+                            <div class="alumni-info">
+                                <h4>Abhinav R</h4>
+                                <span class="alumni-designation">Management Trainee</span>
+                                <span class="alumni-org">Shibaura Machine</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/kalyanaragavan.png');">
+                            </div>
+                            <div class="alumni-info">
+                                <h4>Kalyanaragavan S</h4>
+                                <span class="alumni-designation">HR Executive</span>
+                                <span class="alumni-org">EASUN MR Tap Changers</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/vaidhyanadhan.png');">
+                            </div>
+                            <div class="alumni-info">
+                                <h4>Vaidyanathan R</h4>
+                                <span class="alumni-designation">Accounts Executive</span>
+                                <span class="alumni-org">ORBIT Innovations</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/kishore-kumar.png');">
+                            </div>
+                            <div class="alumni-info">
+                                <h4>Kishore Kumar M</h4>
+                                <span class="alumni-designation">Relationship Manager II</span>
+                                <span class="alumni-org">City Union Bank</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/pragadeeshwaran.png');">
+                            </div>
+                            <div class="alumni-info">
+                                <h4>Pragadheeswaran V</h4>
+                                <span class="alumni-designation">Relationship Manager II</span>
+                                <span class="alumni-org">City Union Bank</span>
+                            </div>
+                        </div>
+                        <div class="alumni-card">
+                            <div class="alumni-img" style="background-image: url('assets/images/resheuf.png');"></div>
+                            <div class="alumni-info">
+                                <h4>Resheuf R</h4>
+                                <span class="alumni-designation">Relationship Manager II</span>
+                                <span class="alumni-org">City Union Bank</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+
+
+    <!-- Placements & Achievements -->
+    <section class="placement-info" style="padding: 4rem 0; background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title text-center">Placements & Achievements</h2>
+            <p class="section-desc text-center" style="margin-bottom: 3rem;">Celebrating our students' excellence and
+                career success</p>
+
+            <div class="placement-grid-layout">
+                <!-- Left: Success Card -->
+                <div class="placement-success-card">
+                    <span class="card-badge">PLACEMENT SUCCESS</span>
+                    <h2 class="success-value">80%</h2>
+                    <p class="success-desc">Of our students placed in top management roles last consecutive years.</p>
+                    <div class="success-chart-mini">
+                        <div class="chart-bar" style="height: 30%"></div>
+                        <div class="chart-bar" style="height: 50%"></div>
+                        <div class="chart-bar" style="height: 70%"></div>
+                        <div class="chart-bar active" style="height: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Stats Cards -->
+                <div class="placement-stats-row">
+                    <div class="stat-box-mini card-light-green">
+                        <div class="stat-icon-wrapper">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="stat-value-mini">6.2 LPA</h3>
+                        <p class="stat-label-mini">Highest Salary Package</p>
+                    </div>
+
+                    <div class="stat-box-mini card-light-blue">
+                        <div class="stat-icon-wrapper">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="stat-value-mini">3.5 LPA</h3>
+                        <p class="stat-label-mini">Average Salary Package</p>
+                    </div>
+                </div>
+
+                <!-- Bottom: Internship Bar -->
+                <div class="internship-info-bar">
+                    <div class="bar-title">Internships & Training</div>
+                    <div class="bar-stats-grid">
+                        <div class="bar-stat-item">
+                            <h4 class="bar-stat-value">100%</h4>
+                            <p class="bar-stat-label">Internship Support</p>
+                        </div>
+                        <div class="bar-stat-item">
+                            <h4 class="bar-stat-value">48</h4>
+                            <p class="bar-stat-label">Students Placed</p>
+                        </div>
+                        <div class="bar-stat-item">
+                            <h4 class="bar-stat-value">02</h4>
+                            <p class="bar-stat-label">Patents Published</p>
+                        </div>
+                        <div class="bar-stat-item">
+                            <h4 class="bar-stat-value">09</h4>
+                            <p class="bar-stat-label">Scopus Pubs</p>
+                        </div>
+                        <div class="bar-stat-item">
+                            <h4 class="bar-stat-value">02</h4>
+                            <p class="bar-stat-label">MoUs Signed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Companies Visited -->
+    <section class="companies-section" style="padding: 4rem 0; background: var(--white);">
+        <div class="container">
+            <h2 class="section-title text-center">Companies Visited</h2>
+            <div class="companies-grid">
+                <div class="company-card">City Union Bank</div>
+                <div class="company-card">Shri Meera Labs </div>
+                <div class="company-card">Integrated Enterprises </div>
+                <div class="company-card">Sutherland Global</div>
+                <div class="company-card">L&T Valves</div>
+                <div class="company-card">Integrated Enterprises</div>
+                <div class="company-card">Shibaura Machine</div>
+                <div class="company-card">Unicare Services</div>
+                <div class="company-card">Zinnov Management</div>
+                <div class="company-card">Rinex Technologies</div>
+                <div class="company-card">National Group</div>
+                <div class="company-card">Skill Intern</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Outreach -->
+    <section class="outreach">
+        <div class="container">
+            <h2 class="section-title text-center">Outreach & Social Responsibility</h2>
+            <div class="outreach-grid">
+                <div class="outreach-item">
+                    <img src="assets/images/social respons.png" alt="Silk Weavers Interaction">
+                    <div class="outreach-text">
+                        <h3>Social Responsibility</h3>
+                        <p>Interaction with Silk Weavers to study their craft and community needs.</p>
+                    </div>
+                </div>
+                <div class="outreach-item">
+                    <img src="assets/images/industry-visit.png" alt="Industrial Visit">
+                    <div class="outreach-text">
+                        <h3>Industrial Visits</h3>
+                        <p>Regular visits to REDINGTON COLTE and other corporate entities for field exposure.</p>
+                    </div>
+                </div>
+                <div class="outreach-item">
+                    <img src="assets/images/mantra.png" alt="MANTRA Club">
+                    <div class="outreach-text">
+                        <h3>MANTRA Student Club</h3>
+                        <p>Dynamic platform for enhancing managerial, leadership, and communication skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apply Section -->
+    <section class="apply-section" id="apply">
+        <div class="container overflow-visible">
+            <div class="apply-grid">
+                <!-- Left: Application Form -->
+                <div class="apply-form-container">
+                    <div class="apply-header">
+                        <h2 class="form-title">Begin Your Management Journey</h2>
+                        <p class="form-subtitle">Apply for the Faculty of Management Studies and
+                            our admissions team will contact you within 24 hours</p>
+                    </div>
+
+                    <form id="admissionForm">
+                        <!-- Progress Indicator -->
+                        <div class="form-progress-indicator">
+                            <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
+                            <div class="step-node active" data-step="1">1</div>
+                            <div class="step-node" data-step="2">2</div>
+                            <div class="step-node" data-step="3">3</div>
+                        </div>
+
+                        <!-- Step 1: Personal Details -->
+                        <div class="form-step active" data-step="1">
+                            <div class="form-section">
+                                <h3 class="form-section-header"><i class="fa-solid fa-user"></i> Personal Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group floating-label-group">
+                                        <div class="input-with-icon">
+                                            <input type="text" id="fullName" name="from_name" required placeholder=" "
+                                                autocomplete="name">
+                                            <i class="fa-solid fa-user-pen field-icon"></i>
+                                            <label for="fullName">Full Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group floating-label-group">
+                                        <div class="input-with-icon">
+                                            <input type="email" id="email" name="reply_to" required placeholder=" "
+                                                autocomplete="email">
+                                            <i class="fa-solid fa-envelope field-icon"></i>
+                                            <label for="email">Email Address</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group floating-label-group">
+                                    <div class="input-with-icon">
+                                        <input type="tel" id="phone" name="phone_number" required placeholder=" "
+                                            autocomplete="tel" inputmode="numeric" pattern="[0-9]*" maxlength="10"
+                                            minlength="10">
+                                        <i class="fa-solid fa-phone field-icon"></i>
+                                        <label for="phone">Phone Number</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button type="button" class="btn btn-primary btn-next btn-ripple">
+                                    Next Step <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Academic & Program -->
+                        <div class="form-step" data-step="2">
+                            <div class="form-section">
+                                <h3 class="form-section-header"><i class="fa-solid fa-graduation-cap"></i> Academic &
+                                    Program</h3>
+                                <div class="form-group floating-label-group">
+                                    <div class="input-with-icon">
+                                        <select id="program" name="selected_program" required
+                                            onchange="this.setAttribute('value', this.value);">
+                                            <option value="" disabled selected></option>
+                                            <option value="mba_ft">MBA (Full Time) – 2 Years</option>
+                                            <option value="mba_le">MBA (Lateral Entry) – 1 Year</option>
+                                            <option value="phd_mgmt">Ph.D. in Management (Full/Part Time)</option>
+                                        </select>
+                                        <i class="fa-solid fa-book-open field-icon"></i>
+                                        <label for="program">Program of Interest</label>
+                                    </div>
+                                </div>
+                                <div class="form-group floating-label-group">
+                                    <div class="input-with-icon">
+                                        <input type="text" id="qualification" name="qualification" required
+                                            placeholder=" ">
+                                        <i class="fa-solid fa-award field-icon"></i>
+                                        <label for="qualification">Highest Qualification (e.g., 12th, Diploma)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button type="button" class="btn btn-prev">Back</button>
+                                <button type="button" class="btn btn-primary btn-next btn-ripple">
+                                    Next Step <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Finalize -->
+                        <div class="form-step" data-step="3">
+                            <div class="form-section">
+                                <h3 class="form-section-header"><i class="fa-solid fa-message"></i> Additional
+                                    Information</h3>
+                                <div class="form-group floating-label-group">
+                                    <div class="input-with-icon">
+                                        <textarea id="message" name="message" rows="4" placeholder=" "></textarea>
+                                        <label for="message">Tell us about your interests (Optional)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button type="button" class="btn btn-prev">Back</button>
+                                <button type="submit" class="btn btn-primary btn-submit btn-ripple" id="submitBtn"
+                                    disabled>
+                                    <span class="btn-text">Submit Application <i
+                                            class="fa-solid fa-paper-plane"></i></span>
+                                    <div class="spinner"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="formSuccess" style="display: none;">
+                        <div class="form-success-wrapper">
+                            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                            <h3>Application Submitted!</h3>
+                            <p>We have received your enquiry. Our admission cell will contact you shortly.</p>
+                            <button onclick="resetForm()" class="btn btn-primary">Submit Another</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Information Panel -->
+                <div class="apply-info-panel">
+                    <!-- Contact Card -->
+                    <div class="info-card">
+                        <h3 class="info-card-title">Contact Information</h3>
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong>Address:</strong>
+                                <p>Sri Jayendra Saraswathi Street,<br>Enathur, Kanchipuram – 631561<br>Tamil Nadu, India
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <strong>Phone:</strong>
+                                <p>+91 9629 00 11 44</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong>
+                                <p>fms.admissions@kanchiuniv.ac.in</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admission Process Card -->
+                    <div class="info-card">
+                        <h3 class="info-card-title">Admission Process</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <span class="step-num">1</span>
+                                <p>Online application submission</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">2</span>
+                                <p>Eligibility screening</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">3</span>
+                                <p>Entrance assessment (if applicable)</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">4</span>
+                                <p>Document verification</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">5</span>
+                                <p>Final admission confirmation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <!-- Left Side: Brand -->
+                <div class="footer-brand-minimal">
+                    <img src="https://kanchiuniv.ac.in/wp-content/uploads/2024/05/Sri-Chandrasekharendra-Saraswathi-Viswa-Mahavidyalaya-SCSVMV.png"
+                        alt="SCSVMV Logo" class="footer-logo-minimal">
+                    <div class="brand-text">
+
+                        <p class="footer-dept-name">Department of Management Studies</p>
+                        <p class="footer-univ-full">Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya</p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Contact & Social -->
+                <div class="footer-contact-minimal">
+                    <a href="tel:+919629001144" class="footer-phone-minimal" aria-label="Call +91 9629 00 11 44">
+                        <i class="fa-solid fa-phone"></i> +91 9629 00 11 44
+                    </a>
+                    <div class="social-links-minimal">
+                        <a href="https://www.facebook.com/SCSVMVDU/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://x.com/SCSVMVDU" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/school/scsvmvuniv" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/scsvmvdu/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-minimal">
+                <p>&copy; 2026 Department of Management Studies, SCSVMV. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Bottom Action Bar -->
+    <div class="fixed-action-bar">
+        <div class="container">
+            <!-- Desktop & Tablet Layout -->
+            <div class="fab-desktop">
+                <div class="fab-left">
+                    <a href="https://wa.me/919629001144" target="_blank" rel="noopener noreferrer"
+                        class="fab-whatsapp-desktop" title="Chat with us">
+                        <i class="fa-brands fa-whatsapp"></i> Chat with Us
+                    </a>
+                </div>
+                <div class="fab-center">
+                    <div class="fab-info">
+                        <strong>Admissions Open 2026</strong>
+                        <span>Join the future of Management & Leadership excellence</span>
+                    </div>
+                </div>
+                <div class="fab-right">
+                    <a href="#apply" class="btn btn-primary btn-fab">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Mobile Layout (3-Button Layout) -->
+            <div class="fab-mobile">
+                <a href="#apply" class="fab-mobile-btn fab-mobile-apply">
+                    <span>Apply Now</span>
+                </a>
+                <a href="https://wa.me/919629001144" target="_blank" rel="noopener noreferrer"
+                    class="fab-mobile-btn fab-mobile-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="tel:+919629001144" class="fab-mobile-btn fab-mobile-call">
+                    <span>Call Now</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
