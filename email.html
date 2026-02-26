@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #f1f5f9;
+            padding-bottom: 40px;
+        }
+
+        .main {
+            background-color: #ffffff;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            border-spacing: 0;
+            color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .header {
+            background-color: #1e40af;
+            /* primary-blue */
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #93c5fd;
+            margin: 10px 0 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-row td {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .label {
+            width: 35%;
+            font-weight: 600;
+            color: #64748b;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .value {
+            width: 65%;
+            font-weight: 500;
+            color: #0f172a;
+            font-size: 15px;
+        }
+
+        .message-box {
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #f59e0b;
+            /* accent-gold */
+        }
+
+        .message-title {
+            font-weight: 700;
+            color: #64748b;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .message-text {
+            color: #334155;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .footer {
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <table class="main">
+            <tr>
+                <td class="header">
+                    <p>New Admission Inquiry</p>
+                    <h1>Department of CSE</h1>
+                </td>
+            </tr>
+            <tr>
+                <td class="content">
+                    <div class="section-title">Student Profile</div>
+                    <table class="info-table">
+                        <tr class="info-row">
+                            <td class="label">Full Name</td>
+                            <td class="value">{{from_name}}</td>
+                        </tr>
+                        <tr class="info-row">
+                            <td class="label">Phone Number</td>
+                            <td class="value">{{phone_number}}</td>
+                        </tr>
+                        <tr class="info-row">
+                            <td class="label">Email Address</td>
+                            <td class="value">{{reply_to}}</td>
+                        </tr>
+                        <tr class="info-row">
+                            <td class="label">Program</td>
+                            <td class="value">{{selected_program}}</td>
+                        </tr>
+                        <tr class="info-row">
+                            <td class="label">Qualification</td>
+                            <td class="value">{{qualification}}</td>
+                        </tr>
+                    </table>
+
+                    <div class="message-box">
+                        <div class="message-title">Applicant Message</div>
+                        <div class="message-text">
+                            {{message}}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="footer">
+                    &copy; 2026 Department of CSE, SCSVMV.<br>
+                    This is an automated notification from the Prospectus Landing Page.
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
