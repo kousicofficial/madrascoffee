@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Madras Coffee House — Authentic Taste. Structured Growth.</title>
+<meta name="description" content="South India's iconic filter coffee brand. 180+ stores and expanding across metro India. Franchise opportunities available."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--red:#e4272e;--orange:#f3920a;--white:#fefefe;--black:#111111;--gray:#6b7280;--light:#f8f8f6;--border:#e5e5e0}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--white);color:var(--black);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* ── NAVBAR ────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s;background:transparent}
+nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64px}
+.logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0}
+.logo-mark{width:40px;height:40px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;color:#fff}
+.logo-name{display:flex;flex-direction:column;line-height:1.15}
+.logo-name b{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--black)}
+.logo-name small{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+.nav-center{display:flex;gap:0;list-style:none}
+.nav-center a{display:inline-block;padding:.5rem 1.1rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--black);text-decoration:none;position:relative;transition:color .25s}
+.nav-center a::after{content:'';position:absolute;left:1.1rem;right:1.1rem;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s cubic-bezier(.25,.46,.45,.94)}
+.nav-center a:hover{color:var(--red)}
+.nav-center a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;gap:.75rem;align-items:center;flex-shrink:0}
+.btn-outline-nav{background:transparent;color:var(--red);border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none}
+.btn-outline-nav:hover{background:var(--red);color:#fff}
+.btn-solid-nav{background:var(--red);color:#fff;border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none}
+.btn-solid-nav:hover{background:#c41f25;border-color:#c41f25}
+
+/* ── BUTTONS ───────────────────────────────────────── */
+.btn-primary{display:inline-block;background:var(--red);color:#fff;padding:.85rem 2rem;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .25s,transform .2s,box-shadow .25s}
+.btn-primary:hover{background:#c41f25;transform:translateY(-2px);box-shadow:0 8px 24px rgba(228,39,46,.25)}
+.btn-secondary{display:inline-block;background:transparent;color:var(--black);padding:.85rem 2rem;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--black);cursor:pointer;transition:all .25s}
+.btn-secondary:hover{background:var(--black);color:#fff;transform:translateY(-2px)}
+.btn-orange{display:inline-block;background:var(--orange);color:#fff;padding:.85rem 2rem;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .25s}
+.btn-orange:hover{background:#d97d05;transform:translateY(-2px);box-shadow:0 8px 24px rgba(243,146,10,.25)}
+
+/* ── REVEAL ANIMATIONS ────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
+.fade-up.in{opacity:1;transform:translateY(0)}
+.fade-in{opacity:0;transition:opacity .75s ease}
+.fade-in.in{opacity:1}
+.slide-left{opacity:0;transform:translateX(-30px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
+.slide-left.in{opacity:1;transform:translateX(0)}
+.slide-right{opacity:0;transform:translateX(30px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
+.slide-right.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ── HERO ──────────────────────────────────────────── */
+#hero{position:relative;min-height:100vh;background:var(--white);display:flex;align-items:center;overflow:hidden;padding-top:72px}
+.hero-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.shape{position:absolute;border-radius:50%;animation:shapeFloat 10s ease-in-out infinite}
+.shape-1{width:420px;height:420px;background:radial-gradient(circle,rgba(228,39,46,.06),transparent 70%);top:-80px;right:-60px;animation-duration:12s}
+.shape-2{width:280px;height:280px;background:radial-gradient(circle,rgba(243,146,10,.07),transparent 70%);bottom:80px;right:15%;animation-duration:9s;animation-delay:2s}
+.shape-3{width:200px;height:200px;background:radial-gradient(circle,rgba(228,39,46,.04),transparent 70%);top:40%;left:5%;animation-duration:14s;animation-delay:4s}
+@keyframes shapeFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.04)}}
+.hero-inner{max-width:1280px;margin:0 auto;padding:0 5%;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem}
+.hero-tag::before{content:'';width:24px;height:2px;background:var(--red)}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:900;line-height:1.05;letter-spacing:-.01em;margin-bottom:1.5rem;color:var(--black)}
+.hero-h1 em{color:var(--red);font-style:normal}
+.hero-sub{font-size:1.05rem;color:var(--gray);line-height:1.75;margin-bottom:2.5rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+.hstat{display:flex;flex-direction:column;gap:.2rem}
+.hstat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--black);line-height:1}
+.hstat-lbl{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-img-wrap{position:relative;width:100%}
+.hero-img-main{width:100%;height:520px;object-fit:cover;display:block}
+.hero-img-fallback{width:100%;height:520px;background:linear-gradient(135deg,#fef3f3,#fde8cc);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.hero-img-fallback span{font-size:6rem}
+.hero-img-fallback p{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gray)}
+.hero-badge{position:absolute;bottom:-1rem;left:-1.5rem;background:#fff;border:1px solid var(--border);padding:1rem 1.4rem;box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.hero-badge b{font-family:'Playfair Display',serif;font-size:1.5rem;display:block;color:var(--red);line-height:1}
+.hero-badge span{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray)}
+.hero-badge-2{position:absolute;top:1.5rem;right:-1rem;background:var(--red);padding:.8rem 1.2rem;box-shadow:0 8px 24px rgba(228,39,46,.3)}
+.hero-badge-2 b{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;display:block}
+.hero-badge-2 small{font-size:.62rem;color:rgba(255,255,255,.75)}
+
+/* ── AUTHORITY STRIP ───────────────────────────────── */
+#strip{background:var(--red);padding:5rem 5%}
+.strip-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.strip-headline{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:900;line-height:1;color:#fff}
+.strip-headline span{display:block;font-size:clamp(1rem,2vw,1.3rem);font-weight:400;font-family:'Inter',sans-serif;color:rgba(255,255,255,.7);margin-top:.5rem;letter-spacing:.12em;text-transform:uppercase}
+.strip-points{display:flex;flex-direction:column;gap:1.5rem}
+.strip-point{display:flex;align-items:flex-start;gap:1rem}
+.sp-icon{width:40px;height:40px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.sp-text b{font-size:.88rem;font-weight:700;color:#fff;display:block;margin-bottom:.2rem}
+.sp-text p{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.6}
+
+/* ── HERITAGE ──────────────────────────────────────── */
+#heritage{padding:7rem 5%;background:var(--white)}
+.heritage-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.heritage-img{position:relative}
+.heritage-img-main{width:100%;height:560px;object-fit:cover;display:block}
+.heritage-img-fallback{width:100%;height:560px;background:linear-gradient(135deg,#fdf1e8,#fde8cc);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+.heritage-img-fallback span{font-size:7rem}
+.heritage-accent{position:absolute;bottom:2rem;left:-1.5rem;background:var(--orange);width:60px;height:200px}
+.heritage-text{}
+.sec-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem}
+.sec-eyebrow::after{content:'';flex:1;max-width:40px;height:1.5px;background:var(--orange)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;color:var(--black)}
+.sec-divider{width:40px;height:3px;background:var(--red);margin-bottom:2rem}
+.heritage-text p{font-size:.92rem;color:var(--gray);line-height:1.85;margin-bottom:1.1rem}
+.heritage-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.pillar{padding:1.2rem;border:1px solid var(--border);border-left:3px solid var(--orange);transition:box-shadow .25s}
+.pillar:hover{box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.pillar b{font-size:.82rem;font-weight:700;color:var(--black);display:block;margin-bottom:.25rem}
+.pillar p{font-size:.76rem;color:var(--gray);line-height:1.5}
+
+/* ── FORMAT SECTION ────────────────────────────────── */
+#format{padding:7rem 5%;background:var(--light)}
+.format-header{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.format-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.format-card{background:var(--white);border:1px solid var(--border);padding:2rem 1.5rem;position:relative;transition:box-shadow .3s,transform .3s;overflow:hidden}
+.format-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--orange);transition:height .4s}
+.format-card:hover::before{height:100%}
+.format-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.09);transform:translateY(-4px)}
+.fc-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:rgba(228,39,46,.08);position:absolute;top:.5rem;right:1rem;line-height:1}
+.fc-icon{width:48px;height:48px;background:rgba(243,146,10,.1);border:1px solid rgba(243,146,10,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.5rem}
+.fc-title{font-size:.92rem;font-weight:700;color:var(--black);margin-bottom:.6rem;line-height:1.3}
+.fc-desc{font-size:.8rem;color:var(--gray);line-height:1.65}
+
+/* ── TRUST BAR ─────────────────────────────────────── */
+#trust{padding:5rem 5%;background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-inner{max-width:1280px;margin:0 auto}
+.trust-label{text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);margin-bottom:3rem}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.trust-card{text-align:center;padding:2rem 1rem;border:1px solid var(--border);transition:box-shadow .25s}
+.trust-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.trust-icon{font-size:2rem;margin-bottom:.8rem;display:block}
+.trust-card h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.4rem;color:var(--black)}
+.trust-card p{font-size:.78rem;color:var(--gray);line-height:1.6}
+.trust-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);border:1px solid rgba(228,39,46,.2);padding:.18rem .55rem;margin-top:.6rem}
+
+/* ── MEDIA / AWARDS ────────────────────────────────── */
+#media{padding:7rem 5%;background:var(--light)}
+.media-header{max-width:1280px;margin:0 auto;text-align:center;margin-bottom:4rem}
+.media-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
+.media-card{background:var(--white);border:1px solid var(--border);padding:2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;transition:box-shadow .25s}
+.media-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.media-card-icon{font-size:2rem}
+.media-card h4{font-size:.85rem;font-weight:700;color:var(--black);line-height:1.4}
+.media-card p{font-size:.76rem;color:var(--gray)}
+.media-card .year{font-size:.65rem;font-weight:700;letter-spacing:.15em;color:var(--orange)}
+.press-strip{max-width:1280px;margin:0 auto;padding:2rem;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;gap:2rem;flex-wrap:wrap}
+.press-item{font-size:.82rem;font-style:italic;color:var(--gray);text-align:center}
+.press-item b{display:block;font-style:normal;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
+
+/* ── EXPANSION ─────────────────────────────────────── */
+#expansion{padding:7rem 5%;background:linear-gradient(135deg,#fff9f0 0%,#fef3e0 50%,#fff9f0 100%)}
+.expansion-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.expansion-text .sec-title{margin-bottom:1.5rem}
+.expansion-text p{font-size:.92rem;color:var(--gray);line-height:1.85;margin-bottom:2rem}
+.city-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:2rem}
+.city-pill{display:flex;align-items:center;gap:.6rem;padding:.6rem .9rem;background:var(--white);border:1px solid var(--border);font-size:.78rem;font-weight:600;color:var(--black)}
+.city-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0}
+.city-pill.active .city-dot{background:var(--orange)}
+.city-pill span{font-size:.65rem;color:var(--gray);margin-left:auto}
+.expansion-visual{position:relative}
+.exp-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.exp-stat{background:var(--white);border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden}
+.exp-stat::after{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange)}
+.exp-stat:first-child::after,.exp-stat:nth-child(4):after{background:var(--red)}
+.exp-stat .num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--black);line-height:1;margin-bottom:.3rem}
+.exp-stat .lbl{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+
+/* ── FRANCHISE CTA ─────────────────────────────────── */
+#franchise-cta{padding:7rem 5%;background:var(--black)}
+.franchise-cta-inner{max-width:900px;margin:0 auto;text-align:center}
+.franchise-cta-inner .sec-eyebrow{justify-content:center;color:var(--orange)}
+.franchise-cta-inner .sec-eyebrow::after{background:var(--orange)}
+.franchise-cta-inner .sec-title{color:#fff;font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1.2rem}
+.franchise-cta-inner>p{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:2.5rem}
+.cta-contacts{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.1)}
+.cta-contact{display:flex;align-items:center;gap:.75rem}
+.cta-contact-icon{width:36px;height:36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.cta-contact label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block}
+.cta-contact a,.cta-contact span{font-size:.82rem;color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+.cta-contact a:hover{color:#fff}
+
+/* ── FOOTER ────────────────────────────────────────── */
+footer{background:var(--white);border-top:1px solid var(--border);padding:4rem 5% 2rem}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.8rem;color:var(--gray);line-height:1.75;margin:1rem 0 1.2rem}
+.footer-socials{display:flex;gap:.5rem}
+.fsoc{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--gray);text-decoration:none;transition:all .25s}
+.fsoc:hover{border-color:var(--red);color:var(--red)}
+.footer-col h5{font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--black);margin-bottom:1.2rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-col a{font-size:.8rem;color:var(--gray);text-decoration:none;transition:color .25s}
+.footer-col a:hover{color:var(--red)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.72rem;color:var(--gray)}
+.footer-bottom a{font-size:.72rem;color:var(--gray);text-decoration:none}
+.footer-bottom a:hover{color:var(--red)}
+.footer-red-dot{width:6px;height:6px;background:var(--red);border-radius:50%}
+
+/* ── RESPONSIVE ────────────────────────────────────── */
+@media(max-width:1024px){
+.hero-inner,.strip-inner,.heritage-inner,.expansion-inner{grid-template-columns:1fr;gap:3rem}
+.format-grid{grid-template-columns:1fr 1fr}
+.trust-grid,.media-grid{grid-template-columns:1fr 1fr}
+.footer-top{grid-template-columns:1fr 1fr}
+.hero-visual{order:-1}
+.hero-img-main,.hero-img-fallback,.heritage-img-main,.heritage-img-fallback{height:380px}
+nav{padding:0 4%}
+#strip,#heritage,#format,#trust,#media,#expansion,#franchise-cta{padding:5rem 4%}
+}
+@media(max-width:640px){
+.format-grid,.trust-grid,.media-grid,.exp-stats-grid,.heritage-pillars,.city-grid{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr}
+.hero-btns,.cta-contacts{flex-direction:column;align-items:flex-start}
+.hero-stats{flex-wrap:wrap;gap:1.5rem}
+nav{padding:0 4%}
+.nav-center,.nav-right .btn-outline-nav{display:none}
+.mobile-menu-btn{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <div class="logo-mark">M</div>
+    <div class="logo-name"><b>Madras Coffee House</b><small>Since 2010 · Chennai</small></div>
+  </a>
+  <ul class="nav-center">
+    <li><a href="#heritage">Our Coffee</a></li>
+    <li><a href="#format">Store Format</a></li>
+    <li><a href="#media">About</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#franchise-cta">Franchise</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://madrascoffeehouse.com/our-stores/" class="btn-outline-nav" target="_blank">Find a Store</a>
+    <a href="#franchise-cta" class="btn-solid-nav">Become a Partner</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag fade-up">South India's Iconic Filter Coffee Brand</div>
+      <h1 class="hero-h1 fade-up d1">Authentic Taste.<br/><em>Structured Growth.</em></h1>
+      <p class="hero-sub fade-up d2">South India's most trusted filter coffee chain. Now 180+ stores strong and expanding rapidly across metro India — built on a proven QSR model.</p>
+      <div class="hero-btns fade-up d3">
+        <a href="#franchise-cta" class="btn-primary">Become a Franchise Partner</a>
+        <a href="https://madrascoffeehouse.com/our-stores/" class="btn-secondary" target="_blank">Find a Store Near You</a>
+      </div>
+      <div class="hero-stats fade-in d4">
+        <div class="hstat"><div class="hstat-num" data-counter="180" data-suffix="+">0+</div><div class="hstat-lbl">Stores in India</div></div>
+        <div class="hstat"><div class="hstat-num">2010</div><div class="hstat-lbl">Est. Chennai</div></div>
+        <div class="hstat"><div class="hstat-num" data-counter="15" data-suffix="+">0+</div><div class="hstat-lbl">Cities &amp; Counting</div></div>
+      </div>
+    </div>
+    <div class="hero-visual fade-in d2">
+      <div class="hero-img-wrap">
+        <img class="hero-img-main" src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png" alt="Madras Coffee House filter coffee" onerror="this.style.display='none';document.getElementById('hero-fb').style.display='flex'"/>
+        <div id="hero-fb" class="hero-img-fallback" style="display:none"><span>☕</span><p>Authentic Filter Coffee</p></div>
+        <div class="hero-badge"><b>180+</b><span>Stores Pan India</span></div>
+        <div class="hero-badge-2"><b>QSR Express Model</b><small>300–600 sq ft</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AUTHORITY STRIP ═════════════════════════════════════════ -->
+<section id="strip">
+  <div class="strip-inner">
+    <div class="fade-up">
+      <div class="strip-headline">180+ STORES<span>Growing Across Metro India</span></div>
+    </div>
+    <div class="strip-points">
+      <div class="strip-point fade-up d1">
+        <div class="sp-icon">📋</div>
+        <div class="sp-text"><b>Standardised Brewing SOP</b><p>Every cup brewed to the same precise standard across all 180+ locations — no variation, no compromise.</p></div>
+      </div>
+      <div class="strip-point fade-up d2">
+        <div class="sp-icon">📐</div>
+        <div class="sp-text"><b>Scalable 300–600 sq ft Express Format</b><p>Designed for malls, metro stations, airports, and high-footfall corridors. Maximum efficiency, minimal footprint.</p></div>
+      </div>
+      <div class="strip-point fade-up d3">
+        <div class="sp-icon">⚙️</div>
+        <div class="sp-text"><b>Proven Operational Model</b><p>15 years of operational refinement — supply chain, training, and technology all structured for national scale.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HERITAGE ════════════════════════════════════════════════ -->
+<section id="heritage">
+  <div class="heritage-inner">
+    <div class="heritage-img slide-left">
+      <img class="heritage-img-main" src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Authentic Madras filter coffee" onerror="this.style.display='none';document.getElementById('her-fb').style.display='flex'"/>
+      <div id="her-fb" class="heritage-img-fallback" style="display:none"><span>🏛️</span></div>
+      <div class="heritage-accent"></div>
+    </div>
+    <div class="heritage-text slide-right">
+      <div class="sec-eyebrow">Our Heritage</div>
+      <h2 class="sec-title">Born in South India.<br/>Brewed with Precision.<br/>Served with Consistency.</h2>
+      <div class="sec-divider"></div>
+      <p>At Madras Coffee House, tradition meets emotion in every sip. Born in 2010 from the vision of founders who wanted to celebrate authentic South Indian filter coffee, our mission was simple — preserve heritage while building something scalable.</p>
+      <p>From a single outlet in Chennai to a thriving network of 180+ stores, we have grown into a recognized national brand. Every cup follows the same meticulous brewing ritual — precision-ground beans, filtered through our proprietary process, served fresh.</p>
+      <div class="heritage-pillars">
+        <div class="pillar fade-up"><b>Proprietary Blend</b><p>Estate-sourced beans, roasted and blended in-house to our 15-year-old specification.</p></div>
+        <div class="pillar fade-up d1"><b>Brewing SOP</b><p>Standardized across all stores. Same taste in Chennai, Bangalore, or Delhi.</p></div>
+        <div class="pillar fade-up d2"><b>Heritage Ritual</b><p>The traditional davara-tumbler pour — preserved and scaled without compromise.</p></div>
+        <div class="pillar fade-up d3"><b>Zero Franchise Dilution</b><p>Operational audits ensure brand standards are maintained at every location.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORMAT CARDS ════════════════════════════════════════════ -->
+<section id="format">
+  <div class="format-header">
+    <div class="slide-left">
+      <div class="sec-eyebrow">The Express Format</div>
+      <h2 class="sec-title">Built for Scale.<br/>Designed for Profit.</h2>
+    </div>
+    <div class="slide-right">
+      <p style="font-size:.92rem;color:var(--gray);line-height:1.8">Our 300–600 sq ft express café model is engineered for high-footfall metro locations — malls, IT corridors, airports, and transit hubs. Operationally optimized for a single operator to run efficiently.</p>
+    </div>
+  </div>
+  <div class="format-grid">
+    <div class="format-card fade-up">
+      <span class="fc-num">01</span>
+      <div class="fc-icon">📐</div>
+      <h4 class="fc-title">300–600 sq ft Express Café Model</h4>
+      <p class="fc-desc">Compact, efficient, and purpose-built. Requires minimal staff and delivers maximum throughput during peak hours.</p>
+    </div>
+    <div class="format-card fade-up d1">
+      <span class="fc-num">02</span>
+      <div class="fc-icon">🏙️</div>
+      <h4 class="fc-title">High Footfall Mall &amp; Metro Locations</h4>
+      <p class="fc-desc">Strategically positioned in Tier 1 &amp; Tier 2 transit hubs, IT parks, airports, and premium malls for maximum visibility.</p>
+    </div>
+    <div class="format-card fade-up d2">
+      <span class="fc-num">03</span>
+      <div class="fc-icon">🔧</div>
+      <h4 class="fc-title">Operationally Optimised Design</h4>
+      <p class="fc-desc">Turnkey store setup. Equipment, layout, and workflows are pre-engineered for efficiency, speed, and brand consistency.</p>
+    </div>
+    <div class="format-card fade-up d3">
+      <span class="fc-num">04</span>
+      <div class="fc-icon">📚</div>
+      <h4 class="fc-title">Structured SOP &amp; Training Framework</h4>
+      <p class="fc-desc">Comprehensive training program. Operations manual, brewing certification, and ongoing support for every franchisee.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ═══════════════════════════════════════════════ -->
+<section id="trust">
+  <div class="trust-inner">
+    <p class="trust-label fade-in">Why Investors Choose Madras Coffee House</p>
+    <div class="trust-grid">
+      <div class="trust-card fade-up">
+        <span class="trust-icon">🏆</span>
+        <h4>Proven Track Record</h4>
+        <p>15 years of profitable operations across Tamil Nadu and beyond. Consistent brand quality since 2010.</p>
+        <span class="trust-badge">Est. 2010</span>
+      </div>
+      <div class="trust-card fade-up d1">
+        <span class="trust-icon">📈</span>
+        <h4>High ROI Model</h4>
+        <p>Low capex, high margin express format. Fast break-even timeline with strong repeat customer base.</p>
+        <span class="trust-badge">QSR Optimised</span>
+      </div>
+      <div class="trust-card fade-up d2">
+        <span class="trust-icon">🤝</span>
+        <h4>Full Franchise Support</h4>
+        <p>Site selection, store setup, training, marketing, and ongoing operational guidance — end to end.</p>
+        <span class="trust-badge">End-to-End</span>
+      </div>
+      <div class="trust-card fade-up d3">
+        <span class="trust-icon">🌏</span>
+        <h4>National Brand Momentum</h4>
+        <p>Active metro-first expansion across Bangalore, Hyderabad, Mumbai, and Delhi. Ride the wave early.</p>
+        <span class="trust-badge">Pan India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEDIA / AWARDS ══════════════════════════════════════════ -->
+<section id="media">
+  <div class="media-header fade-up">
+    <div class="sec-eyebrow" style="justify-content:center">Recognition &amp; Media</div>
+    <h2 class="sec-title" style="font-size:clamp(1.8rem,3vw,2.6rem)">Recognised for Authenticity.<br/>Built on Credibility.</h2>
+  </div>
+  <div class="media-grid">
+    <div class="media-card fade-up">
+      <span class="media-card-icon">🏅</span>
+      <span class="year">2023</span>
+      <h4>Best Filter Coffee Chain — Tamil Nadu Food Awards</h4>
+      <p>Recognised for consistent quality and heritage brewing standards.</p>
+    </div>
+    <div class="media-card fade-up d1">
+      <span class="media-card-icon">📰</span>
+      <span class="year">2024</span>
+      <h4>Top 10 QSR Franchise Brands to Watch — Franchise India</h4>
+      <p>Featured for rapid scalability and franchise-ready operational model.</p>
+    </div>
+    <div class="media-card fade-up d2">
+      <span class="media-card-icon">🎖️</span>
+      <span class="year">2023</span>
+      <h4>Excellence in South Indian F&amp;B — NRAI Recognition</h4>
+      <p>Awarded for contribution to standardised South Indian food service.</p>
+    </div>
+    <div class="media-card fade-up d3">
+      <span class="media-card-icon">📺</span>
+      <span class="year">2024</span>
+      <h4>Featured: The Hindu BusinessLine &amp; ET Hospitality</h4>
+      <p>Coverage on metro expansion strategy and franchise growth model.</p>
+    </div>
+  </div>
+  <div class="press-strip fade-in">
+    <div class="press-item"><b>The Hindu BusinessLine</b>"A filter coffee brand with national ambitions"</div>
+    <div class="press-item"><b>ET Hospitality</b>"Structured QSR model rooted in tradition"</div>
+    <div class="press-item"><b>Franchise India</b>"Top 10 franchise opportunity in South Indian F&amp;B"</div>
+    <div class="press-item"><b>YourStory</b>"Scaling tradition: The Madras Coffee House story"</div>
+  </div>
+</section>
+
+<!-- ══ EXPANSION VISION ════════════════════════════════════════ -->
+<section id="expansion">
+  <div class="expansion-inner">
+    <div class="expansion-text slide-left">
+      <div class="sec-eyebrow">Expansion Vision</div>
+      <h2 class="sec-title">From South India<br/>to the Nation.</h2>
+      <div class="sec-divider"></div>
+      <p>Our metro-first strategy targets the highest-value coffee-consuming demographics — IT professionals, commuters, and urban families in Tier 1 cities. South India is our stronghold. The rest of India is our next frontier.</p>
+      <div class="city-grid fade-up">
+        <div class="city-pill active"><div class="city-dot"></div>Tamil Nadu<span>Stronghold · 120+</span></div>
+        <div class="city-pill active"><div class="city-dot"></div>Karnataka<span>Expanding · 35+</span></div>
+        <div class="city-pill"><div class="city-dot"></div>Telangana<span>Growing · 20+</span></div>
+        <div class="city-pill"><div class="city-dot"></div>Maharashtra<span>New · 8+</span></div>
+        <div class="city-pill"><div class="city-dot"></div>Delhi NCR<span>Launching</span></div>
+        <div class="city-pill"><div class="city-dot"></div>Gujarat<span>Pipeline</span></div>
+      </div>
+      <a href="#franchise-cta" class="btn-orange fade-up d2">Explore Franchise Opportunity</a>
+    </div>
+    <div class="expansion-visual slide-right">
+      <div class="exp-stats-grid">
+        <div class="exp-stat fade-up"><div class="num" data-counter="180" data-suffix="+">0+</div><div class="lbl">Stores Nationwide</div></div>
+        <div class="exp-stat fade-up d1"><div class="num" data-counter="15" data-suffix="+">0+</div><div class="lbl">Cities Active</div></div>
+        <div class="exp-stat fade-up d2"><div class="num">2010</div><div class="lbl">Year Founded</div></div>
+        <div class="exp-stat fade-up d3"><div class="num" data-counter="500" data-suffix="+">0+</div><div class="lbl">Target Stores by 2027</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FRANCHISE CTA ═══════════════════════════════════════════ -->
+<section id="franchise-cta">
+  <div class="franchise-cta-inner">
+    <div class="sec-eyebrow fade-up" style="justify-content:center;color:var(--orange)">Franchise Partnership</div>
+    <h2 class="sec-title fade-up d1" style="font-size:clamp(2rem,4vw,3.5rem);color:#fff;margin-bottom:1.2rem">Own a Madras Coffee House.<br/>Build a Proven Business.</h2>
+    <p class="fade-up d2">Join one of South India's most trusted filter coffee brands. We provide site selection, complete store setup, SOP training, and ongoing operational support — so you can focus on growth.</p>
+    <div class="fade-up d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://madrascoffeehouse.com/wp-content/uploads/2025/10/MCH-PRESENTATION-new-final-.pdf" class="btn-orange" target="_blank">Download Franchise Brochure</a>
+      <a href="https://madrascoffeehouse.com/wp-content/uploads/2023/06/MCH-PROFILE.pdf" class="btn-secondary" target="_blank" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)">Download Company Profile</a>
+    </div>
+    <div class="cta-contacts fade-in d4">
+      <div class="cta-contact">
+        <div class="cta-contact-icon">✉</div>
+        <div><label>Franchise Enquiry</label><a href="mailto:prasanna@madrascoffeehouse.com">prasanna@madrascoffeehouse.com</a></div>
+      </div>
+      <div class="cta-contact">
+        <div class="cta-contact-icon">✉</div>
+        <div><label>Partnership</label><a href="mailto:kumaaravelan@madrascoffeehouse.com">kumaaravelan@madrascoffeehouse.com</a></div>
+      </div>
+      <div class="cta-contact">
+        <div class="cta-contact-icon">📞</div>
+        <div><label>Call Us</label><a href="tel:+919876543210">+91 98765 43210</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:.8rem">
+          <div class="logo-mark">M</div>
+          <div class="logo-name"><b>Madras Coffee House</b><small>Since 2010 · Chennai</small></div>
+        </div>
+        <p>Authentic South Indian filter coffee and snacks served in a modern, premium café environment. 180+ stores across India.</p>
+        <div class="footer-socials">
+          <a class="fsoc" href="https://www.facebook.com/madrascoffeehouseofficial/" target="_blank" title="Facebook">f</a>
+          <a class="fsoc" href="https://www.instagram.com/madrascoffeehouseofficial/" target="_blank" title="Instagram">◉</a>
+          <a class="fsoc" href="https://www.youtube.com/@madrascoffeehouseofficial" target="_blank" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Brand</h5><ul>
+        <li><a href="https://madrascoffeehouse.com/about-us/" target="_blank">About Us</a></li>
+        <li><a href="https://madrascoffeehouse.com/whats-new/" target="_blank">Our Menu</a></li>
+        <li><a href="https://madrascoffeehouse.com/gallery/" target="_blank">Gallery</a></li>
+        <li><a href="https://madrascoffeehouse.com/blog/" target="_blank">Blog</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Stores</h5><ul>
+        <li><a href="https://madrascoffeehouse.com/our-stores/" target="_blank">Find a Store</a></li>
+        <li><a href="#expansion">City Expansion</a></li>
+        <li><a href="#format">Store Format</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Franchise</h5><ul>
+        <li><a href="https://madrascoffeehouse.com/franchise/" target="_blank">Why Partner With Us</a></li>
+        <li><a href="https://madrascoffeehouse.com/wp-content/uploads/2025/10/MCH-PRESENTATION-new-final-.pdf" target="_blank">Brochure</a></li>
+        <li><a href="https://madrascoffeehouse.com/wp-content/uploads/2023/06/MCH-PROFILE.pdf" target="_blank">Company Profile</a></li>
+        <li><a href="mailto:prasanna@madrascoffeehouse.com">Enquire Now</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a></li>
+        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+        <li><span style="font-size:.8rem;color:var(--gray)">Chennai, Tamil Nadu</span></li>
+        <li><a href="https://madrascoffeehouse.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Madras Coffee House Pvt. Ltd. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:.5rem"><div class="footer-red-dot"></div><p>Chennai, Tamil Nadu, India</p></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── NAVBAR ──────────────────────────────────────────────
+const NAV=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  NAV.classList.toggle('scrolled',scrollY>40);
+},{passive:true});
+
+// ── INTERSECTION OBSERVER — REVEAL ──────────────────────
+const revObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      revObs.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up,.fade-in,.slide-left,.slide-right').forEach(el=>revObs.observe(el));
+
+// ── ANIMATED COUNTERS ───────────────────────────────────
+const cntObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;
+    const tgt=+el.dataset.counter;
+    const suf=el.dataset.suffix||'';
+    if(!tgt)return;
+    let cur=0;
+    const inc=tgt/60;
+    const tick=setInterval(()=>{
+      cur=Math.min(cur+inc,tgt);
+      el.textContent=Math.floor(cur)+suf;
+      if(cur>=tgt)clearInterval(tick);
+    },20);
+    cntObs.unobserve(el);
+  });
+},{threshold:.6});
+document.querySelectorAll('[data-counter]').forEach(el=>cntObs.observe(el));
+
+// ── SMOOTH SCROLL ───────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const tgt=document.querySelector(a.getAttribute('href'));
+    if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
