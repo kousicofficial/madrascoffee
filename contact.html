@@ -1,0 +1,1595 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Contact Us — Madras Coffee House</title>
+    <meta
+      name="description"
+      content="Get in touch with Madras Coffee House for franchise enquiries, partnerships, store information, or any questions. We're here to help bring authentic filter coffee to your city."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ── DESIGN SYSTEM ─────────────────────────────────── */
+      :root {
+        --red: #e4272e;
+        --orange: #f3920a;
+        --white: #fefefe;
+        --black: #111111;
+        --gray: #6b7280;
+        --light: #f8f8f6;
+        --border: #e5e5e0;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        background: var(--white);
+        color: var(--black);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* ── NAVBAR ────────────────────────────────────────── */
+      nav#nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 0 5%;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition:
+          background 0.35s,
+          box-shadow 0.35s,
+          height 0.35s;
+        background: var(--white);
+        box-shadow: 0 1px 0 var(--border);
+      }
+      #nav.scrolled {
+        height: 64px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo img {
+        height: 48px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+      .logo img:hover {
+        transform: scale(1.04);
+      }
+      .nav-center {
+        display: flex;
+        gap: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .nav-center li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+      .nav-center a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1.1rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--black);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.25s;
+        font-family: "Inter", sans-serif;
+      }
+      .nav-center a::after {
+        content: "";
+        position: absolute;
+        left: 1.1rem;
+        right: 1.1rem;
+        bottom: 0;
+        height: 2px;
+        background: var(--red);
+        transform: scaleX(0);
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-center a:hover,
+      .nav-center a.active {
+        color: var(--red);
+      }
+      .nav-center a:hover::after,
+      .nav-center a.active::after {
+        transform: scaleX(1);
+      }
+      .nav-right {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .btn-outline-nav {
+        background: transparent;
+        color: var(--red);
+        border: 1.5px solid var(--red);
+        padding: 0.48rem 1.1rem;
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-decoration: none;
+      }
+      .btn-outline-nav:hover {
+        background: var(--red);
+        color: #fff;
+      }
+      .btn-solid-nav {
+        background: var(--red);
+        color: #fff;
+        border: 1.5px solid var(--red);
+        padding: 0.48rem 1.1rem;
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-decoration: none;
+      }
+      .btn-solid-nav:hover {
+        background: #c41f25;
+        border-color: #c41f25;
+      }
+      .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        border: none;
+        background: transparent;
+      }
+      .mobile-menu-btn span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--black);
+        transition: all 0.3s;
+      }
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--white);
+        z-index: 999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .mobile-nav.open {
+        display: flex;
+      }
+      .mobile-nav a {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--black);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+      .mobile-nav a:hover {
+        color: var(--red);
+      }
+      .mobile-nav-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 5%;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--black);
+        border: none;
+        background: transparent;
+      }
+
+      /* ── REVEAL ANIMATIONS ─────────────────────────────── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .fade-up.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .fade-in {
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      .fade-in.in {
+        opacity: 1;
+      }
+      .slide-left {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition:
+          opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .slide-left.in {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .slide-right {
+        opacity: 0;
+        transform: translateX(30px);
+        transition:
+          opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .slide-right.in {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .d1 {
+        transition-delay: 0.1s;
+      }
+      .d2 {
+        transition-delay: 0.2s;
+      }
+      .d3 {
+        transition-delay: 0.3s;
+      }
+      .d4 {
+        transition-delay: 0.4s;
+      }
+
+      /* ── HERO ──────────────────────────────────────────── */
+      #contact-hero {
+        position: relative;
+        min-height: 460px;
+        padding: 100px 5%;
+        background:
+          url("https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg")
+            center/cover no-repeat,
+          linear-gradient(135deg, #1a0800, #2d1000);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.55) 0%,
+          rgba(0, 0, 0, 0.65) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 760px;
+      }
+      .hero-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 1.4rem;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s 0.2s forwards;
+      }
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 6vw, 5.2rem);
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 0.9rem;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s 0.4s forwards;
+      }
+      .hero-underline {
+        width: 72px;
+        height: 3px;
+        background: var(--orange);
+        margin: 0 auto 1.4rem;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s 0.6s forwards;
+      }
+      .hero-sub {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.7;
+        max-width: 520px;
+        margin: 0 auto 2rem;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s 0.75s forwards;
+      }
+      .hero-btn {
+        display: inline-block;
+        background: var(--red);
+        color: #fff;
+        padding: 0.9rem 2.2rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          transform 0.2s,
+          box-shadow 0.25s;
+        opacity: 0;
+        animation: fadeSlideUp 0.8s 0.9s forwards;
+      }
+      .hero-btn:hover {
+        background: #c41f25;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(228, 39, 46, 0.3);
+      }
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── MAIN CONTACT SECTION ──────────────────────────── */
+      #contact-main {
+        padding: 80px 5%;
+        background: var(--white);
+      }
+      .contact-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 5rem;
+        align-items: start;
+      }
+
+      /* Left — info */
+      .sec-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--orange);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .sec-eyebrow::after {
+        content: "";
+        flex: 1;
+        max-width: 40px;
+        height: 1.5px;
+        background: var(--orange);
+      }
+      .sec-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+        font-weight: 900;
+        color: var(--black);
+        line-height: 1.1;
+        margin-bottom: 0.7rem;
+      }
+      .sec-divider {
+        width: 36px;
+        height: 3px;
+        background: var(--red);
+        margin-bottom: 1.8rem;
+      }
+      .contact-intro {
+        font-size: 0.92rem;
+        color: var(--gray);
+        line-height: 1.85;
+        margin-bottom: 2.5rem;
+      }
+
+      /* Info cards */
+      .info-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .info-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--orange);
+        background: var(--white);
+        transition: box-shadow 0.25s;
+      }
+      .info-card:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      }
+      .info-icon {
+        width: 42px;
+        height: 42px;
+        background: rgba(243, 146, 10, 0.1);
+        border: 1px solid rgba(243, 146, 10, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .info-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--orange);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .info-label {
+        font-size: 0.64rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gray);
+        margin-bottom: 0.3rem;
+        display: block;
+      }
+      .info-value {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--black);
+        line-height: 1.6;
+      }
+      .info-value a {
+        color: var(--black);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .info-value a:hover {
+        color: var(--red);
+      }
+
+      /* Map embed */
+      .map-wrap {
+        margin-top: 2rem;
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--red);
+        overflow: hidden;
+      }
+      .map-label {
+        background: var(--light);
+        padding: 0.7rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .map-label svg {
+        width: 14px;
+        height: 14px;
+        stroke: var(--red);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+      }
+      .map-label span {
+        font-size: 0.74rem;
+        font-weight: 600;
+        color: var(--black);
+      }
+      .map-label small {
+        font-size: 0.68rem;
+        color: var(--gray);
+        margin-left: 0.2rem;
+      }
+      .map-wrap iframe {
+        display: block;
+        width: 100%;
+        height: 220px;
+        border: none;
+      }
+
+      /* Right — form */
+      .contact-form-wrap {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2.8rem;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+      }
+      .form-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--black);
+        margin-bottom: 0.4rem;
+      }
+      .form-sub {
+        font-size: 0.82rem;
+        color: var(--gray);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--black);
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        padding: 0.75rem 1rem;
+        border: 1.5px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.88rem;
+        font-family: "Inter", sans-serif;
+        color: var(--black);
+        background: var(--white);
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s;
+        outline: none;
+        width: 100%;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgba(228, 39, 46, 0.08);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 110px;
+        line-height: 1.6;
+      }
+      .form-group select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        cursor: pointer;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: #bbb;
+      }
+      .btn-submit {
+        width: 100%;
+        background: var(--red);
+        color: #fff;
+        border: none;
+        padding: 1rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 6px;
+        transition:
+          background 0.25s,
+          transform 0.2s,
+          box-shadow 0.25s;
+        font-family: "Inter", sans-serif;
+        margin-top: 0.5rem;
+      }
+      .btn-submit:hover {
+        background: #c41f25;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(228, 39, 46, 0.25);
+      }
+      .btn-submit:active {
+        transform: translateY(0);
+      }
+      .form-note {
+        font-size: 0.72rem;
+        color: var(--gray);
+        text-align: center;
+        margin-top: 0.9rem;
+        line-height: 1.6;
+      }
+
+      /* Success message */
+      .form-success {
+        display: none;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      .form-success svg {
+        width: 52px;
+        height: 52px;
+        stroke: var(--red);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        margin: 0 auto 1rem;
+        display: block;
+      }
+      .form-success h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: var(--black);
+        margin-bottom: 0.5rem;
+      }
+      .form-success p {
+        font-size: 0.85rem;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      /* ── URGENCY STRIP (READY TO PARTNER) ──────────────── */
+      #urgency {
+        padding: 80px 5%;
+        background: var(--light);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        text-align: center;
+      }
+      .urgency-inner {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+      .urgency-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 1.2rem;
+      }
+      .urgency-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        font-weight: 900;
+        color: var(--black);
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+      .urgency-sub {
+        font-size: 0.95rem;
+        color: var(--gray);
+        line-height: 1.8;
+        max-width: 560px;
+        margin: 0 auto 2rem;
+      }
+      .urgency-stats {
+        display: flex;
+        gap: 3rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .ustat {
+        text-align: center;
+      }
+      .ustat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--black);
+        line-height: 1;
+      }
+      .ustat-num span {
+        color: var(--red);
+      }
+      .ustat-lbl {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gray);
+        margin-top: 0.25rem;
+      }
+      .btn-urgency {
+        display: inline-block;
+        background: var(--red);
+        color: #fff;
+        padding: 0.95rem 2.5rem;
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          transform 0.2s,
+          box-shadow 0.25s;
+      }
+      .btn-urgency:hover {
+        background: #c41f25;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(228, 39, 46, 0.25);
+      }
+
+      /* ── FOOTER ────────────────────────────────────────── */
+      footer {
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        padding: 80px 5% 40px;
+      }
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+      .footer-brand p {
+        font-size: 0.8rem;
+        color: var(--gray);
+        line-height: 1.75;
+        margin: 1rem 0 1.2rem;
+      }
+      .footer-socials {
+        display: flex;
+        gap: 0.6rem;
+      }
+      .fsoc {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(228, 39, 46, 0.3);
+        flex-shrink: 0;
+      }
+      .fsoc:hover {
+        background: var(--orange);
+        transform: scale(1.1);
+        box-shadow: 0 6px 18px rgba(243, 146, 10, 0.4);
+      }
+      .fsoc svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+      .footer-col h5 {
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--black);
+        margin-bottom: 1.2rem;
+      }
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+      .footer-col a {
+        font-size: 0.8rem;
+        color: var(--gray);
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+      .footer-col a:hover {
+        color: var(--red);
+      }
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .footer-bottom p {
+        font-size: 0.72rem;
+        color: var(--gray);
+      }
+      .footer-bottom a {
+        font-size: 0.72rem;
+        color: var(--gray);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        color: var(--red);
+      }
+      .footer-red-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--red);
+        border-radius: 50%;
+      }
+
+      /* ── RESPONSIVE ────────────────────────────────────── */
+      @media (max-width: 1024px) {
+        .contact-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+        nav {
+          padding: 0 4%;
+        }
+      }
+      @media (max-width: 640px) {
+        .footer-top {
+          grid-template-columns: 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .urgency-stats {
+          gap: 2rem;
+        }
+        nav {
+          padding: 0 4%;
+        }
+        .nav-center,
+        .nav-right .btn-outline-nav {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: flex;
+        }
+        #contact-hero {
+          height: 72vh;
+        }
+        .contact-form-wrap {
+          padding: 1.8rem 1.4rem;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="mobile.css" />
+  </head>
+  <body>
+    <!-- ══ NAVBAR ════════════════════════════════════════════════ -->
+    <nav id="nav">
+      <a href="index.html" class="logo">
+        <img src="madras.svg" alt="Madras Coffee House" loading="eager" />
+      </a>
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Our Menu</a></li>
+
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="franchise.html">Franchise</a></li>
+        <li><a href="stores.html">Our Stores</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="stores.html" class="btn-outline-nav">Find a Store</a>
+        <a href="franchise.html" class="btn-solid-nav">Become a Partner</a>
+      </div>
+      <button
+        class="mobile-menu-btn mob-btn"
+        id="mobBtn"
+        aria-label="Open menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ══ HERO ══════════════════════════════════════════════════ -->
+    <section id="contact-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Madras Coffee House</div>
+        <h1 class="hero-title">Contact Us</h1>
+        <div class="hero-underline"></div>
+        <p class="hero-sub">
+          Let's Bring Authentic South Indian Filter Coffee to Your City.
+        </p>
+        <a href="#contact-main" class="hero-btn"
+          >Start Your Franchise Journey</a
+        >
+      </div>
+    </section>
+
+    <!-- ══ MAIN CONTACT SECTION ══════════════════════════════════ -->
+    <section id="contact-main">
+      <div class="contact-inner">
+        <!-- LEFT: Info -->
+        <div class="slide-left">
+          <div class="sec-eyebrow">Reach Out</div>
+          <h2 class="sec-title">Get In Touch</h2>
+          <div class="sec-divider"></div>
+          <p class="contact-intro">
+            We'd love to hear from you. Whether you're a franchise partner,
+            business associate, or customer — we're here to help and will
+            respond within one business day.
+          </p>
+
+          <div class="info-cards">
+            <div class="info-card fade-up">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="info-body">
+                <span class="info-label">Head Office</span>
+                <div class="info-value">
+                  Madras Coffee House Pvt. Ltd.<br />Chennai, Tamil Nadu, India
+                  — 600 001
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card fade-up d1">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.43 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 15.09 16.09l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+              </div>
+              <div class="info-body">
+                <span class="info-label">Phone</span>
+                <div class="info-value">
+                  <a href="tel:+919876543210">+91 98765 43210</a><br /><a
+                    href="tel:+919876543211"
+                    style="font-size: 0.82rem; color: var(--gray)"
+                    >+91 98765 43211</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card fade-up d2">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="info-body">
+                <span class="info-label">Email</span>
+                <div class="info-value">
+                  <a href="mailto:prasanna@madrascoffeehouse.com"
+                    >prasanna@madrascoffeehouse.com</a
+                  ><br /><a
+                    href="mailto:info@madrascoffeehouse.com"
+                    style="font-size: 0.82rem; color: var(--gray)"
+                    >info@madrascoffeehouse.com</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card fade-up d3">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div class="info-body">
+                <span class="info-label">Business Hours</span>
+                <div class="info-value">
+                  Monday – Saturday: 9:00 AM – 7:00 PM<br /><span
+                    style="font-size: 0.82rem; color: var(--gray)"
+                    >Sunday: 10:00 AM – 5:00 PM</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Embed -->
+          <div class="map-wrap fade-up d4">
+            <div class="map-label">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Madras Coffee House Pvt. Ltd.</span>
+              <small>Chennai, Tamil Nadu — 600 001</small>
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7!2d80.2707!3d13.0827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu%20600001!5e0!3m2!1sen!2sin!4v1700000000000"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Madras Coffee House — Chennai Head Office, Tamil Nadu 600001"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="slide-right">
+          <div class="contact-form-wrap">
+            <div id="formContent">
+              <h2 class="form-title">Send Us an Enquiry</h2>
+              <p class="form-sub">
+                Fill in your details and our team will reach out within 24
+                hours.
+              </p>
+              <form id="contactForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="fullName"
+                      >Full Name <span style="color: var(--red)">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="fullName"
+                      name="fullName"
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone"
+                      >Phone Number
+                      <span style="color: var(--red)">*</span></label
+                    >
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="+91 00000 00000"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email"
+                    >Email Address
+                    <span style="color: var(--red)">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="city"
+                      >Your City <span style="color: var(--red)">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      placeholder="City"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="enquiryType">Enquiry Type</label>
+                    <select id="enquiryType" name="enquiryType">
+                      <option value="">Select type</option>
+                      <option value="franchise">Franchise Partnership</option>
+                      <option value="investor">Investor Enquiry</option>
+                      <option value="corporate">Corporate Partnership</option>
+                      <option value="store">Store / Customer Query</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="message"
+                    >Message <span style="color: var(--red)">*</span></label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us about your interest or question..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Enquiry →</button>
+                <p class="form-note">
+                  Your information is private and will only be used to respond
+                  to your enquiry.
+                </p>
+              </form>
+            </div>
+            <div class="form-success" id="formSuccess">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <h3>Enquiry Received!</h3>
+              <p>
+                Thank you for reaching out. Our franchise team will contact you
+                within <strong>24 business hours</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ READY TO PARTNER (BLACK & GOLD EDITION) ════════════════ -->
+    <section
+      id="urgency"
+      style="
+        background: #111;
+        color: #fefefe;
+        padding: 90px 20px;
+        text-align: center;
+        border: none;
+        min-height: auto;
+      "
+    >
+      <div class="urgency-inner" style="max-width: 800px; margin: 0 auto">
+        <p
+          class="sec-eyebrow fade-in"
+          style="
+            justify-content: center;
+            color: var(--orange);
+            margin-bottom: 1.2rem;
+          "
+        >
+          Why Partner With Us
+        </p>
+        <h2
+          class="sec-title fade-up"
+          style="
+            color: #fff;
+            text-align: center;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            margin-bottom: 20px;
+          "
+        >
+          Ready to Partner With a<br />180+ Store Growing Brand?
+        </h2>
+        <p
+          class="urgency-sub fade-up d1"
+          style="
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+          "
+        >
+          Join one of South India's fastest expanding structured coffee chains —
+          with a proven model, full franchise support, and national brand
+          recognition.
+        </p>
+
+        <div
+          class="urgency-stats fade-in d2"
+          style="
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          "
+        >
+          <div class="ustat">
+            <div
+              class="ustat-num"
+              style="
+                font-family: &quot;Playfair Display&quot;, serif;
+                font-size: 2.4rem;
+                font-weight: 900;
+                color: #fff;
+              "
+            >
+              180<span style="color: #d4af37">+</span>
+            </div>
+            <div
+              class="ustat-lbl"
+              style="
+                font-size: 0.68rem;
+                font-weight: 600;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #ccc;
+              "
+            >
+              Stores Nationwide
+            </div>
+          </div>
+          <div class="ustat">
+            <div
+              class="ustat-num"
+              style="
+                font-family: &quot;Playfair Display&quot;, serif;
+                font-size: 2.4rem;
+                font-weight: 900;
+                color: #fff;
+              "
+            >
+              15<span style="color: #d4af37">+</span>
+            </div>
+            <div
+              class="ustat-lbl"
+              style="
+                font-size: 0.68rem;
+                font-weight: 600;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #ccc;
+              "
+            >
+              Cities Active
+            </div>
+          </div>
+          <div class="ustat">
+            <div
+              class="ustat-num"
+              style="
+                font-family: &quot;Playfair Display&quot;, serif;
+                font-size: 2.4rem;
+                font-weight: 900;
+                color: #fff;
+              "
+            >
+              2010
+            </div>
+            <div
+              class="ustat-lbl"
+              style="
+                font-size: 0.68rem;
+                font-weight: 600;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #ccc;
+              "
+            >
+              Est. Chennai
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="#contact-main"
+          class="btn-gold fade-up d3"
+          style="margin-top: 20px"
+          >Become a Franchise Partner</a
+        >
+      </div>
+
+      <style>
+        .btn-gold {
+          display: inline-block;
+          background: #d4af37;
+          color: #000;
+          padding: 16px 40px;
+          border-radius: 40px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          border: none;
+          cursor: pointer;
+        }
+        .btn-gold:hover {
+          background: #c19b2e;
+          transform: scale(1.05);
+          box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
+          color: #000;
+        }
+        @media (max-width: 768px) {
+          #urgency {
+            padding: 70px 20px !important;
+            text-align: center !important;
+          }
+          .urgency-stats {
+            gap: 1.5rem !important;
+            margin-bottom: 2rem !important;
+            padding-bottom: 2rem !important;
+          }
+          .btn-gold {
+            width: 100%;
+            max-width: 280px;
+          }
+          .ustat-num {
+            font-size: 1.8rem !important;
+          }
+        }
+      </style>
+    </section>
+
+    <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="logo" style="margin-bottom: 0.8rem">
+              <img
+                src="madras.svg"
+                alt="Madras Coffee House"
+                style="height: 54px"
+              />
+            </div>
+            <p>
+              Authentic South Indian filter coffee and snacks served in a
+              modern, premium café environment. 180+ stores across India.
+            </p>
+            <div class="footer-socials">
+              <a
+                class="fsoc"
+                href="https://www.facebook.com/madrascoffeehouseofficial/"
+                target="_blank"
+                title="Facebook"
+                aria-label="Facebook"
+              >
+                <svg viewBox="0 0 24 24" fill="white">
+                  <path
+                    d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="fsoc"
+                href="https://www.instagram.com/madrascoffeehouseofficial/"
+                target="_blank"
+                title="Instagram"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1.2"
+                    fill="white"
+                    stroke="none"
+                  />
+                </svg>
+              </a>
+              <a
+                class="fsoc"
+                href="https://www.youtube.com/@madrascoffeehouseofficial"
+                target="_blank"
+                title="YouTube"
+                aria-label="YouTube"
+              >
+                <svg viewBox="0 0 24 24" fill="white">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 00-1.96-1.96C18.88 4 12 4 12 4s-6.88 0-8.58.46a2.78 2.78 0 00-1.96 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.96 1.96C5.12 20 12 20 12 20s6.88 0 8.58-.46a2.78 2.78 0 001.96-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"
+                  />
+                  <polygon
+                    points="9.75,15.02 15.5,12 9.75,8.98"
+                    fill="#e4272e"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h5>Brand</h5>
+            <ul>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="menu.html">Our Menu</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Stores</h5>
+            <ul>
+              <li><a href="stores.html">Find a Store</a></li>
+              
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Franchise</h5>
+            <ul>
+              <li><a href="franchise.html">Why Partner With Us</a></li>
+              <li>
+                <a
+                  href="https://madrascoffeehouse.com/wp-content/uploads/2025/10/MCH-PRESENTATION-new-final-.pdf"
+                  target="_blank"
+                  >Brochure</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://madrascoffeehouse.com/wp-content/uploads/2023/06/MCH-PROFILE.pdf"
+                  target="_blank"
+                  >Company Profile</a
+                >
+              </li>
+              <li>
+                <a href="mailto:prasanna@madrascoffeehouse.com">Enquire Now</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <ul>
+              <li>
+                <a href="mailto:info@madrascoffeehouse.com"
+                  >info@madrascoffeehouse.com</a
+                >
+              </li>
+              <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+              <li><a href="contact.html">Contact Page</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Madras Coffee House Pvt. Ltd. All rights reserved.</p>
+          <div style="display: flex; align-items: center; gap: 0.5rem">
+            <div class="footer-red-dot"></div>
+            <p>Chennai, Tamil Nadu, India</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ── NAVBAR SCROLL ────────────────────────────────────
+      const NAV = document.getElementById("nav");
+      window.addEventListener(
+        "scroll",
+        () => {
+          NAV.classList.toggle("scrolled", scrollY > 40);
+        },
+        { passive: true },
+      );
+
+      // ── MOBILE MENU ──────────────────────────────────────
+      document
+        .getElementById("mobileMenuBtn")
+        .addEventListener("click", () =>
+          document.getElementById("mobileNav").classList.add("open"),
+        );
+      document
+        .getElementById("mobileNavClose")
+        .addEventListener("click", () =>
+          document.getElementById("mobileNav").classList.remove("open"),
+        );
+      document
+        .querySelectorAll(".mobile-nav a")
+        .forEach((a) =>
+          a.addEventListener("click", () =>
+            document.getElementById("mobileNav").classList.remove("open"),
+          ),
+        );
+
+      // ── SMOOTH SCROLL ────────────────────────────────────
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const tgt = document.querySelector(a.getAttribute("href"));
+          if (tgt) {
+            e.preventDefault();
+            const offset = NAV.offsetHeight + 12;
+            window.scrollTo({
+              top: tgt.getBoundingClientRect().top + scrollY - offset,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // ── INTERSECTION OBSERVER ────────────────────────────
+      const revObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              revObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+      document
+        .querySelectorAll(".fade-up,.fade-in,.slide-left,.slide-right")
+        .forEach((el) => revObs.observe(el));
+
+      // ── CONTACT FORM ─────────────────────────────────────
+      document.getElementById("contactForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const required = form.querySelectorAll("[required]");
+        let valid = true;
+
+        required.forEach((field) => {
+          field.style.borderColor = "";
+          if (!field.value.trim()) {
+            field.style.borderColor = "var(--red)";
+            valid = false;
+          }
+        });
+
+        if (!valid) return;
+
+        // Simulate submission
+        const btn = form.querySelector(".btn-submit");
+        btn.textContent = "Sending…";
+        btn.disabled = true;
+
+        setTimeout(() => {
+          document.getElementById("formContent").style.display = "none";
+          document.getElementById("formSuccess").style.display = "block";
+        }, 1200);
+      });
+    </script>
+    <script src="mobile.js" defer></script>
+  </body>
+</html>

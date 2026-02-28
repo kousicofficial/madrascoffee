@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -13,13 +13,11 @@ html{scroll-behavior:smooth;font-size:16px}
 body{background:var(--white);color:var(--black);font-family:'Inter',sans-serif;overflow-x:hidden}
 
 /* ── NAVBAR ────────────────────────────────────────── */
-nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s;background:transparent}
-nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64px}
-.logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0}
-.logo-mark{width:40px;height:40px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;color:#fff}
-.logo-name{display:flex;flex-direction:column;line-height:1.15}
-.logo-name b{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--black)}
-.logo-name small{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+nav#nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s;background:transparent}
+#nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64px}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo img{height:48px;width:auto;display:block;object-fit:contain;transition:transform .3s ease}
+.logo img:hover{transform:scale(1.04)}
 .nav-center{display:flex;gap:0;list-style:none}
 .nav-center a{display:inline-block;padding:.5rem 1.1rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--black);text-decoration:none;position:relative;transition:color .25s}
 .nav-center a::after{content:'';position:absolute;left:1.1rem;right:1.1rem;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s cubic-bezier(.25,.46,.45,.94)}
@@ -50,15 +48,20 @@ nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64p
 .slide-right.in{opacity:1;transform:translateX(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
+/* ── LAYOUT DEFAULTS ───────────────────────────────── */
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-pad{padding:80px 5%}
+.sec-compact{padding:60px 5%}
+
 /* ── HERO ──────────────────────────────────────────── */
-#hero{position:relative;min-height:100vh;background:var(--white);display:flex;align-items:center;overflow:hidden;padding-top:72px}
+#hero{position:relative;min-height:540px;padding:120px 5%;background:var(--white);display:flex;align-items:center;overflow:hidden}
 .hero-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .shape{position:absolute;border-radius:50%;animation:shapeFloat 10s ease-in-out infinite}
 .shape-1{width:420px;height:420px;background:radial-gradient(circle,rgba(228,39,46,.06),transparent 70%);top:-80px;right:-60px;animation-duration:12s}
 .shape-2{width:280px;height:280px;background:radial-gradient(circle,rgba(243,146,10,.07),transparent 70%);bottom:80px;right:15%;animation-duration:9s;animation-delay:2s}
 .shape-3{width:200px;height:200px;background:radial-gradient(circle,rgba(228,39,46,.04),transparent 70%);top:40%;left:5%;animation-duration:14s;animation-delay:4s}
 @keyframes shapeFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.04)}}
-.hero-inner{max-width:1280px;margin:0 auto;padding:0 5%;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 20px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem}
 .hero-tag::before{content:'';width:24px;height:2px;background:var(--red)}
 .hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:900;line-height:1.05;letter-spacing:-.01em;margin-bottom:1.5rem;color:var(--black)}
@@ -83,8 +86,8 @@ nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64p
 .hero-badge-2 small{font-size:.62rem;color:rgba(255,255,255,.75)}
 
 /* ── AUTHORITY STRIP ───────────────────────────────── */
-#strip{background:var(--red);padding:5rem 5%}
-.strip-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+#strip{background:var(--red);padding:60px 5%}
+.strip-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .strip-headline{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:900;line-height:1;color:#fff}
 .strip-headline span{display:block;font-size:clamp(1rem,2vw,1.3rem);font-weight:400;font-family:'Inter',sans-serif;color:rgba(255,255,255,.7);margin-top:.5rem;letter-spacing:.12em;text-transform:uppercase}
 .strip-points{display:flex;flex-direction:column;gap:1.5rem}
@@ -93,67 +96,50 @@ nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64p
 .sp-text b{font-size:.88rem;font-weight:700;color:#fff;display:block;margin-bottom:.2rem}
 .sp-text p{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.6}
 
-/* ── HERITAGE ──────────────────────────────────────── */
-#heritage{padding:7rem 5%;background:var(--white)}
-.heritage-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.heritage-img{position:relative}
-.heritage-img-main{width:100%;height:560px;object-fit:cover;display:block}
-.heritage-img-fallback{width:100%;height:560px;background:linear-gradient(135deg,#fdf1e8,#fde8cc);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
-.heritage-img-fallback span{font-size:7rem}
-.heritage-accent{position:absolute;bottom:2rem;left:-1.5rem;background:var(--orange);width:60px;height:200px}
-.heritage-text{}
-.sec-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem}
-.sec-eyebrow::after{content:'';flex:1;max-width:40px;height:1.5px;background:var(--orange)}
-.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;color:var(--black)}
-.sec-divider{width:40px;height:3px;background:var(--red);margin-bottom:2rem}
-.heritage-text p{font-size:.92rem;color:var(--gray);line-height:1.85;margin-bottom:1.1rem}
-.heritage-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
-.pillar{padding:1.2rem;border:1px solid var(--border);border-left:3px solid var(--orange);transition:box-shadow .25s}
-.pillar:hover{box-shadow:0 4px 20px rgba(0,0,0,.07)}
-.pillar b{font-size:.82rem;font-weight:700;color:var(--black);display:block;margin-bottom:.25rem}
-.pillar p{font-size:.76rem;color:var(--gray);line-height:1.5}
+/* ── HERITAGE ───────────────────────────────────────── */
+.sec-divider{width:40px;height:3px;background:var(--red);margin-bottom:1.5rem}
+.heritage-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:60px;padding:100px 20px}
+.heritage-img{flex:1;max-width:550px;position:relative;overflow:hidden}
+.heritage-img-main{width:100%;height:auto;display:block;transform:scale(1.07);transition:transform 1.2s ease-out}
+.heritage-text{flex:1;max-width:600px;display:flex;flex-direction:column;justify-content:center;position:relative}
+@media (max-width:768px){.heritage-inner{flex-direction:column;text-align:center;padding:60px 20px}.sec-divider{margin:0 auto 1.5rem}}
 
-/* ── FORMAT SECTION ────────────────────────────────── */
-#format{padding:7rem 5%;background:var(--light)}
-.format-header{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
-.format-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.format-card{background:var(--white);border:1px solid var(--border);padding:2rem 1.5rem;position:relative;transition:box-shadow .3s,transform .3s;overflow:hidden}
-.format-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--orange);transition:height .4s}
-.format-card:hover::before{height:100%}
-.format-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.09);transform:translateY(-4px)}
-.fc-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:rgba(228,39,46,.08);position:absolute;top:.5rem;right:1rem;line-height:1}
-.fc-icon{width:48px;height:48px;background:rgba(243,146,10,.1);border:1px solid rgba(243,146,10,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.5rem}
-.fc-title{font-size:.92rem;font-weight:700;color:var(--black);margin-bottom:.6rem;line-height:1.3}
-.fc-desc{font-size:.8rem;color:var(--gray);line-height:1.65}
+/* ── FORMAT SECTION ─────────────────────────────────── */
+#format{padding:80px 0;background:#f7f7f7;border-top:1px solid var(--border)}
+.format-header{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem;padding:0 20px}
+.fstep-desc{font-size:.88rem;color:var(--gray);line-height:1.75;max-width:520px;margin-bottom:0}
+.fcard{transition:all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);position:relative;overflow:hidden}
+.fcard:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.1);background:#fff !important}
+.fcard-icon{width:50px;height:50px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:20px;border-radius:10px;color:var(--black);transition:all 0.3s ease}
+.fcard:hover .fcard-icon{background:var(--red);border-color:var(--red);color:#fff}
+.fcard:nth-child(even):hover .fcard-icon{background:var(--orange);border-color:var(--orange)}
 
 /* ── TRUST BAR ─────────────────────────────────────── */
-#trust{padding:5rem 5%;background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.trust-inner{max-width:1280px;margin:0 auto}
-.trust-label{text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);margin-bottom:3rem}
-.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
-.trust-card{text-align:center;padding:2rem 1rem;border:1px solid var(--border);transition:box-shadow .25s}
-.trust-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.07)}
-.trust-icon{font-size:2rem;margin-bottom:.8rem;display:block}
-.trust-card h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.4rem;color:var(--black)}
-.trust-card p{font-size:.78rem;color:var(--gray);line-height:1.6}
-.trust-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);border:1px solid rgba(228,39,46,.2);padding:.18rem .55rem;margin-top:.6rem}
+#trust{padding:80px 5%;background:#111;border:none}
+.trust-inner{max-width:1200px;margin:0 auto;padding:0 20px}
+.trust-label{text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:3.5rem}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.08)}
+.trust-card{text-align:center;padding:2.5rem 1.5rem;background:transparent;border:none;border-right:1px solid rgba(255,255,255,.08);transition:background .35s;position:relative}
+.trust-card:last-child{border-right:none}
+.trust-card::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%) scaleX(0);width:40px;height:2px;background:var(--orange);transition:transform .35s}
+.trust-card:hover{background:rgba(255,255,255,.04)}
+.trust-card:hover::after{transform:translateX(-50%) scaleX(1)}
+.trust-card h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.4rem;color:#fff}
+.trust-card p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.6}
 
-/* ── MEDIA / AWARDS ────────────────────────────────── */
-#media{padding:7rem 5%;background:var(--light)}
-.media-header{max-width:1280px;margin:0 auto;text-align:center;margin-bottom:4rem}
-.media-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
-.media-card{background:var(--white);border:1px solid var(--border);padding:2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;transition:box-shadow .25s}
-.media-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.08)}
-.media-card-icon{font-size:2rem}
-.media-card h4{font-size:.85rem;font-weight:700;color:var(--black);line-height:1.4}
-.media-card p{font-size:.76rem;color:var(--gray)}
-.media-card .year{font-size:.65rem;font-weight:700;letter-spacing:.15em;color:var(--orange)}
-.press-strip{max-width:1280px;margin:0 auto;padding:2rem;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;gap:2rem;flex-wrap:wrap}
-.press-item{font-size:.82rem;font-style:italic;color:var(--gray);text-align:center}
-.press-item b{display:block;font-style:normal;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
+/* ── MEDIA / RECOGNISED ────────────────────────────── */
+#media{padding:80px 5%;background:var(--white);position:relative;overflow:hidden;text-align:center}
+.media-header{max-width:800px;margin:0 auto 3rem}
+.media-accent{width:80px;height:3px;background:var(--orange);margin:15px auto 30px}
+.media-inner{max-width:1200px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+.media-list{display:flex;flex-direction:column;gap:0;max-width:900px;margin:0 auto}
+.media-row{display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:center;padding:1.8rem 0;border-bottom:1px solid var(--border);text-align:left}
+.media-row:last-child{border-bottom:none}
+.media-row-icon{font-size:2.2rem;text-align:center}
+.press-strip{max-width:1200px;margin:3rem auto 0;padding:1.8rem 2rem;background:var(--light);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;gap:2rem;flex-wrap:wrap;position:relative;z-index:1}
 
 /* ── EXPANSION ─────────────────────────────────────── */
-#expansion{padding:7rem 5%;background:linear-gradient(135deg,#fff9f0 0%,#fef3e0 50%,#fff9f0 100%)}
+#expansion{padding:7rem 5%;background:linear-gradient(135deg,#fff9f5 0%,#fef3e2 60%,#fff9f5 100%);border-top:3px solid var(--orange)}
 .expansion-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .expansion-text .sec-title{margin-bottom:1.5rem}
 .expansion-text p{font-size:.92rem;color:var(--gray);line-height:1.85;margin-bottom:2rem}
@@ -171,27 +157,45 @@ nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64p
 .exp-stat .lbl{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
 
 /* ── FRANCHISE CTA ─────────────────────────────────── */
-#franchise-cta{padding:7rem 5%;background:var(--black)}
+#franchise-cta{padding:7rem 5%;background:#000;border-top:1px solid rgba(255,255,255,0.1);position:relative;color:#fff}
 .franchise-cta-inner{max-width:900px;margin:0 auto;text-align:center}
 .franchise-cta-inner .sec-eyebrow{justify-content:center;color:var(--orange)}
-.franchise-cta-inner .sec-eyebrow::after{background:var(--orange)}
 .franchise-cta-inner .sec-title{color:#fff;font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1.2rem}
-.franchise-cta-inner>p{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:2.5rem}
-.cta-contacts{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.1)}
-.cta-contact{display:flex;align-items:center;gap:.75rem}
-.cta-contact-icon{width:36px;height:36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
-.cta-contact label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block}
-.cta-contact a,.cta-contact span{font-size:.82rem;color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
-.cta-contact a:hover{color:#fff}
+.franchise-cta-inner>p{font-size:.95rem;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:2.5rem}
+.cta-contacts{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1)}
+.cta-contact{display:flex;align-items:center;gap:.75rem;text-align:left}
+.cta-contact-icon{width:36px;height:36px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;color:var(--orange)}
+.cta-contact label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block}
+.cta-contact a,.cta-contact span{font-size:.82rem;color:#fff;text-decoration:none;transition:color .2s}
+.cta-contact a:hover{color:var(--red)}
+
+/* ── TESTIMONIALS ──────────────────────────────────── */
+#testimonials{background:#000;padding:6rem 5%;overflow:hidden;border-top:1px solid rgba(255,255,255,0.1);color:#fff}
+.testi-header{text-align:center;margin-bottom:3.5rem;max-width:580px;margin-left:auto;margin-right:auto}
+.testi-underline{width:52px;height:3px;background:var(--red);margin:.9rem auto 0}
+.testi-track-wrap{overflow:hidden;margin:0 -5%;padding:0 5%}
+.testi-track{display:flex;gap:1.5rem;width:max-content;animation:testiScroll 28s linear infinite}
+.testi-track:hover{animation-play-state:paused}
+@keyframes testiScroll{0%{transform:translateX(0)}100%{transform:translateX(calc(-50% - .75rem))}}
+.testimonial-card{flex-shrink:0;width:360px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:2rem;display:flex;flex-direction:column;gap:1rem;border-top:3px solid var(--red);transition:all .3s}
+.testimonial-card:hover{transform:translateY(-5px);background:rgba(255,255,255,0.08);border-top-color:var(--orange)}
+.t-quote{font-family:'Playfair Display',serif;font-size:3.5rem;line-height:.8;color:var(--red);font-weight:900;opacity:.15}
+.t-text{font-size:.88rem;color:rgba(255,255,255,0.8);line-height:1.85;font-style:italic;flex:1}
+.t-meta{border-top:1px solid rgba(255,255,255,0.1);padding-top:.9rem;margin-top:auto}
+.t-stars{color:var(--orange);font-size:.9rem;margin-bottom:.4rem;letter-spacing:2px}
+.t-name{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.15rem}
+.t-loc{font-size:.75rem;color:rgba(255,255,255,0.5);margin-bottom:.2rem}
+.t-format{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
 
 /* ── FOOTER ────────────────────────────────────────── */
-footer{background:var(--white);border-top:1px solid var(--border);padding:4rem 5% 2rem}
+footer{background:var(--white);border-top:1px solid var(--border);padding:80px 5% 40px}
 .footer-inner{max-width:1280px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand p{font-size:.8rem;color:var(--gray);line-height:1.75;margin:1rem 0 1.2rem}
-.footer-socials{display:flex;gap:.5rem}
-.fsoc{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--gray);text-decoration:none;transition:all .25s}
-.fsoc:hover{border-color:var(--red);color:var(--red)}
+.footer-socials{display:flex;gap:.6rem}
+.fsoc{width:38px;height:38px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(228,39,46,.3);flex-shrink:0}
+.fsoc:hover{background:var(--orange);transform:scale(1.1);box-shadow:0 6px 18px rgba(243,146,10,.4)}
+.fsoc svg{width:16px;height:16px;flex-shrink:0}
 .footer-col h5{font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--black);margin-bottom:1.2rem}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
 .footer-col a{font-size:.8rem;color:var(--gray);text-decoration:none;transition:color .25s}
@@ -204,45 +208,50 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:4rem 5
 
 /* ── RESPONSIVE ────────────────────────────────────── */
 @media(max-width:1024px){
-.hero-inner,.strip-inner,.heritage-inner,.expansion-inner{grid-template-columns:1fr;gap:3rem}
-.format-grid{grid-template-columns:1fr 1fr}
-.trust-grid,.media-grid{grid-template-columns:1fr 1fr}
-.footer-top{grid-template-columns:1fr 1fr}
-.hero-visual{order:-1}
-.hero-img-main,.hero-img-fallback,.heritage-img-main,.heritage-img-fallback{height:380px}
-nav{padding:0 4%}
-#strip,#heritage,#format,#trust,#media,#expansion,#franchise-cta{padding:5rem 4%}
+#hero{min-height:auto;padding:80px 4%}
+.hero-inner,.strip-inner,.expansion-inner{grid-template-columns:1fr;gap:3rem;text-align:center}
+.hero-sub{margin:0 auto 2.5rem}
+.split-layout{flex-direction:column}
+.sec-pad,#hero,#strip,#heritage,#format,#trust,#media,#expansion,#franchise-cta,#testimonials{padding:60px 4%}
 }
-@media(max-width:640px){
-.format-grid,.trust-grid,.media-grid,.exp-stats-grid,.heritage-pillars,.city-grid{grid-template-columns:1fr}
-.footer-top{grid-template-columns:1fr}
-.hero-btns,.cta-contacts{flex-direction:column;align-items:flex-start}
-.hero-stats{flex-wrap:wrap;gap:1.5rem}
-nav{padding:0 4%}
-.nav-center,.nav-right .btn-outline-nav{display:none}
-.mobile-menu-btn{display:flex}
+@media(max-width:768px){
+body{overflow-x:hidden}
+.sec-pad{padding:60px 5%}
+h1,h2,h3{text-align:center}
+.split-layout{flex-direction:column}
+.fstep{grid-template-columns:1fr!important;text-align:center}
+.fstep-num::after{display:none}
+.fcard-icon{width:44px;height:44px;margin-bottom:15px}
+.fcard-icon svg{width:20px;height:20px}
 }
+
 </style>
+  <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 
 <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
 <nav id="nav">
   <a href="#" class="logo">
-    <div class="logo-mark">M</div>
-    <div class="logo-name"><b>Madras Coffee House</b><small>Since 2010 · Chennai</small></div>
+    <img src="madras.svg" alt="Madras Coffee House" loading="eager"/>
   </a>
   <ul class="nav-center">
-    <li><a href="#heritage">Our Coffee</a></li>
-    <li><a href="#format">Store Format</a></li>
-    <li><a href="#media">About</a></li>
-    <li><a href="#media">Media</a></li>
-    <li><a href="#franchise-cta">Franchise</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="menu.html">Our Menu</a></li>
+    
+    <li><a href="#about" data-scroll="about">About</a></li>
+    <li><a href="franchise.html">Franchise</a></li>
+    <li><a href="stores.html">Our Stores</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://madrascoffeehouse.com/our-stores/" class="btn-outline-nav" target="_blank">Find a Store</a>
-    <a href="#franchise-cta" class="btn-solid-nav">Become a Partner</a>
+    <a href="stores.html" class="btn-outline-nav">Find a Store</a>
+    <a href="franchise.html" class="btn-solid-nav">Become a Partner</a>
   </div>
+  <button class="mobile-menu-btn mob-btn" id="mobBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ══ HERO ════════════════════════════════════════════════════ -->
@@ -252,6 +261,7 @@ nav{padding:0 4%}
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
   </div>
+
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-tag fade-up">South India's Iconic Filter Coffee Brand</div>
@@ -259,7 +269,7 @@ nav{padding:0 4%}
       <p class="hero-sub fade-up d2">South India's most trusted filter coffee chain. Now 180+ stores strong and expanding rapidly across metro India — built on a proven QSR model.</p>
       <div class="hero-btns fade-up d3">
         <a href="#franchise-cta" class="btn-primary">Become a Franchise Partner</a>
-        <a href="https://madrascoffeehouse.com/our-stores/" class="btn-secondary" target="_blank">Find a Store Near You</a>
+        <a href="stores.html" class="btn-secondary">Find a Store Near You</a>
       </div>
       <div class="hero-stats fade-in d4">
         <div class="hstat"><div class="hstat-num" data-counter="180" data-suffix="+">0+</div><div class="hstat-lbl">Stores in India</div></div>
@@ -302,140 +312,33 @@ nav{padding:0 4%}
 </section>
 
 <!-- ══ HERITAGE ════════════════════════════════════════════════ -->
-<section id="heritage">
+<section id="heritage" style="scroll-margin-top:72px">
   <div class="heritage-inner">
-    <div class="heritage-img slide-left">
-      <img class="heritage-img-main" src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Authentic Madras filter coffee" onerror="this.style.display='none';document.getElementById('her-fb').style.display='flex'"/>
-      <div id="her-fb" class="heritage-img-fallback" style="display:none"><span>🏛️</span></div>
-      <div class="heritage-accent"></div>
+    <div class="heritage-img fade-up">
+      <img class="heritage-img-main" src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Authentic Madras filter coffee"/>
     </div>
-    <div class="heritage-text slide-right">
-      <div class="sec-eyebrow">Our Heritage</div>
-      <h2 class="sec-title">Born in South India.<br/>Brewed with Precision.<br/>Served with Consistency.</h2>
+    <div class="heritage-text fade-up d1">
+      <div class="heritage-badge" style="display:inline-flex;padding:.4rem 1rem;background:rgba(243,146,10,.1);color:var(--orange);font-size:.7rem;font-weight:700;letter-spacing:.2em;margin-bottom:1.5rem">Authentic Since 2010</div>
+      <div class="sec-eyebrow" style="justify-content:flex-start">Our Heritage</div>
+      <h2 class="sec-title" style="margin-bottom:1.5rem">Born in South India.<br/>Brewed with Precision.<br/>Served with Consistency.</h2>
       <div class="sec-divider"></div>
-      <p>At Madras Coffee House, tradition meets emotion in every sip. Born in 2010 from the vision of founders who wanted to celebrate authentic South Indian filter coffee, our mission was simple — preserve heritage while building something scalable.</p>
-      <p>From a single outlet in Chennai to a thriving network of 180+ stores, we have grown into a recognized national brand. Every cup follows the same meticulous brewing ritual — precision-ground beans, filtered through our proprietary process, served fresh.</p>
-      <div class="heritage-pillars">
-        <div class="pillar fade-up"><b>Proprietary Blend</b><p>Estate-sourced beans, roasted and blended in-house to our 15-year-old specification.</p></div>
-        <div class="pillar fade-up d1"><b>Brewing SOP</b><p>Standardized across all stores. Same taste in Chennai, Bangalore, or Delhi.</p></div>
-        <div class="pillar fade-up d2"><b>Heritage Ritual</b><p>The traditional davara-tumbler pour — preserved and scaled without compromise.</p></div>
-        <div class="pillar fade-up d3"><b>Zero Franchise Dilution</b><p>Operational audits ensure brand standards are maintained at every location.</p></div>
+      <p style="font-size:.95rem;color:var(--gray);line-height:1.8;margin-bottom:1.2rem">At Madras Coffee House, tradition meets emotion in every sip. Born in 2010 from the vision of founders who wanted to celebrate authentic South Indian filter coffee, our mission was simple — preserve heritage while building something scalable.</p>
+      <p style="font-size:.95rem;color:var(--gray);line-height:1.8;margin-bottom:2rem">From a single outlet in Chennai to a thriving network of 180+ stores, we have grown into a recognized national brand. Every cup follows the same meticulous brewing ritual.</p>
+      <div class="heritage-pillars" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+        <div class="pillar" style="border-left:3px solid var(--orange);padding:1rem;background:var(--light)">
+          <b style="font-size:.85rem">Proprietary Blend</b>
+          <p style="font-size:.8rem;color:var(--gray)">Estate-sourced beans, roasted in-house.</p>
+        </div>
+        <div class="pillar" style="border-left:3px solid var(--orange);padding:1rem;background:var(--light)">
+          <b style="font-size:.85rem">Brewing SOP</b>
+          <p style="font-size:.8rem;color:var(--gray)">Standardized ritual across all stores.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FORMAT CARDS ════════════════════════════════════════════ -->
-<section id="format">
-  <div class="format-header">
-    <div class="slide-left">
-      <div class="sec-eyebrow">The Express Format</div>
-      <h2 class="sec-title">Built for Scale.<br/>Designed for Profit.</h2>
-    </div>
-    <div class="slide-right">
-      <p style="font-size:.92rem;color:var(--gray);line-height:1.8">Our 300–600 sq ft express café model is engineered for high-footfall metro locations — malls, IT corridors, airports, and transit hubs. Operationally optimized for a single operator to run efficiently.</p>
-    </div>
-  </div>
-  <div class="format-grid">
-    <div class="format-card fade-up">
-      <span class="fc-num">01</span>
-      <div class="fc-icon">📐</div>
-      <h4 class="fc-title">300–600 sq ft Express Café Model</h4>
-      <p class="fc-desc">Compact, efficient, and purpose-built. Requires minimal staff and delivers maximum throughput during peak hours.</p>
-    </div>
-    <div class="format-card fade-up d1">
-      <span class="fc-num">02</span>
-      <div class="fc-icon">🏙️</div>
-      <h4 class="fc-title">High Footfall Mall &amp; Metro Locations</h4>
-      <p class="fc-desc">Strategically positioned in Tier 1 &amp; Tier 2 transit hubs, IT parks, airports, and premium malls for maximum visibility.</p>
-    </div>
-    <div class="format-card fade-up d2">
-      <span class="fc-num">03</span>
-      <div class="fc-icon">🔧</div>
-      <h4 class="fc-title">Operationally Optimised Design</h4>
-      <p class="fc-desc">Turnkey store setup. Equipment, layout, and workflows are pre-engineered for efficiency, speed, and brand consistency.</p>
-    </div>
-    <div class="format-card fade-up d3">
-      <span class="fc-num">04</span>
-      <div class="fc-icon">📚</div>
-      <h4 class="fc-title">Structured SOP &amp; Training Framework</h4>
-      <p class="fc-desc">Comprehensive training program. Operations manual, brewing certification, and ongoing support for every franchisee.</p>
-    </div>
-  </div>
-</section>
 
-<!-- ══ TRUST BAR ═══════════════════════════════════════════════ -->
-<section id="trust">
-  <div class="trust-inner">
-    <p class="trust-label fade-in">Why Investors Choose Madras Coffee House</p>
-    <div class="trust-grid">
-      <div class="trust-card fade-up">
-        <span class="trust-icon">🏆</span>
-        <h4>Proven Track Record</h4>
-        <p>15 years of profitable operations across Tamil Nadu and beyond. Consistent brand quality since 2010.</p>
-        <span class="trust-badge">Est. 2010</span>
-      </div>
-      <div class="trust-card fade-up d1">
-        <span class="trust-icon">📈</span>
-        <h4>High ROI Model</h4>
-        <p>Low capex, high margin express format. Fast break-even timeline with strong repeat customer base.</p>
-        <span class="trust-badge">QSR Optimised</span>
-      </div>
-      <div class="trust-card fade-up d2">
-        <span class="trust-icon">🤝</span>
-        <h4>Full Franchise Support</h4>
-        <p>Site selection, store setup, training, marketing, and ongoing operational guidance — end to end.</p>
-        <span class="trust-badge">End-to-End</span>
-      </div>
-      <div class="trust-card fade-up d3">
-        <span class="trust-icon">🌏</span>
-        <h4>National Brand Momentum</h4>
-        <p>Active metro-first expansion across Bangalore, Hyderabad, Mumbai, and Delhi. Ride the wave early.</p>
-        <span class="trust-badge">Pan India</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ MEDIA / AWARDS ══════════════════════════════════════════ -->
-<section id="media">
-  <div class="media-header fade-up">
-    <div class="sec-eyebrow" style="justify-content:center">Recognition &amp; Media</div>
-    <h2 class="sec-title" style="font-size:clamp(1.8rem,3vw,2.6rem)">Recognised for Authenticity.<br/>Built on Credibility.</h2>
-  </div>
-  <div class="media-grid">
-    <div class="media-card fade-up">
-      <span class="media-card-icon">🏅</span>
-      <span class="year">2023</span>
-      <h4>Best Filter Coffee Chain — Tamil Nadu Food Awards</h4>
-      <p>Recognised for consistent quality and heritage brewing standards.</p>
-    </div>
-    <div class="media-card fade-up d1">
-      <span class="media-card-icon">📰</span>
-      <span class="year">2024</span>
-      <h4>Top 10 QSR Franchise Brands to Watch — Franchise India</h4>
-      <p>Featured for rapid scalability and franchise-ready operational model.</p>
-    </div>
-    <div class="media-card fade-up d2">
-      <span class="media-card-icon">🎖️</span>
-      <span class="year">2023</span>
-      <h4>Excellence in South Indian F&amp;B — NRAI Recognition</h4>
-      <p>Awarded for contribution to standardised South Indian food service.</p>
-    </div>
-    <div class="media-card fade-up d3">
-      <span class="media-card-icon">📺</span>
-      <span class="year">2024</span>
-      <h4>Featured: The Hindu BusinessLine &amp; ET Hospitality</h4>
-      <p>Coverage on metro expansion strategy and franchise growth model.</p>
-    </div>
-  </div>
-  <div class="press-strip fade-in">
-    <div class="press-item"><b>The Hindu BusinessLine</b>"A filter coffee brand with national ambitions"</div>
-    <div class="press-item"><b>ET Hospitality</b>"Structured QSR model rooted in tradition"</div>
-    <div class="press-item"><b>Franchise India</b>"Top 10 franchise opportunity in South Indian F&amp;B"</div>
-    <div class="press-item"><b>YourStory</b>"Scaling tradition: The Madras Coffee House story"</div>
-  </div>
-</section>
 
 <!-- ══ EXPANSION VISION ════════════════════════════════════════ -->
 <section id="expansion">
@@ -467,7 +370,7 @@ nav{padding:0 4%}
 </section>
 
 <!-- ══ FRANCHISE CTA ═══════════════════════════════════════════ -->
-<section id="franchise-cta">
+<section id="franchise-cta" style="scroll-margin-top:72px"><span id="franchise-preview" style="position:absolute;top:-80px"></span>
   <div class="franchise-cta-inner">
     <div class="sec-eyebrow fade-up" style="justify-content:center;color:var(--orange)">Franchise Partnership</div>
     <h2 class="sec-title fade-up d1" style="font-size:clamp(2rem,4vw,3.5rem);color:#fff;margin-bottom:1.2rem">Own a Madras Coffee House.<br/>Build a Proven Business.</h2>
@@ -493,35 +396,106 @@ nav{padding:0 4%}
   </div>
 </section>
 
+<!-- ══ TESTIMONIALS ═══════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="testi-header fade-up">
+    <div class="sec-eyebrow" style="justify-content:center;color:var(--orange)">Partner Testimonials</div>
+    <h2 class="sec-title" style="font-size:clamp(1.8rem,3vw,2.6rem);color:#fff">What Our Partners Say</h2>
+    <div class="testi-underline"></div>
+    <p style="font-size:.92rem;color:rgba(255,255,255,.55);margin-top:.8rem">Built on trust. Growing with confidence.</p>
+  </div>
+  <div class="testi-track-wrap">
+    <div class="testi-track" id="testiTrack">
+      <div class="testimonial-card">
+        <div class="t-quote">&ldquo;</div>
+        <p class="t-text">Partnering with Madras Coffee House was the best business decision I've made. The SOP is airtight, the supply chain never fails, and the brand does the selling for us. My store at Indiranagar Metro broke even faster than projected.</p>
+        <div class="t-meta">
+          <div class="t-stars">★★★★★</div>
+          <div class="t-name">Suresh Krishnamurthy</div>
+          <div class="t-loc">Indiranagar Metro, Bangalore</div>
+          <div class="t-format">Express Café Format</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="t-quote">&ldquo;</div>
+        <p class="t-text">The franchise team held our hand through every stage — from selecting the location to training our staff. Three years in, our Koyambedu outlet serves 400+ cups a day consistently. MCH's systems work.</p>
+        <div class="t-meta">
+          <div class="t-stars">★★★★★</div>
+          <div class="t-name">Priya Ramesh</div>
+          <div class="t-loc">Koyambedu Metro, Chennai</div>
+          <div class="t-format">Express Café Format</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="t-quote">&ldquo;</div>
+        <p class="t-text">I was looking for a food business that had real brand value and a proven model. MCH delivered both. The brand recall is incredible — customers walk in knowing what they want. The morning rush alone covers costs.</p>
+        <div class="t-meta">
+          <div class="t-stars">★★★★★</div>
+          <div class="t-name">Anil Venkataraman</div>
+          <div class="t-loc">DLF Cyber City, Hyderabad</div>
+          <div class="t-format">IT Park Kiosk Format</div>
+        </div>
+      </div>
+      <!-- Duplicates for infinite feel -->
+      <div class="testimonial-card" aria-hidden="true">
+        <div class="t-quote">&ldquo;</div>
+        <p class="t-text">Partnering with Madras Coffee House was the best business decision I've made. The SOP is airtight, the supply chain never fails, and the brand does the selling for us.</p>
+        <div class="t-meta">
+          <div class="t-stars">★★★★★</div>
+          <div class="t-name">Suresh Krishnamurthy</div>
+          <div class="t-loc">Indiranagar Metro, Bangalore</div>
+          <div class="t-format">Express Café Format</div>
+        </div>
+      </div>
+      <div class="testimonial-card" aria-hidden="true">
+        <div class="t-quote">&ldquo;</div>
+        <p class="t-text">The franchise team held our hand through every stage. Three years in, our Koyambedu outlet serves 400+ cups a day consistently. MCH's systems work.</p>
+        <div class="t-meta">
+          <div class="t-stars">★★★★★</div>
+          <div class="t-name">Priya Ramesh</div>
+          <div class="t-loc">Koyambedu Metro, Chennai</div>
+          <div class="t-format">Express Café Format</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem" class="fade-up">
+    <a href="franchise.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:.5rem">Explore Franchise Opportunity &rarr;</a>
+  </div>
+</section>
+
 <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
         <div class="logo" style="margin-bottom:.8rem">
-          <div class="logo-mark">M</div>
-          <div class="logo-name"><b>Madras Coffee House</b><small>Since 2010 · Chennai</small></div>
+          <img src="madras.svg" alt="Madras Coffee House" style="height:54px"/>
         </div>
         <p>Authentic South Indian filter coffee and snacks served in a modern, premium café environment. 180+ stores across India.</p>
         <div class="footer-socials">
-          <a class="fsoc" href="https://www.facebook.com/madrascoffeehouseofficial/" target="_blank" title="Facebook">f</a>
-          <a class="fsoc" href="https://www.instagram.com/madrascoffeehouseofficial/" target="_blank" title="Instagram">◉</a>
-          <a class="fsoc" href="https://www.youtube.com/@madrascoffeehouseofficial" target="_blank" title="YouTube">▶</a>
+          <a class="fsoc" href="https://www.facebook.com/madrascoffeehouseofficial/" target="_blank" title="Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a class="fsoc" href="https://www.instagram.com/madrascoffeehouseofficial/" target="_blank" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg>
+          </a>
+          <a class="fsoc" href="https://www.youtube.com/@madrascoffeehouseofficial" target="_blank" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.96-1.96C18.88 4 12 4 12 4s-6.88 0-8.58.46a2.78 2.78 0 00-1.96 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.96 1.96C5.12 20 12 20 12 20s6.88 0 8.58-.46a2.78 2.78 0 001.96-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#e4272e"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col"><h5>Brand</h5><ul>
-        <li><a href="https://madrascoffeehouse.com/about-us/" target="_blank">About Us</a></li>
-        <li><a href="https://madrascoffeehouse.com/whats-new/" target="_blank">Our Menu</a></li>
-        <li><a href="https://madrascoffeehouse.com/gallery/" target="_blank">Gallery</a></li>
-        <li><a href="https://madrascoffeehouse.com/blog/" target="_blank">Blog</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="menu.html">Our Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
       </ul></div>
       <div class="footer-col"><h5>Stores</h5><ul>
-        <li><a href="https://madrascoffeehouse.com/our-stores/" target="_blank">Find a Store</a></li>
-        <li><a href="#expansion">City Expansion</a></li>
-        <li><a href="#format">Store Format</a></li>
+        <li><a href="stores.html">Find a Store</a></li>
+        
       </ul></div>
       <div class="footer-col"><h5>Franchise</h5><ul>
-        <li><a href="https://madrascoffeehouse.com/franchise/" target="_blank">Why Partner With Us</a></li>
+        <li><a href="franchise.html">Why Partner With Us</a></li>
         <li><a href="https://madrascoffeehouse.com/wp-content/uploads/2025/10/MCH-PRESENTATION-new-final-.pdf" target="_blank">Brochure</a></li>
         <li><a href="https://madrascoffeehouse.com/wp-content/uploads/2023/06/MCH-PROFILE.pdf" target="_blank">Company Profile</a></li>
         <li><a href="mailto:prasanna@madrascoffeehouse.com">Enquire Now</a></li>
@@ -530,7 +504,7 @@ nav{padding:0 4%}
         <li><a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a></li>
         <li><a href="tel:+919876543210">+91 98765 43210</a></li>
         <li><span style="font-size:.8rem;color:var(--gray)">Chennai, Tamil Nadu</span></li>
-        <li><a href="https://madrascoffeehouse.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
@@ -581,10 +555,32 @@ document.querySelectorAll('[data-counter]').forEach(el=>cntObs.observe(el));
 // ── SMOOTH SCROLL ───────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const tgt=document.querySelector(a.getAttribute('href'));
-    if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'});}
+    const href=a.getAttribute('href');
+    const tgt=document.querySelector(href);
+    if(tgt){
+      e.preventDefault();
+      const navH=NAV.offsetHeight||72;
+      const top=tgt.getBoundingClientRect().top+window.scrollY-navH;
+      window.scrollTo({top,behavior:'smooth'});
+    }
+  });
+});
+
+// ── PAGE FADE TRANSITION ─────────────────────────────────
+document.body.style.opacity='0';
+document.body.style.transition='opacity .3s';
+setTimeout(()=>document.body.style.opacity='1',50);
+document.querySelectorAll('a[href]').forEach(a=>{
+  const h=a.getAttribute('href');
+  if(!h||h.startsWith('#')||h.startsWith('mailto:')||h.startsWith('tel:')||h.startsWith('http')||a.target==="_blank")return;
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.body.style.opacity='0';
+    setTimeout(()=>window.location.href=h,300);
   });
 });
 </script>
+  <script src="mobile.js" defer></script>
 </body>
 </html>
+

@@ -1,0 +1,1485 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Our Stores — Madras Coffee House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --red: #e4272e;
+        --orange: #f3920a;
+        --white: #fefefe;
+        --black: #111;
+        --gray: #6b7280;
+        --light: #f8f8f6;
+        --border: #e5e5e0;
+        --red-l: rgba(228, 39, 46, 0.09);
+        --ora-l: rgba(243, 146, 10, 0.09);
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--white);
+        color: var(--black);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+      nav#nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 0 5%;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition:
+          background 0.35s,
+          box-shadow 0.35s,
+          height 0.35s;
+        background: var(--white);
+        box-shadow: 0 1px 0 var(--border);
+      }
+      #nav.scrolled {
+        background: var(--white);
+        box-shadow: 0 1px 0 var(--border);
+        height: 64px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo img {
+        height: 48px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+      .logo img:hover {
+        transform: scale(1.04);
+      }
+      .nav-center {
+        display: flex;
+        gap: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .nav-center li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+      .nav-center a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1.1rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--black);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.25s;
+        font-family: "Inter", sans-serif;
+      }
+      .nav-center a::after {
+        content: "";
+        position: absolute;
+        left: 1.1rem;
+        right: 1.1rem;
+        bottom: 0;
+        height: 2px;
+        background: var(--red);
+        transform: scaleX(0);
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-center a:hover,
+      .nav-center a.active {
+        color: var(--red);
+      }
+      .nav-center a:hover::after,
+      .nav-center a.active::after {
+        transform: scaleX(1);
+      }
+      .nav-right {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .btn-outline-nav {
+        background: transparent;
+        color: var(--red);
+        border: 1.5px solid var(--red);
+        padding: 0.48rem 1.1rem;
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+      .btn-outline-nav:hover {
+        background: var(--red);
+        color: #fff;
+      }
+      .btn-solid-nav {
+        background: var(--red);
+        color: #fff;
+        border: 1.5px solid var(--red);
+        padding: 0.48rem 1.1rem;
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+      .btn-solid-nav:hover {
+        background: #c41f25;
+        border-color: #c41f25;
+      }
+      .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        border: none;
+        background: transparent;
+      }
+      .mobile-menu-btn span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--black);
+        transition: all 0.3s;
+      }
+
+      /* HERO */
+      #hero {
+        position: relative;
+        min-height: 460px;
+        padding: 100px 5%;
+        background:
+          url("https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg")
+            center/cover no-repeat,
+          #1a0800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.55) 0%,
+          rgba(0, 0, 0, 0.65) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 760px;
+      }
+      .hero-eyebrow {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 1.4rem;
+        opacity: 0;
+        animation: fsu 0.8s 0.2s forwards;
+      }
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 6vw, 5.2rem);
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 0.9rem;
+        opacity: 0;
+        animation: fsu 0.8s 0.4s forwards;
+      }
+      .hero-underline {
+        width: 72px;
+        height: 3px;
+        background: var(--orange);
+        margin: 0 auto 1.4rem;
+        opacity: 0;
+        animation: fsu 0.8s 0.6s forwards;
+      }
+      .hero-sub {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.7;
+        max-width: 520px;
+        margin: 0 auto 2rem;
+        opacity: 0;
+        animation: fsu 0.8s 0.75s forwards;
+      }
+      #detectBtn {
+        display: inline-block;
+        background: var(--red);
+        color: #fff;
+        padding: 0.9rem 2.2rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          transform 0.2s,
+          box-shadow 0.25s;
+        opacity: 0;
+        animation: fsu 0.8s 0.9s forwards;
+        font-family: "Inter", sans-serif;
+      }
+      #detectBtn:hover {
+        background: #c41f25;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(228, 39, 46, 0.3);
+      }
+      #detectBtn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      #detectBtn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+      @keyframes fsu {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      #dloader {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 0.9rem;
+        justify-content: center;
+      }
+      #dloader.show {
+        display: flex;
+      }
+      .sp {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        flex-shrink: 0;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      /* MAP FEATURES ENHANCEMENTS */
+      .traditional-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 80px 0;
+      }
+      .divider-line {
+        height: 3px;
+        width: 100px;
+        background-color: var(--orange);
+      }
+      .divider-diamond {
+        width: 12px;
+        height: 12px;
+        background-color: var(--red);
+        transform: rotate(45deg);
+      }
+
+      .search-section {
+        max-width: 600px;
+        margin: 0 auto 60px;
+        padding: 0 5%;
+      }
+      .search-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .search-box input {
+        width: 100%;
+        padding: 1rem 3rem 1rem 1.2rem;
+        border: 2.5px solid var(--orange);
+        background: var(--white);
+        color: var(--black);
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        outline: none;
+        transition: border-color 0.25s;
+      }
+      .search-box input:focus {
+        border-color: var(--red);
+      }
+      .search-box svg {
+        position: absolute;
+        right: 1.2rem;
+        width: 20px;
+        height: 20px;
+        fill: var(--red);
+      }
+
+      .filter-container {
+        position: sticky;
+        top: 72px;
+        z-index: 100;
+        background: var(--white);
+        box-shadow: 0 1px 0 var(--border);
+        padding: 1rem 0;
+        margin-bottom: 60px;
+      }
+      .filter-tabs {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        padding: 0 5%;
+        scrollbar-width: none;
+      }
+      .filter-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .tab-btn {
+        padding: 0.7rem 1.5rem;
+        background: transparent;
+        border: 1.5px solid var(--orange);
+        color: var(--red);
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.3s;
+      }
+      .tab-btn.active,
+      .tab-btn:hover {
+        background: var(--red);
+        color: #fff;
+        border-color: var(--red);
+      }
+
+      .state-ttl {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--red);
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .state-ttl::after {
+        content: "";
+        flex: 1;
+        height: 4px;
+        background: linear-gradient(to right, var(--orange), transparent);
+      }
+
+      .dist-sec {
+        margin-bottom: 1rem;
+      }
+      .dist-head {
+        background: var(--white);
+        border: 2px solid var(--orange);
+        padding: 1.2rem 1.8rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.25s;
+      }
+      .dist-head:hover {
+        background: var(--ora-l);
+      }
+      .dist-head h3 {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--red);
+        text-transform: uppercase;
+        margin: 0;
+      }
+      .dist-arrow {
+        transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+        color: var(--red);
+      }
+      .dist-sec.open .dist-arrow {
+        transform: rotate(180deg);
+      }
+
+      .bc {
+        background: var(--white);
+        border: 2px solid var(--orange);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: all 0.4s;
+        position: relative;
+      }
+      .bc:hover {
+        transform: translateY(-8px);
+        border-color: var(--red);
+        box-shadow: 0 15px 30px var(--red-l);
+      }
+      .bc h4 {
+        font-size: 1.3rem;
+        font-weight: 850;
+        color: var(--red);
+        margin: 0;
+        line-height: 1.2;
+      }
+      .bc-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .info-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .info-row svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--orange);
+        margin-top: 3px;
+      }
+      .info-row p {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--black);
+        line-height: 1.5;
+      }
+
+      .btn-map {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px;
+        background: var(--red);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .btn-map:hover {
+        background: var(--orange);
+      }
+
+      /* RESTORE CLASSIC SPLIT VIEW */
+      #main {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 80px 5%;
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+      }
+      #list-side {
+        flex: 1;
+      }
+
+      .map-sidebar {
+        width: 480px;
+        position: sticky;
+        top: 140px;
+        z-index: 90;
+      }
+      .map-sticky-container {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-top: 4px solid var(--red);
+        padding: 1.2rem;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border-radius: 2px;
+      }
+      .map-header {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+      }
+      .map-header h3 {
+        color: var(--black);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+      }
+      #active-branch-name {
+        color: var(--red);
+        font-size: 1.1rem;
+        font-weight: 800;
+        font-family: "Playfair Display", serif;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      .map-frame-wrapper {
+        height: 520px;
+        background: var(--light);
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      #store-map-iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        transition: opacity 0.3s;
+      }
+
+      @media (max-width: 992px) {
+        #main {
+          flex-direction: column;
+          padding: 60px 5%;
+        }
+        .map-sidebar {
+          width: 100%;
+          position: relative;
+          top: 0;
+          display: none;
+        }
+        .map-sidebar.mobile-visible {
+          display: block;
+          margin: 1rem 0 2.5rem;
+        }
+        .map-frame-wrapper {
+          height: 350px;
+        }
+      }
+      /* FOOTER */
+      footer {
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        padding: 80px 5% 40px;
+      }
+      .fi2 {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .ft {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+      .fb p {
+        font-size: 0.8rem;
+        color: var(--gray);
+        line-height: 1.75;
+        margin: 1rem 0 1.2rem;
+      }
+      .fso {
+        display: flex;
+        gap: 0.6rem;
+      }
+      .fsc {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(228, 39, 46, 0.3);
+        flex-shrink: 0;
+      }
+      .fsc:hover {
+        background: var(--orange);
+        transform: scale(1.1);
+        box-shadow: 0 6px 18px rgba(243, 146, 10, 0.4);
+      }
+      .fsc svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+      .fc h5 {
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--black);
+        margin-bottom: 1.2rem;
+      }
+      .fc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+      .fc a {
+        font-size: 0.8rem;
+        color: var(--gray);
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+      .fc a:hover {
+        color: var(--red);
+      }
+      .fbot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .fbot p,
+      .fbot a {
+        font-size: 0.72rem;
+        color: var(--gray);
+        text-decoration: none;
+      }
+      .fbot a:hover {
+        color: var(--red);
+      }
+      .frd {
+        width: 6px;
+        height: 6px;
+        background: var(--red);
+        border-radius: 50%;
+      }
+      @media (max-width: 1200px) {
+        #main {
+          grid-template-columns: 1fr;
+        }
+        .dist-body {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+        #mp {
+          position: static;
+        }
+        #mf,
+        .map-ph,
+        .map-ld {
+          height: 380px;
+        }
+        .ft {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .ft {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          padding: 0 4%;
+        }
+        .nav-center,
+        .nav-right .btn-onav {
+          display: none;
+        }
+        .mob-btn {
+          display: flex;
+        }
+        .dist-body {
+          grid-template-columns: 1fr;
+        }
+        #mf,
+        .map-ph,
+        .map-ld {
+          height: 300px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="mobile.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav id="nav">
+      <a href="index.html" class="logo">
+        <img src="madras.svg" alt="Madras Coffee House" loading="eager" />
+      </a>
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Our Menu</a></li>
+
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="franchise.html">Franchise</a></li>
+        <li><a href="stores.html" class="active">Our Stores</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="stores.html" class="btn-outline-nav">Find a Store</a>
+        <a href="franchise.html" class="btn-solid-nav">Become a Partner</a>
+      </div>
+      <button
+        class="mobile-menu-btn mob-btn"
+        id="mobBtn"
+        aria-label="Open menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Madras Coffee House</div>
+        <h1 class="hero-title">Our Stores</h1>
+        <div class="hero-underline"></div>
+        <p class="hero-sub">
+          Serving Authentic South Indian Filter Coffee Across Metro India.
+        </p>
+        <button id="detectBtn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            />
+          </svg>
+          Detect My Location
+        </button>
+        <div id="dloader">
+          <div class="sp"></div>
+          <span>Detecting your location…</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRADITIONAL DIVIDER -->
+    <div class="traditional-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- SEARCH SECTION -->
+    <div class="search-section">
+      <div class="search-box">
+        <input
+          type="text"
+          id="storeSearch"
+          placeholder="Search by District or Branch Name..."
+        />
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <nav class="filter-container">
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-f="all">ALL LOCATIONS</button>
+        <button class="tab-btn" data-f="international">INTERNATIONAL</button>
+        <button class="tab-btn" data-f="tamil-nadu">TAMIL NADU</button>
+        <button class="tab-btn" data-f="telangana">TELANGANA</button>
+        <button class="tab-btn" data-f="andhra-pradesh">ANDHRA PRADESH</button>
+        <button class="tab-btn" data-f="karnataka">KARNATAKA</button>
+        <button class="tab-btn" data-f="maharashtra">MAHARASHTRA</button>
+        <button class="tab-btn" data-f="delhi-ncr">DELHI NCR</button>
+        <button class="tab-btn" data-f="others">OTHERS</button>
+      </div>
+    </nav>
+
+    <!-- MAIN LAYOUT -->
+    <div id="main">
+      <div id="list-side">
+        <!-- Dynamic Content Loaded by JS -->
+      </div>
+
+      <!-- MAP SIDEBAR -->
+      <aside class="map-sidebar">
+        <div class="map-sticky-container">
+          <div class="map-header">
+            <h3>Branch Location</h3>
+            <span id="active-branch-name">Select a branch to view map</span>
+          </div>
+          <div class="map-frame-wrapper">
+            <iframe
+              id="store-map-iframe"
+              src="https://www.google.com/maps?q=Madras+Coffee+House&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="fi2">
+        <div class="ft">
+          <div class="fb">
+            <div class="logo" style="margin-bottom: 0.8rem">
+              <img
+                src="madras.svg"
+                alt="Madras Coffee House"
+                style="height: 54px"
+              />
+            </div>
+            <p>
+              Authentic South Indian filter coffee and snacks. 180+ stores
+              across India.
+            </p>
+            <div class="fso">
+              <a
+                class="fsc"
+                href="https://www.facebook.com/madrascoffeehouseofficial/"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <svg viewBox="0 0 24 24" fill="white">
+                  <path
+                    d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="fsc"
+                href="https://www.instagram.com/madrascoffeehouseofficial/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1.2"
+                    fill="white"
+                    stroke="none"
+                  />
+                </svg>
+              </a>
+              <a
+                class="fsc"
+                href="https://www.youtube.com/@madrascoffeehouseofficial"
+                target="_blank"
+                aria-label="YouTube"
+              >
+                <svg viewBox="0 0 24 24" fill="white">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 00-1.96-1.96C18.88 4 12 4 12 4s-6.88 0-8.58.46a2.78 2.78 0 00-1.96 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.96 1.96C5.12 20 12 20 12 20s6.88 0 8.58-.46a2.78 2.78 0 001.96-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"
+                  />
+                  <polygon
+                    points="9.75,15.02 15.5,12 9.75,8.98"
+                    fill="#e4272e"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="fc">
+            <h5>Brand</h5>
+            <ul>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="menu.html">Our Menu</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="fc">
+            <h5>Stores</h5>
+            <ul>
+              <li><a href="stores.html">Find a Store</a></li>
+            </ul>
+          </div>
+          <div class="fc">
+            <h5>Franchise</h5>
+            <ul>
+              <li><a href="franchise.html">Why Partner</a></li>
+              <li>
+                <a href="mailto:prasanna@madrascoffeehouse.com">Enquire Now</a>
+              </li>
+            </ul>
+          </div>
+          <div class="fc">
+            <h5>Contact</h5>
+            <ul>
+              <li>
+                <a href="mailto:info@madrascoffeehouse.com"
+                  >info@madrascoffeehouse.com</a
+                >
+              </li>
+              <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+              <li><a href="contact.html">Contact Page</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="fbot">
+          <p>© 2024 Madras Coffee House Pvt. Ltd. All rights reserved.</p>
+          <div style="display: flex; align-items: center; gap: 0.5rem">
+            <div class="frd"></div>
+            <p>Chennai, Tamil Nadu, India</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ═══ STORE DATA ═══════════════════════════════════════════
+      const DATA = [
+        {
+          state: "international",
+          stateLabel: "United Arab Emirates",
+          district: "Abu Dhabi",
+          branches: [
+            {
+              n: "Abu Dhabi — Musaffah",
+              a: "Musaffah Industrial Area, Abu Dhabi, UAE",
+            },
+            {
+              n: "Abu Dhabi — Electronic City",
+              a: "F9VF+PJ3 - Al Danah - Zone 1 - Abu Dhabi - United Arab Emirates",
+            },
+          ],
+        },
+        {
+          state: "tamil-nadu",
+          stateLabel: "Tamil Nadu",
+          district: "Chennai",
+          branches: [
+            {
+              n: "Airport — Domestic Arrival",
+              a: "Chennai International Airport, Domestic Arrival Terminal",
+            },
+            {
+              n: "Airport — International Arrival",
+              a: "T2 International Terminal, Chennai Airport",
+            },
+            {
+              n: "Airport — International Departure",
+              a: "T4 International Terminal, Chennai Airport",
+            },
+            {
+              n: "Marina Mall",
+              a: "4A, F Block, Phase 2, Plaza Tranquil Acres, Chennai 600117",
+            },
+            {
+              n: "RK Salai",
+              a: "71, New Decor Tower, Radhakrishnan Salai, Chennai 600004",
+            },
+            { n: "Forum Mall", a: "183, Arcot Rd, Vadapalani, Chennai 600026" },
+            {
+              n: "Mylapore Kapaleeshwarar",
+              a: "Mylapore High Road, Opp Kapaleeshwarar Temple, Chennai 600004",
+            },
+            { n: "Besant Nagar", a: "Besant Nagar Beach Road, Chennai 600090" },
+            {
+              n: "Koyambedu Metro",
+              a: "Koyambedu Metro Station, Chennai 600107",
+            },
+            { n: "Alandur Metro", a: "Alandur Metro Station, Chennai 600016" },
+            {
+              n: "Anna Nagar East",
+              a: "K-Block, Anna Nagar East, Chennai 600102",
+            },
+            { n: "Uthandi — ECR", a: "Uthandi, ECR, Pritha Palace, Chennai" },
+            {
+              n: "Alwarpet",
+              a: "Old 48, New 18, K B Desan Road, Alwarpet, Chennai 600018",
+            },
+            {
+              n: "Vadapalani Metro",
+              a: "Vadapalani Metro Railway Station, Chennai",
+            },
+            {
+              n: "Thirumangalam Metro",
+              a: "Thirumangalam Metro Station, Chennai",
+            },
+            { n: "VR Mall", a: "VR Mall, Anna Nagar, Chennai" },
+            { n: "Loyola College", a: "Sterling Road, Nungambakkam, Chennai" },
+            { n: "Pondy Bazaar", a: "Pondy Bazaar, T. Nagar, Chennai" },
+            {
+              n: "OMR — Kandanchavadi",
+              a: "No. 288, OMR Road, Rajiv Gandhi Salai, Kandanchavadi, Chennai 600096",
+            },
+            { n: "Sholinganallur", a: "Sholinganallur, OMR, Chennai" },
+            { n: "DLF Cyber City", a: "DLF IT Park, Ramapuram, Chennai" },
+            { n: "Ascendas", a: "Ascendas IT Park, Taramani, Chennai" },
+            { n: "Ramanujam IT Park", a: "Taramani, Chennai" },
+            { n: "Wipro Campus", a: "Wipro Campus, Sholinganallur, Chennai" },
+            { n: "Tidel Park", a: "Tidel Park, Taramani, Chennai" },
+            { n: "Olympia Tech Park", a: "Guindy, Chennai" },
+            { n: "Central Metro", a: "Chennai Central Metro Station" },
+            { n: "Guindy Metro", a: "Guindy Metro Station, Chennai" },
+            { n: "High Court Metro", a: "High Court Metro Station, Chennai" },
+            { n: "Egmore Metro", a: "Egmore Metro Station, Chennai" },
+            {
+              n: "Little Mount Metro",
+              a: "Little Mount Metro Station, Chennai",
+            },
+            {
+              n: "Kasi Theatre",
+              a: "No. 64, 12th Avenue, Ashok Nagar, Chennai 600083",
+            },
+            { n: "Ashok Nagar", a: "Ashok Nagar, Chennai" },
+            { n: "Valasaravakkam", a: "Valasaravakkam, Chennai" },
+            { n: "Porur", a: "Porur, Chennai" },
+            { n: "Maduravoyal", a: "Maduravoyal, Chennai" },
+            { n: "Sowcarpet", a: "Mint Street, Sowcarpet, Chennai" },
+            {
+              n: "Vepery",
+              a: "E.V.K Salai, 15, EVK Sampath Salai, Sampath Salai, Vepery, Chennai, Tamil Nadu 600007",
+            },
+            { n: "Park Town", a: "Park Town, Chennai" },
+            { n: "Luz Church Road", a: "Mylapore, Chennai" },
+            { n: "Eldams Road", a: "Alwarpet, Chennai" },
+            { n: "Adyar", a: "Adyar, Chennai" },
+            { n: "Siruseri", a: "SIPCOT IT Park, Siruseri, Chennai" },
+            { n: "Pallikaranai", a: "Pallikaranai, Chennai" },
+            { n: "Velachery", a: "100 Feet Road, Velachery, Chennai" },
+            {
+              n: "Tambaram — MEPZ",
+              a: "MEPZ SEZ, Tambaram-Sanatorium, Chennai",
+            },
+            { n: "Nehru Park Metro", a: "Nehru Park Metro Station, Chennai" },
+            { n: "LIC Metro", a: "LIC Metro Station, Mount Road, Chennai" },
+          ],
+        },
+        {
+          state: "tamil-nadu",
+          stateLabel: "Tamil Nadu",
+          district: "Madurai",
+          branches: [
+            {
+              n: "KK Nagar",
+              a: "No. 15, 80 Feet Road, Managiri, KK Nagar, Madurai 625020",
+            },
+          ],
+        },
+        {
+          state: "tamil-nadu",
+          stateLabel: "Tamil Nadu",
+          district: "Kanchipuram",
+          branches: [
+            {
+              n: "Temple City Office",
+              a: "No. 14-A, Kamaraja Street, Kanchipuram 631502",
+            },
+          ],
+        },
+        {
+          state: "tamil-nadu",
+          stateLabel: "Tamil Nadu",
+          district: "Coimbatore",
+          branches: [
+            {
+              n: "Coimbatore Tidel Park",
+              a: "Tidel Park Coimbatore, ELCOSEZ, Aerodrome Post, Coimbatore 641014",
+            },
+            {
+              n: "Saravanampatti",
+              a: "Chill Sez IT Park, Keeranatham Village, Saravanampatti, Coimbatore 641035",
+            },
+            { n: "Sundarapuram", a: "Sundarapuram, Coimbatore" },
+            { n: "Oppanakara Street", a: "Oppanakara Street, Coimbatore" },
+            {
+              n: "India Land Tech Park",
+              a: "Chil Sez, Keeranatham Rd, Saravanampatti, Coimbatore",
+            },
+            { n: "SVB Tech Park", a: "Kalapatti, Coimbatore" },
+            { n: "Gowsalya Complex", a: "Gowsalya Complex, Coimbatore" },
+          ],
+        },
+        {
+          state: "tamil-nadu",
+          stateLabel: "Tamil Nadu",
+          district: "Other Districts — TN",
+          branches: [
+            { n: "Vellore", a: "Vellore, Tamil Nadu" },
+            { n: "Tindivanam", a: "Tindivanam, Tamil Nadu" },
+            { n: "Hosur", a: "Hosur, Tamil Nadu" },
+            { n: "Yelagiri", a: "Yelagiri Hills, Tamil Nadu" },
+            { n: "Virudhachalam", a: "Virudhachalam, Tamil Nadu" },
+            { n: "Thiruvallur", a: "Thiruvallur, Tamil Nadu" },
+            { n: "Thanjavur", a: "Thanjavur, Tamil Nadu" },
+            { n: "Villupuram", a: "Villupuram, Tamil Nadu" },
+            {
+              n: "Tirupur",
+              a: "Global Trade center ,opp to velan hotel kangayam road , tiruppur -641604",
+            },
+            { n: "Thirumudivakkam", a: "Thirumudivakkam, Tamil Nadu" },
+          ],
+        },
+        {
+          state: "telangana",
+          stateLabel: "Telangana",
+          district: "Hyderabad",
+          branches: [
+            {
+              n: "Hyderabad Airport",
+              a: "Rajiv Gandhi International Airport, Shamshabad, Hyderabad 500409",
+            },
+            { n: "Errammanzil", a: "Errammanzil, Hyderabad, Telangana" },
+            { n: "Hyderabad Global Home", a: "Hyderabad, Telangana" },
+            { n: "DLF Hyderabad", a: "DLF Cyber City, Gachibowli, Hyderabad" },
+            { n: "Sky View", a: "The Skyview, Hitech City, Hyderabad" },
+            {
+              n: "CTS Hyderabad",
+              a: "Cognizant Technology Solutions, Hyderabad",
+            },
+            {
+              n: "KPHB Hyderabad",
+              a: "Kukatpally Housing Board Colony, Hyderabad",
+            },
+          ],
+        },
+        {
+          state: "andhra-pradesh",
+          stateLabel: "Andhra Pradesh",
+          district: "Coastal Districts",
+          branches: [
+            {
+              n: "Rajahmundry — JN Road",
+              a: "JN Road, near AKC College, Rajahmundry, Andhra Pradesh",
+            },
+            {
+              n: "Guntur",
+              a: "Peda Palakaluru Cheruvu, Sagar, Guntur-522004, Andhra Pradesh",
+            },
+            { n: "Rajahmundry 3", a: "Rajahmundry, Andhra Pradesh" },
+            { n: "Rajahmundry 4", a: "Rajahmundry, Andhra Pradesh" },
+          ],
+        },
+        {
+          state: "karnataka",
+          stateLabel: "Karnataka",
+          district: "Bangalore Metro",
+          branches: [
+            {
+              n: "Indira Nagar Metro Station",
+              a: "Metro Station, Indira Nagar, Bangalore 560038",
+            },
+            {
+              n: "Banashankari Metro Station",
+              a: "Metro Station, Banashankari, Bangalore",
+            },
+            {
+              n: "JP Nagar Metro Station",
+              a: "Metro Station, JP Nagar, Bangalore",
+            },
+            {
+              n: "Kengeri Metro Station",
+              a: "Kengeri Metro Station, Bangalore",
+            },
+          ],
+        },
+        {
+          state: "maharashtra",
+          stateLabel: "Maharashtra",
+          district: "Pune & Mumbai",
+          branches: [
+            {
+              n: "Mumbai Airport",
+              a: "Chhatrapati Shivaji Maharaj International Airport, Mumbai",
+            },
+            { n: "Pune Phoenix", a: "Phoenix Marketcity, Viman Nagar, Pune" },
+            { n: "Shirdi", a: "Shirdi, Maharashtra" },
+          ],
+        },
+        {
+          state: "delhi-ncr",
+          stateLabel: "Delhi NCR",
+          district: "Metro Outlets",
+          branches: [
+            {
+              n: "Rajiv Chowk Metro",
+              a: "Rajiv Chowk Metro Station, Central Delhi",
+            },
+            { n: "Noida Galaxy Square", a: "Noida Sector 52, Uttar Pradesh" },
+            { n: "Hauz Khas Metro", a: "Hauz Khas Metro Station, New Delhi" },
+          ],
+        },
+        {
+          state: "others",
+          stateLabel: "Other Regions",
+          district: "Kerala & Jharkhand",
+          branches: [
+            {
+              n: "Kannur Airport",
+              a: "International Airport, Mattannur, Kannur, Kerala",
+            },
+            { n: "Ranchi Main", a: "Main Road, Ranchi, Jharkhand" },
+          ],
+        },
+      ];
+
+      // ═══ HAVERSINE ════════════════════════════════════════════
+      function hav(a, b, c, d) {
+        const R = 6371,
+          dL = ((c - a) * Math.PI) / 180,
+          dN = ((d - b) * Math.PI) / 180,
+          x =
+            Math.sin(dL / 2) ** 2 +
+            Math.cos((a * Math.PI) / 180) *
+              Math.cos((c * Math.PI) / 180) *
+              Math.sin(dN / 2) ** 2;
+        return R * 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
+      }
+
+      // ═══ GLOBALS ══════════════════════════════════════════════
+      let nearestBranch = null,
+        activeFilter = "all";
+
+      // ═══ BUILD CARDS ══════════════════════════════════════════
+      function buildList() {
+        const side = document.getElementById("list-side");
+        side.innerHTML = "";
+
+        // Group by State
+        const groups = {};
+        DATA.forEach((item) => {
+          if (!groups[item.state]) {
+            groups[item.state] = {
+              label: item.stateLabel,
+              districts: [],
+            };
+          }
+          groups[item.state].districts.push(item);
+        });
+
+        Object.keys(groups).forEach((stateKey) => {
+          const groupData = groups[stateKey];
+          const stateSec = document.createElement("div");
+          stateSec.className = "state-sec";
+          stateSec.dataset.state = stateKey;
+          stateSec.innerHTML = `<h2 class="state-ttl">${groupData.label}</h2>`;
+
+          groupData.districts.forEach((dist) => {
+            const distSec = document.createElement("div");
+            distSec.className = "dist-sec open";
+
+            const distHead = document.createElement("div");
+            distHead.className = "dist-head";
+            distHead.innerHTML = `<h3>${dist.district}</h3><svg class="dist-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>`;
+
+            const distBody = document.createElement("div");
+            distBody.className = "dist-body";
+            distBody.style.display = "grid";
+            distBody.style.gridTemplateColumns =
+              "repeat(auto-fill, minmax(280px, 1fr))";
+            distBody.style.gap = "20px";
+            distBody.style.padding = "20px 0 40px";
+
+            dist.branches.forEach((b) => {
+              const card = document.createElement("div");
+              card.className = "bc";
+              card.dataset.name = b.n.toLowerCase();
+              card.dataset.addr = b.a.toLowerCase();
+
+              card.innerHTML = `
+                <h4>${b.n}</h4>
+                <div class="bc-info">
+                  <div class="info-row"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><p>${b.a}</p></div>
+                </div>
+                <button class="btn-map">View on Map</button>
+              `;
+
+              card.addEventListener("click", () => loadMap(b, card));
+              distBody.appendChild(card);
+            });
+
+            distHead.addEventListener("click", () => {
+              const isOpen = distSec.classList.toggle("open");
+              distBody.style.display = isOpen ? "grid" : "none";
+            });
+
+            distSec.appendChild(distHead);
+            distSec.appendChild(distBody);
+            stateSec.appendChild(distSec);
+          });
+
+          side.appendChild(stateSec);
+        });
+
+        applyFilter();
+      }
+
+      // ═══ LOAD MAP ═════════════════════════════════════════════
+      function loadMap(branch, card) {
+        document
+          .querySelectorAll(".bc")
+          .forEach((c) => c.classList.remove("active-card"));
+        card.classList.add("active-card");
+
+        const branchNameLabel = document.getElementById("active-branch-name");
+        const mapIframe = document.getElementById("store-map-iframe");
+        const mapSidebar = document.querySelector(".map-sidebar");
+
+        branchNameLabel.textContent = branch.n;
+        mapIframe.style.opacity = "0";
+
+        setTimeout(() => {
+          const q = encodeURIComponent(
+            `${branch.n} Madras Coffee House ${branch.a}`,
+          );
+          mapIframe.src = `https://www.google.com/maps?q=${q}&output=embed`;
+          mapIframe.onload = () => (mapIframe.style.opacity = "1");
+        }, 300);
+
+        if (window.innerWidth <= 992) {
+          mapSidebar.classList.add("mobile-visible");
+          card.after(mapSidebar);
+          setTimeout(
+            () =>
+              mapSidebar.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              }),
+            400,
+          );
+        } else {
+          // Ensure map is back in the sidebar for desktop
+          const mainParent = document.getElementById("main");
+          if (mapSidebar.parentElement !== mainParent) {
+            mainParent.appendChild(mapSidebar);
+          }
+        }
+      }
+
+      // ═══ FILTER & SEARCH ══════════════════════════════════════
+      function applyFilter() {
+        const q = document.getElementById("storeSearch").value.toLowerCase();
+        const filter = activeFilter;
+
+        document.querySelectorAll(".state-sec").forEach((ss) => {
+          const state = ss.dataset.state;
+          const isStateVisible = filter === "all" || state === filter;
+
+          let hasVisibleBranch = false;
+          ss.querySelectorAll(".bc").forEach((bc) => {
+            const matchesSearch =
+              bc.dataset.name.includes(q) || bc.dataset.addr.includes(q);
+            const isVisible = isStateVisible && matchesSearch;
+            bc.style.display = isVisible ? "flex" : "none";
+            if (isVisible) hasVisibleBranch = true;
+          });
+
+          ss.style.display = hasVisibleBranch ? "block" : "none";
+        });
+      }
+
+      document.querySelectorAll(".tab-btn").forEach((b) =>
+        b.addEventListener("click", () => {
+          document
+            .querySelectorAll(".tab-btn")
+            .forEach((x) => x.classList.remove("active"));
+          b.classList.add("active");
+          activeFilter = b.dataset.f;
+          applyFilter();
+        }),
+      );
+
+      document
+        .getElementById("storeSearch")
+        .addEventListener("input", applyFilter);
+
+      // ═══ DETECT LOCATION ══════════════════════════════════════
+      document.getElementById("detectBtn").addEventListener("click", () => {
+        if (!navigator.geolocation) return;
+        const ld = document.getElementById("dloader");
+        ld.classList.add("show");
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            ld.classList.remove("show");
+            const { latitude: uLat, longitude: uLng } = pos.coords;
+            // Simple nearest logic (using city centers for now)
+            const centers = {
+              chennai: { lat: 13.0827, lng: 80.2707 },
+              hyderabad: { lat: 17.385, lng: 78.4867 },
+              bangalore: { lat: 12.9716, lng: 77.5946 },
+            };
+            // Manual scroll to first match for demo
+            document.querySelector(".bc").click();
+          },
+          () => ld.classList.remove("show"),
+        );
+      });
+
+      // ═══ NAV scrolled state ═══════════════════════════════════
+      window.addEventListener("scroll", () =>
+        document
+          .getElementById("nav")
+          .classList.toggle("scrolled", scrollY > 40),
+      );
+
+      // ═══ INIT ═════════════════════════════════════════════════
+      activeFilter = "all";
+      buildList();
+    </script>
+    <script src="mobile.js" defer></script>
+  </body>
+</html>

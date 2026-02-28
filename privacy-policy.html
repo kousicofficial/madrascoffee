@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Privacy Policy — Madras Coffee House</title>
+<meta name="description" content="Read the Madras Coffee House Privacy Policy. We are committed to protecting your personal information and your right to privacy."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--red:#e4272e;--orange:#f3920a;--white:#fefefe;--black:#111111;--gray:#6b7280;--light:#f8f8f6;--border:#e5e5e0}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:'Inter',sans-serif;overflow-x:hidden}
+nav#nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s;background:transparent}
+#nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64px}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo img{height:48px;width:auto;display:block;object-fit:contain;transition:transform .3s ease}
+.logo img:hover{transform:scale(1.04)}
+.nav-center{display:flex;gap:0;list-style:none;margin:0;padding:0;align-items:center}
+.nav-center li{list-style:none;display:flex;align-items:center}
+.nav-center a{display:inline-flex;align-items:center;padding:.5rem 1.1rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--black);text-decoration:none;position:relative;transition:color .25s;font-family:'Inter',sans-serif}
+.nav-center a::after{content:'';position:absolute;left:1.1rem;right:1.1rem;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s cubic-bezier(.25,.46,.45,.94)}
+.nav-center a:hover,.nav-center a.active{color:var(--red)}
+.nav-center a:hover::after,.nav-center a.active::after{transform:scaleX(1)}
+.nav-right{display:flex;gap:.75rem;align-items:center;flex-shrink:0}
+.btn-outline-nav{background:transparent;color:var(--red);border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-outline-nav:hover{background:var(--red);color:#fff}
+.btn-solid-nav{background:var(--red);color:#fff;border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-solid-nav:hover{background:#c41f25;border-color:#c41f25}
+.mobile-menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent}
+.mobile-menu-btn span{display:block;width:22px;height:2px;background:var(--black);transition:all .3s}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:1.3rem;font-weight:700;color:var(--black);text-decoration:none}
+.mob-nav a:hover{color:var(--red)}
+.mob-close{position:absolute;top:1.5rem;right:5%;font-size:1.8rem;cursor:pointer;border:none;background:transparent;color:var(--black)}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.fade-up.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@keyframes fsu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+#hero{position:relative;min-height:360px;padding:100px 5%;background:linear-gradient(135deg,#0f0305 0%,#1a0800 50%,#0a0a0f 100%);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.h-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(228,39,46,.04) 60px,rgba(228,39,46,.04) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(228,39,46,.04) 60px,rgba(228,39,46,.04) 61px)}
+.h-ct{position:relative;z-index:2;max-width:700px}
+.h-ey{font-size:.68rem;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--orange);margin-bottom:1.4rem;opacity:0;animation:fsu .8s .2s forwards}
+.h-ti{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;text-transform:uppercase;line-height:1.05;margin-bottom:1.1rem;opacity:0;animation:fsu .8s .4s forwards}
+.h-ru{width:64px;height:3px;background:var(--red);margin:0 auto 1.2rem;opacity:0;animation:fsu .8s .6s forwards}
+.h-su{font-size:.92rem;color:rgba(255,255,255,.65);letter-spacing:.05em;opacity:0;animation:fsu .8s .8s forwards}
+#breadcrumb{background:var(--light);border-bottom:1px solid var(--border);padding:.9rem 5%}
+.bc-inner{max-width:840px;margin:0 auto;display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--gray)}
+.bc-inner a{color:var(--gray);text-decoration:none;transition:color .2s}
+.bc-inner a:hover{color:var(--red)}
+.bc-sep{color:var(--border)}
+.bc-cur{color:var(--black);font-weight:600}
+#pp-body{padding:80px 5%;background:var(--white)}
+.pp-wrap{max-width:840px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start}
+.pp-toc{position:sticky;top:90px}
+.toc-label{font-size:.62rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:.3rem}
+.toc-list a{font-size:.78rem;color:var(--gray);text-decoration:none;padding:.4rem .75rem;border-left:2px solid var(--border);transition:all .25s;display:block}
+.toc-list a:hover{color:var(--red);border-left-color:var(--red)}
+.toc-list a.active{color:var(--red);border-left-color:var(--red);font-weight:600}
+.pp-content{display:flex;flex-direction:column;gap:3.5rem}
+.pp-section-num{font-size:.62rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);margin-bottom:.55rem}
+.pp-section h2{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:var(--black);margin-bottom:1.2rem;line-height:1.2;border-bottom:2px solid var(--light);padding-bottom:.8rem}
+.pp-section p{font-size:.92rem;color:var(--gray);line-height:1.9;margin-bottom:1rem}
+.pp-section p:last-child{margin-bottom:0}
+.pp-section ul{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin:1rem 0}
+.pp-section ul li{font-size:.9rem;color:var(--gray);line-height:1.7;padding-left:1.4rem;position:relative}
+.pp-section ul li::before{content:'';position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.pp-section a{color:var(--red);text-decoration:none}
+.pp-section a:hover{text-decoration:underline}
+.pp-highlight{background:var(--light);border:1px solid var(--border);border-left:3px solid var(--orange);padding:1.2rem 1.5rem;margin:1.5rem 0;border-radius:0 4px 4px 0}
+.pp-highlight p{margin:0;font-size:.88rem;color:var(--black);font-weight:500}
+.pp-updated{background:var(--light);border:1px solid var(--border);padding:1rem 1.5rem;margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem}
+.pp-updated-icon{width:32px;height:32px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pp-updated-icon svg{width:16px;height:16px}
+.pp-updated p{font-size:.8rem;color:var(--gray);line-height:1.5}
+.pp-updated strong{color:var(--black)}
+footer{background:var(--white);border-top:1px solid var(--border);padding:80px 5% 40px}
+.fi{max-width:1280px;margin:0 auto}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.fb p{font-size:.8rem;color:var(--gray);line-height:1.75;margin:1rem 0 1.2rem}
+.fso{display:flex;gap:.6rem}
+.fsc{width:38px;height:38px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(228,39,46,.3);flex-shrink:0}
+.fsc:hover{background:var(--orange);transform:scale(1.1);box-shadow:0 6px 18px rgba(243,146,10,.4)}
+.fsc svg{width:16px;height:16px;flex-shrink:0}
+.fc h5{font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--black);margin-bottom:1.2rem}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.fc a{font-size:.8rem;color:var(--gray);text-decoration:none;transition:color .25s}
+.fc a:hover{color:var(--red)}
+.fbot{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:.75rem}
+.fbot p{font-size:.72rem;color:var(--gray)}
+.frd{width:6px;height:6px;background:var(--red);border-radius:50%}
+@media(max-width:900px){.pp-wrap{grid-template-columns:1fr}.pp-toc{display:none}}
+@media(max-width:768px){.nav-center{display:none}.mobile-menu-btn{display:flex}.ft{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ft{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+<nav id="nav" class="nav-solid">
+  <a href="index.html" class="logo">
+    <img src="madras.svg" alt="Madras Coffee House" loading="eager"/>
+  </a>
+  <ul class="nav-center">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Our Menu</a></li>
+    
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="franchise.html">Franchise</a></li>
+    <li><a href="stores.html">Our Stores</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="stores.html" class="btn-outline-nav">Find a Store</a>
+    <a href="franchise.html" class="btn-solid-nav">Become a Partner</a>
+  </div>
+  <button class="mobile-menu-btn mob-btn" id="mobBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="h-pattern"></div>
+  <div class="h-ct">
+    <div class="h-ey">Legal &amp; Compliance</div>
+    <h1 class="h-ti">Privacy Policy</h1>
+    <div class="h-ru"></div>
+    <p class="h-su">Your trust matters to us.</p>
+  </div>
+</section>
+
+<div id="breadcrumb">
+  <div class="bc-inner">
+    <a href="index.html">Home</a>
+    <span class="bc-sep">&#x203a;</span>
+    <span class="bc-cur">Privacy Policy</span>
+  </div>
+</div>
+
+<section id="pp-body">
+  <div class="pp-wrap">
+    <aside class="pp-toc">
+      <div class="toc-label">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s-intro">1. Introduction</a></li>
+        <li><a href="#s-collect">2. Information We Collect</a></li>
+        <li><a href="#s-use">3. How We Use Information</a></li>
+        <li><a href="#s-protect">4. Data Protection</a></li>
+        <li><a href="#s-third">5. Third-Party Services</a></li>
+        <li><a href="#s-cookies">6. Cookies</a></li>
+        <li><a href="#s-rights">7. Your Rights</a></li>
+        <li><a href="#s-contact">8. Contact Us</a></li>
+      </ul>
+    </aside>
+
+    <div class="pp-content">
+      <div class="pp-updated fade-up">
+        <div class="pp-updated-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 4v5l3 3-1.4 1.4L10 12V6h2z"/></svg></div>
+        <p><strong>Last updated: February 2024.</strong> This policy describes how Madras Coffee House Pvt. Ltd. handles your personal information across all our platforms and stores.</p>
+      </div>
+
+      <div class="pp-section fade-up" id="s-intro">
+        <div class="pp-section-num">01</div>
+        <h2>Introduction</h2>
+        <p>Madras Coffee House Pvt. Ltd. ("MCH", "we", "our", or "us") is committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, and safeguard information when you visit our website, interact with our stores, or engage with our franchise and partnership programmes.</p>
+        <p>Our website address is: <a href="https://madrascoffeehouse.com">madrascoffeehouse.com</a></p>
+        <div class="pp-highlight"><p>By using our website or services, you agree to the collection and use of information in accordance with this policy. We do not sell, trade, or transfer your personally identifiable information to outside parties without your consent.</p></div>
+      </div>
+
+      <div class="pp-section fade-up d1" id="s-collect">
+        <div class="pp-section-num">02</div>
+        <h2>Information We Collect</h2>
+        <p>We collect information you provide directly to us and information generated through your use of our website and services.</p>
+        <ul>
+          <li><strong>Contact information</strong> — name, email address, phone number, and location when you submit enquiry forms or contact us directly.</li>
+          <li><strong>Franchise enquiry data</strong> — city, investment intent, background, and business details submitted through our franchise application forms.</li>
+          <li><strong>Usage data</strong> — pages visited, time spent, browser type, device information, and IP address collected automatically when you visit our site.</li>
+          <li><strong>Comments and feedback</strong> — any reviews, comments, or feedback submitted through our website forms.</li>
+          <li><strong>Media uploads</strong> — if you upload images, avoid including embedded location data (EXIF GPS), as visitors may be able to extract this information.</li>
+        </ul>
+      </div>
+
+      <div class="pp-section fade-up" id="s-use">
+        <div class="pp-section-num">03</div>
+        <h2>How We Use Information</h2>
+        <p>We use the information we collect for the following purposes:</p>
+        <ul>
+          <li>To respond to franchise enquiries, partnership requests, and customer service communications.</li>
+          <li>To improve and personalise the content, products, and services we offer on our website.</li>
+          <li>To process and manage franchise applications and store partner onboarding.</li>
+          <li>To send transactional communications — confirmation emails, enquiry responses, and operational updates.</li>
+          <li>To analyse website performance and user behaviour in aggregate to improve user experience.</li>
+          <li>To comply with applicable laws, regulations, and legal obligations.</li>
+        </ul>
+        <p>We will not send you unsolicited marketing communications without your explicit consent, and you may unsubscribe from any communication at any time.</p>
+      </div>
+
+      <div class="pp-section fade-up d1" id="s-protect">
+        <div class="pp-section-num">04</div>
+        <h2>Data Protection</h2>
+        <p>We implement industry-standard security measures to protect your personal information from unauthorised access, alteration, disclosure, or destruction. These include:</p>
+        <ul>
+          <li>SSL/TLS encryption for all data transmitted between your browser and our servers.</li>
+          <li>Restricted internal access to personal data on a need-to-know basis.</li>
+          <li>Regular review of our information collection, storage, and processing practices.</li>
+        </ul>
+        <p>For users who register on our website or leave comments, we retain your personal information in your user profile. All users can request to view, edit, or delete their personal information at any time by contacting us at <a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a>.</p>
+        <div class="pp-highlight"><p>We retain personal data only as long as necessary to fulfil the purposes for which it was collected, or as required by applicable law.</p></div>
+      </div>
+
+      <div class="pp-section fade-up" id="s-third">
+        <div class="pp-section-num">05</div>
+        <h2>Third-Party Services</h2>
+        <p>Our website may include embedded content from third-party platforms — including YouTube videos, maps, and social media — that behave as if you have directly visited those third-party websites. These platforms may collect data about you, use cookies, and monitor your interaction with their embedded content.</p>
+        <ul>
+          <li><strong>Google Analytics</strong> — we use anonymised analytics to understand website usage. No personally identifiable information is shared.</li>
+          <li><strong>YouTube</strong> — video embeds may set cookies from Google/YouTube when played.</li>
+          <li><strong>Social Media Platforms</strong> — Facebook, Instagram, and YouTube links may use their own tracking policies when clicked.</li>
+          <li><strong>Spam Detection Services</strong> — visitor comments may be verified through automated spam detection services.</li>
+        </ul>
+        <p>We encourage you to review the privacy policies of any third-party services you interact with through our website.</p>
+      </div>
+
+      <div class="pp-section fade-up d1" id="s-cookies">
+        <div class="pp-section-num">06</div>
+        <h2>Cookies</h2>
+        <p>Our website uses cookies to enhance your browsing experience. Cookies are small files stored on your device that help us remember preferences and analyse site traffic.</p>
+        <ul>
+          <li><strong>Essential cookies</strong> — required for basic website functionality. These cannot be disabled.</li>
+          <li><strong>Preference cookies</strong> — remember your preferences such as language settings. These last up to one year.</li>
+          <li><strong>Analytics cookies</strong> — help us understand how visitors interact with the site. Data is aggregated and anonymised.</li>
+          <li><strong>Login cookies</strong> — set when you log in to our admin area. Login cookies persist for two days; "Remember Me" extends this to two weeks.</li>
+        </ul>
+        <p>You can control and manage cookies through your browser settings. Disabling cookies may affect some functionality of our website. By continuing to use our site, you consent to our use of cookies as described above.</p>
+      </div>
+
+      <div class="pp-section fade-up" id="s-rights">
+        <div class="pp-section-num">07</div>
+        <h2>Your Rights</h2>
+        <p>Depending on your location, you may have certain rights regarding your personal data under applicable data protection laws, including:</p>
+        <ul>
+          <li><strong>Right of access</strong> — request a copy of the personal data we hold about you.</li>
+          <li><strong>Right to rectification</strong> — request correction of inaccurate or incomplete information.</li>
+          <li><strong>Right to erasure</strong> — request deletion of your personal data where it is no longer necessary for the purposes for which it was collected.</li>
+          <li><strong>Right to object</strong> — object to processing of your personal data for direct marketing purposes.</li>
+          <li><strong>Right to portability</strong> — request your personal data in a structured, machine-readable format.</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us at <a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a>. We will respond within 30 days. Please note that some rights may be limited where we are required to retain data for legal or operational purposes.</p>
+      </div>
+
+      <div class="pp-section fade-up d1" id="s-contact">
+        <div class="pp-section-num">08</div>
+        <h2>Contact Information</h2>
+        <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please reach out to us through any of the following channels:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a></li>
+          <li><strong>Franchise enquiries:</strong> <a href="mailto:prasanna@madrascoffeehouse.com">prasanna@madrascoffeehouse.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></li>
+          <li><strong>Address:</strong> Madras Coffee House Pvt. Ltd., Chennai, Tamil Nadu, India</li>
+        </ul>
+        <div class="pp-highlight"><p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. Material changes will be communicated via our website. Continued use of our services after such changes constitutes your acceptance of the updated policy.</p></div>
+        <p style="margin-top:1.5rem"><a href="contact.html">&#x2190; Return to Contact Page</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:.8rem"><img src="madras.svg" alt="Madras Coffee House" style="height:54px"/></div>
+        <p>Authentic South Indian filter coffee and snacks in a modern, premium cafe environment. 180+ stores across India.</p>
+        <div class="fso">
+          <a class="fsc" href="https://www.facebook.com/madrascoffeehouseofficial/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a class="fsc" href="https://www.instagram.com/madrascoffeehouseofficial/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg></a>
+          <a class="fsc" href="https://www.youtube.com/@madrascoffeehouseofficial" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.96-1.96C18.88 4 12 4 12 4s-6.88 0-8.58.46a2.78 2.78 0 00-1.96 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.96 1.96C5.12 20 12 20 12 20s6.88 0 8.58-.46a2.78 2.78 0 001.96-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#e4272e"/></svg></a>
+        </div>
+      </div>
+      <div class="fc"><h5>Brand</h5><ul><li><a href="index.html#about">About Us</a></li><li><a href="menu.html">Our Menu</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div class="fc"><h5>Stores</h5><ul><li><a href="stores.html">Find a Store</a></li></ul></div>
+      <div class="fc"><h5>Franchise</h5><ul><li><a href="franchise.html">Why Partner With Us</a></li><li><a href="https://madrascoffeehouse.com/wp-content/uploads/2025/10/MCH-PRESENTATION-new-final-.pdf" target="_blank">Brochure</a></li><li><a href="mailto:prasanna@madrascoffeehouse.com">Enquire Now</a></li></ul></div>
+      <div class="fc"><h5>Contact</h5><ul><li><a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a></li><li><a href="tel:+919876543210">+91 98765 43210</a></li><li><a href="contact.html">Contact Page</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="fbot"><p>&#169; 2024 Madras Coffee House Pvt. Ltd. All rights reserved.</p><div style="display:flex;align-items:center;gap:.5rem"><div class="frd"></div><p>Chennai, Tamil Nadu, India</p></div></div>
+  </div>
+</footer>
+
+<script>
+const NAV=document.getElementById('nav');
+window.addEventListener('scroll',()=>NAV.classList.toggle('scrolled',scrollY>40),{passive:true});
+document.getElementById('mobBtn').addEventListener('click',()=>document.getElementById('mobNav').classList.add('open'));
+document.getElementById('mobClose').addEventListener('click',()=>document.getElementById('mobNav').classList.remove('open'));
+document.querySelectorAll('.mob-nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobNav').classList.remove('open')));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+const tocLinks=document.querySelectorAll('.toc-list a');
+const sections=document.querySelectorAll('.pp-section');
+window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});tocLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});},{passive:true});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();const top=tgt.getBoundingClientRect().top+scrollY-NAV.offsetHeight-16;window.scrollTo({top,behavior:'smooth'});}});});
+document.body.style.opacity='0';document.body.style.transition='opacity .3s';
+setTimeout(()=>document.body.style.opacity='1',50);
+document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href');if(!h||h.startsWith('#')||h.startsWith('mailto:')||h.startsWith('tel:')||h.startsWith('http')||a.target==="_blank")return;a.addEventListener('click',e=>{e.preventDefault();document.body.style.opacity='0';setTimeout(()=>window.location.href=h,300);});});
+</script>
+  <script src="mobile.js" defer></script>
+</body>
+</html>
+

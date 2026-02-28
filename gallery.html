@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gallery — Madras Coffee House</title>
+<meta name="description" content="Explore the Madras Coffee House gallery — award-winning moments, store ambiences, and authentic brewing across 180+ stores."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--red:#e4272e;--orange:#f3920a;--white:#fefefe;--black:#111111;--gray:#6b7280;--light:#f8f8f6;--border:#e5e5e0}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:'Inter',sans-serif;overflow-x:hidden}
+/* NAVBAR */
+nav#nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s;background:var(--white);box-shadow:0 1px 0 var(--border)}
+#nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64px}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo img{height:48px;width:auto;display:block;object-fit:contain;transition:transform .3s ease}
+.logo img:hover{transform:scale(1.04)}
+.nav-center{display:flex;gap:0;list-style:none;margin:0;padding:0;align-items:center}
+.nav-center li{list-style:none;display:flex;align-items:center}
+.nav-center a{display:inline-flex;align-items:center;padding:.5rem 1.1rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--black);text-decoration:none;position:relative;transition:color .25s;font-family:'Inter',sans-serif}
+.nav-center a::after{content:'';position:absolute;left:1.1rem;right:1.1rem;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s cubic-bezier(.25,.46,.45,.94)}
+.nav-center a:hover,.nav-center a.active{color:var(--red)}
+.nav-center a:hover::after,.nav-center a.active::after{transform:scaleX(1)}
+.nav-right{display:flex;gap:.75rem;align-items:center;flex-shrink:0}
+.btn-outline-nav{background:transparent;color:var(--red);border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-outline-nav:hover{background:var(--red);color:#fff}
+.btn-solid-nav{background:var(--red);color:#fff;border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-solid-nav:hover{background:#c41f25;border-color:#c41f25}
+.mobile-menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent}
+.mobile-menu-btn span{display:block;width:22px;height:2px;background:var(--black);transition:all .3s}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.fade-up.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+@keyframes fsu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+#hero{position:relative;min-height:460px;padding:100px 5%;background:url('https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg') center/cover no-repeat,#1a0800;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.65) 100%)}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.hero-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--orange);margin-bottom:1.4rem;opacity:0;animation:fsu .8s .2s forwards}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5.2rem);font-weight:900;color:#fff;letter-spacing:.04em;text-transform:uppercase;line-height:1;margin-bottom:.9rem;opacity:0;animation:fsu .8s .4s forwards}
+.hero-underline{width:72px;height:3px;background:var(--orange);margin:0 auto 1.4rem;opacity:0;animation:fsu .8s .6s forwards}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.8);line-height:1.7;max-width:520px;margin:0 auto 2rem;opacity:0;animation:fsu .8s .75s forwards}
+.hero-btn{display:inline-block;background:var(--red);color:#fff;padding:.9rem 2.2rem;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .25s,transform .2s,box-shadow .25s;opacity:0;animation:fsu .8s .9s forwards;font-family:'Inter',sans-serif}
+.hero-btn:hover{background:#c41f25;transform:translateY(-3px);box-shadow:0 10px 28px rgba(228,39,46,.3)}
+#intro{padding:80px 5%;text-align:center;background:var(--white)}
+.int-w{max-width:680px;margin:0 auto}
+.sec-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:var(--orange);margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;gap:.75rem}
+.sec-eyebrow::before,.sec-eyebrow::after{content:'';flex:1;max-width:40px;height:1.5px;background:var(--orange)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;color:var(--black);margin-bottom:.8rem;line-height:1.15}
+.sec-rule{width:40px;height:3px;background:var(--red);margin:.8rem auto 1.8rem}
+.int-p{font-size:.95rem;color:var(--gray);line-height:1.9;max-width:600px;margin:0 auto}
+#awards{background:var(--light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 5%}
+.aw-w{max-width:1280px;margin:0 auto}
+.aw-lbl{font-size:.62rem;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:var(--gray);text-align:center;margin-bottom:1.6rem}
+.aw-list{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.aw-b{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--orange);padding:.65rem 1.2rem;font-size:.75rem;font-weight:600;color:var(--black);transition:box-shadow .25s}
+.aw-b:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.aw-b span{color:var(--orange);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.15rem}
+#gallery-grid{padding:80px 5%;background:var(--white)}
+.gh{text-align:center;max-width:580px;margin:0 auto 3.5rem}
+.gh h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--black);margin:.8rem 0 .6rem;line-height:1.1}
+.gh-rule{width:40px;height:3px;background:var(--red);margin:.8rem auto 0}
+.gallery-filters{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+.filter-btn{padding:.5rem 1.2rem;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;border-radius:50px;transition:all .25s;font-family:'Inter',sans-serif}
+.filter-btn:hover{border-color:var(--red);color:var(--red)}
+.filter-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
+.masonry{columns:4;column-gap:1rem;max-width:1280px;margin:0 auto}
+.gal-item{break-inside:avoid;margin-bottom:1rem;position:relative;overflow:hidden;border-radius:6px;cursor:pointer;background:var(--light);box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.gal-item img{width:100%;height:auto;display:block;transition:transform .5s ease;border-radius:6px}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-ov{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .35s;border-radius:6px;display:flex;align-items:flex-end;padding:1rem}
+.gal-item:hover .gal-ov{background:rgba(0,0,0,.45)}
+.gal-cap{color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:all .3s}
+.gal-item:hover .gal-cap{opacity:1;transform:none}
+.gal-ic{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:rgba(255,255,255,.9);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s ease;color:var(--red)}
+.gal-item:hover .gal-ic{transform:translate(-50%,-50%) scale(1)}
+.gal-item.hidden{display:none}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:2000;display:none;align-items:center;justify-content:center;padding:2rem}
+#lightbox.open{display:flex}
+.lb-inner{position:relative;max-width:900px;width:100%;text-align:center}
+#lb-img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:4px;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+#lb-cap{color:rgba(255,255,255,.75);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:1rem}
+.lb-close{position:fixed;top:1.5rem;right:2rem;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s;z-index:2001}
+.lb-close:hover{background:var(--red)}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.8rem;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .25s;z-index:2001}
+.lb-nav:hover{background:var(--red)}
+#lb-prev{left:1.5rem}#lb-next{right:1.5rem}
+footer{background:var(--white);border-top:1px solid var(--border);padding:80px 5% 40px}
+.fi{max-width:1280px;margin:0 auto}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.fb p{font-size:.8rem;color:var(--gray);line-height:1.75;margin:1rem 0 1.2rem}
+.fso{display:flex;gap:.6rem}
+.fsc{width:38px;height:38px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(228,39,46,.3);flex-shrink:0}
+.fsc:hover{background:var(--orange);transform:scale(1.1);box-shadow:0 6px 18px rgba(243,146,10,.4)}
+.fsc svg{width:16px;height:16px;flex-shrink:0}
+.fc h5{font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--black);margin-bottom:1.2rem}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.fc a{font-size:.8rem;color:var(--gray);text-decoration:none;transition:color .25s}
+.fc a:hover{color:var(--red)}
+.fbot{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:.75rem}
+.fbot p{font-size:.72rem;color:var(--gray)}
+.frd{width:6px;height:6px;background:var(--red);border-radius:50%}
+@media(max-width:1024px){.masonry{columns:3}.ft{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.masonry{columns:2}.nav-center{display:none}.mob-btn{display:flex}}
+@media(max-width:480px){.masonry{columns:1}.ft{grid-template-columns:1fr}}
+</style>
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="logo">
+    <img src="madras.svg" alt="Madras Coffee House" loading="eager"/>
+  </a>
+  <ul class="nav-center">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Our Menu</a></li>
+    
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="franchise.html">Franchise</a></li>
+    <li><a href="stores.html">Our Stores</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="stores.html" class="btn-outline-nav">Find a Store</a>
+    <a href="franchise.html" class="btn-solid-nav">Become a Partner</a>
+  </div>
+  <button class="mobile-menu-btn mob-btn" id="mobBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Madras Coffee House</div>
+    <h1 class="hero-title">Gallery</h1>
+    <div class="hero-underline"></div>
+    <p class="hero-sub">Moments Brewed with Authenticity & Heritage.</p>
+    <a href="franchise.html" class="hero-btn">Start Your Franchise Journey</a>
+  </div>
+</section>
+
+<section id="intro">
+  <div class="int-w">
+    <div class="sec-eyebrow fade-up">Our Story in Images</div>
+    <h2 class="sec-title fade-up d1">180+ Stores. One Authentic Heritage.</h2>
+    <div class="sec-rule fade-up d2"></div>
+    <p class="int-p fade-up d3">From our first brew in Chennai to openings across metro India, every image in this gallery captures the soul of Madras Coffee House — the warmth of authentic filter coffee, the pride of our people, and the recognition our brand has earned over 15 remarkable years of consistent quality and growth.</p>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="aw-w">
+    <div class="aw-lbl">Achievements &amp; Recognition</div>
+    <div class="aw-list">
+      <div class="aw-b fade-up"><span>Times Food &amp; Nightlife</span>Best Filter Coffee Chain</div>
+      <div class="aw-b fade-up d1"><span>MSME Award</span>Outstanding QSR Brand</div>
+      <div class="aw-b fade-up d2"><span>Times Hospitality Icons</span>Heritage F&amp;B Brand</div>
+      <div class="aw-b fade-up d3"><span>Entrepreneurs of the Year 2016</span>Food &amp; Beverage Category</div>
+      <div class="aw-b fade-up d4"><span>IMRB Best Restaurant Survey 2017</span>Top Rated Coffee Chain</div>
+      <div class="aw-b fade-up"><span>IFSS &middot; GJIIF</span>National F&amp;B Excellence</div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery-grid">
+  <div class="gh fade-up">
+    <div class="sec-eyebrow">Visual Journey</div>
+    <h2>Stories from Every Store</h2>
+    <div class="gh-rule"></div>
+  </div>
+  <div class="gallery-filters fade-up d1">
+    <button class="filter-btn active" data-filter="all">ALL</button>
+    <button class="filter-btn" data-filter="stores">STORES</button>
+    <button class="filter-btn" data-filter="filter-coffee">FILTER COFFEE</button>
+    <button class="filter-btn" data-filter="people">PEOPLE</button>
+    <button class="filter-btn" data-filter="awards">AWARDS</button>
+    <button class="filter-btn" data-filter="food">FOOD</button>
+  </div>
+  <div class="masonry" id="masonry">
+    <div class="gallery-card gal-item fade-up" data-category="stores" data-cap="Chennai Flagship Store"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Chennai Flagship" loading="lazy"/><div class="gal-ov"><span class="gal-cap">Chennai Flagship</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d1" data-category="filter-coffee" data-cap="Authentic Degree Filter Coffee"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png" alt="Filter Coffee" loading="lazy"/><div class="gal-ov"><span class="gal-cap">Degree Filter Coffee</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d2" data-category="awards" data-cap="Times Hospitality Icons Award"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Award" loading="lazy" style="height:220px;object-fit:cover"/><div class="gal-ov"><span class="gal-cap">Times Hospitality Icons</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d3" data-category="food" data-cap="South Indian Tiffin Spread"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png" alt="Tiffin" loading="lazy" style="height:260px;object-fit:cover"/><div class="gal-ov"><span class="gal-cap">Tiffin Spread</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up" data-category="stores" data-cap="Bangalore Metro Station Outlet"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Bangalore" loading="lazy" style="height:240px;object-fit:cover"/><div class="gal-ov"><span class="gal-cap">Bangalore Metro Outlet</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d1" data-category="people" data-cap="Our Passionate Brewing Team"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png" alt="Team" loading="lazy"/><div class="gal-ov"><span class="gal-cap">Our Brewing Team</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d2" data-category="filter-coffee" data-cap="The Davara-Tumbler Pour Ritual"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Davara Pour" loading="lazy" style="height:280px;object-fit:cover"/><div class="gal-ov"><span class="gal-cap">Davara-Tumbler Ritual</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d3" data-category="awards" data-cap="IMRB Best Restaurant Survey 2017"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png" alt="IMRB" loading="lazy" style="height:200px;object-fit:cover"/><div class="gal-ov"><span class="gal-cap">IMRB Best Restaurant 2017</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up" data-category="stores" data-cap="Mumbai Airport Outlet"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Mumbai" loading="lazy"/><div class="gal-ov"><span class="gal-cap">Mumbai Airport</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d1" data-category="food" data-cap="Crispy Masala Dosa and Chutneys"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png" alt="Masala Dosa" loading="lazy" style="height:250px;object-fit:cover"/><div class="gal-ov"><span class="gal-cap">Masala Dosa</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d2" data-category="people" data-cap="Franchise Partner Inauguration"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg" alt="Franchise" loading="lazy" style="height:230px;object-fit:cover"/><div class="gal-ov"><span class="gal-cap">Partner Inauguration</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    <div class="gallery-card gal-item fade-up d3" data-category="stores" data-cap="Hyderabad Airport Terminal"><img src="https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png" alt="Hyderabad Airport" loading="lazy"/><div class="gal-ov"><span class="gal-cap">Hyderabad Airport</span></div><div class="gal-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+  </div>
+</section>
+
+<div id="lightbox">
+  <button class="lb-close" id="lbClose">&#x2715;</button>
+  <button class="lb-nav" id="lb-prev">&#x2039;</button>
+  <div class="lb-inner"><img id="lb-img" src="" alt=""/><div id="lb-cap"></div></div>
+  <button class="lb-nav" id="lb-next">&#x203a;</button>
+</div>
+
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:.8rem"><img src="madras.svg" alt="Madras Coffee House" style="height:54px"/></div>
+        <p>Authentic South Indian filter coffee and snacks in a modern, premium cafe environment. 180+ stores across India.</p>
+        <div class="fso">
+          <a class="fsc" href="https://www.facebook.com/madrascoffeehouseofficial/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a class="fsc" href="https://www.instagram.com/madrascoffeehouseofficial/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg></a>
+          <a class="fsc" href="https://www.youtube.com/@madrascoffeehouseofficial" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.96-1.96C18.88 4 12 4 12 4s-6.88 0-8.58.46a2.78 2.78 0 00-1.96 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.96 1.96C5.12 20 12 20 12 20s6.88 0 8.58-.46a2.78 2.78 0 001.96-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#e4272e"/></svg></a>
+        </div>
+      </div>
+      <div class="fc"><h5>Brand</h5><ul><li><a href="index.html#about">About Us</a></li><li><a href="menu.html">Our Menu</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div class="fc"><h5>Stores</h5><ul><li><a href="stores.html">Find a Store</a></li></ul></div>
+      <div class="fc"><h5>Franchise</h5><ul><li><a href="franchise.html">Why Partner With Us</a></li><li><a href="https://madrascoffeehouse.com/wp-content/uploads/2025/10/MCH-PRESENTATION-new-final-.pdf" target="_blank">Brochure</a></li><li><a href="mailto:prasanna@madrascoffeehouse.com">Enquire Now</a></li></ul></div>
+      <div class="fc"><h5>Contact</h5><ul><li><a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a></li><li><a href="tel:+919876543210">+91 98765 43210</a></li><li><a href="contact.html">Contact Page</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="fbot"><p>&#169; 2024 Madras Coffee House Pvt. Ltd. All rights reserved.</p><div style="display:flex;align-items:center;gap:.5rem"><div class="frd"></div><p>Chennai, Tamil Nadu, India</p></div></div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const galleryCards = document.querySelectorAll('.gallery-card');
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      const filterValue = this.getAttribute('data-filter');
+      galleryCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === "all" || (category && category.includes(filterValue))) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+let ci=0;const vi=()=>[...document.querySelectorAll('.gallery-card')].filter(i=>i.style.display!=='none');
+function openLB(item){const items=vi();ci=items.indexOf(item);setLB(ci,items);document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function setLB(idx,items){const els=items||vi();if(!els[idx])return;const img=els[idx].querySelector('img');document.getElementById('lb-img').src=img.src;document.getElementById('lb-img').alt=img.alt;document.getElementById('lb-cap').textContent=els[idx].dataset.cap||'';}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.gallery-card').forEach(item=>item.addEventListener('click',()=>openLB(item)));
+document.getElementById('lbClose').addEventListener('click',closeLB);
+document.getElementById('lb-prev').addEventListener('click',()=>{const items=vi();ci=(ci-1+items.length)%items.length;setLB(ci,items);});
+document.getElementById('lb-next').addEventListener('click',()=>{const items=vi();ci=(ci+1)%items.length;setLB(ci,items);});
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLB();});
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft'){const items=vi();ci=(ci-1+items.length)%items.length;setLB(ci,items);}if(e.key==='ArrowRight'){const items=vi();ci=(ci+1)%items.length;setLB(ci,items);}});
+document.body.style.opacity='0';document.body.style.transition='opacity .3s';
+setTimeout(()=>document.body.style.opacity='1',50);
+document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href');if(!h||h.startsWith('#')||h.startsWith('mailto:')||h.startsWith('tel:')||h.startsWith('http')||a.target==="_blank")return;a.addEventListener('click',e=>{e.preventDefault();document.body.style.opacity='0';setTimeout(()=>window.location.href=h,300);});});
+</script>
+  <script src="mobile.js" defer></script>
+</body>
+</html>
+

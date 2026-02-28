@@ -1,0 +1,867 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Our Menu — Madras Coffee House</title>
+<meta name="description" content="Explore our authentic South Indian filter coffee menu. From classic degree coffee to signature snacks and combos — brewed fresh at every Madras Coffee House store."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── DESIGN SYSTEM ─────────────────────────────────── */
+:root{--red:#e4272e;--orange:#f3920a;--white:#fefefe;--black:#111111;--gray:#6b7280;--light:#f8f8f6;--border:#e5e5e0}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--white);color:var(--black);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* ── NAVBAR ────────────────────────────────────────── */
+nav#nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s;background:transparent}
+#nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border);height:64px}
+#nav.nav-solid{background:var(--white);box-shadow:0 1px 0 var(--border)}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo img{height:48px;width:auto;display:block;object-fit:contain;transition:transform .3s ease}
+.logo img:hover{transform:scale(1.04)}
+.nav-center{display:flex;gap:0;list-style:none}
+.nav-center a{display:inline-block;padding:.5rem 1.1rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--black);text-decoration:none;position:relative;transition:color .25s}
+.nav-center a::after{content:'';position:absolute;left:1.1rem;right:1.1rem;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s cubic-bezier(.25,.46,.45,.94)}
+.nav-center a:hover{color:var(--red)}
+.nav-center a:hover::after,.nav-center a.active::after{transform:scaleX(1)}
+.nav-center a.active{color:var(--red)}
+.nav-right{display:flex;gap:.75rem;align-items:center;flex-shrink:0}
+.btn-outline-nav{background:transparent;color:var(--red);border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none}
+.btn-outline-nav:hover{background:var(--red);color:#fff}
+.btn-solid-nav{background:var(--red);color:#fff;border:1.5px solid var(--red);padding:.48rem 1.1rem;font-size:.74rem;font-weight:600;letter-spacing:.05em;cursor:pointer;transition:all .25s;text-decoration:none}
+.btn-solid-nav:hover{background:#c41f25;border-color:#c41f25}
+.mobile-menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent}
+.mobile-menu-btn span{display:block;width:22px;height:2px;background:var(--black);transition:all .3s}
+.mobile-nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:1.3rem;font-weight:700;color:var(--black);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.mobile-nav a:hover{color:var(--red)}
+.mobile-nav-close{position:absolute;top:1.5rem;right:5%;font-size:1.8rem;cursor:pointer;color:var(--black);border:none;background:transparent}
+
+/* ── REVEAL ANIMATIONS ─────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
+.fade-up.in{opacity:1;transform:translateY(0)}
+.fade-in{opacity:0;transition:opacity .75s ease}
+.fade-in.in{opacity:1}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ── HERO SLIDER ───────────────────────────────────── */
+#menu-hero{position:relative;min-height:460px;padding:100px 5%;overflow:hidden}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-size:cover;background-position:center}
+.hero-slide.active{opacity:1}
+.hero-slide:nth-child(1){background-image:url('https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png'),linear-gradient(135deg,#1a0a00,#3d1a00)}
+.hero-slide:nth-child(2){background-image:url('https://madrascoffeehouse.com/wp-content/uploads/2023/08/about-hero.jpg'),linear-gradient(135deg,#0a0a1a,#1a0a2d)}
+.hero-slide:nth-child(3){background-image:url('https://madrascoffeehouse.com/wp-content/uploads/2023/08/home-coffee.png'),linear-gradient(135deg,#0a1a00,#1a2d00)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.7) 100%)}
+.hero-content-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem;opacity:0;animation:fadeSlideUp .8s .3s forwards}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6rem);font-weight:900;color:#fff;letter-spacing:.04em;text-transform:uppercase;line-height:1;margin-bottom:1.2rem;opacity:0;animation:fadeSlideUp .8s .5s forwards}
+.hero-underline{width:80px;height:3px;background:var(--orange);margin:0 auto 1.5rem;opacity:0;animation:fadeSlideUp .8s .7s forwards}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.75);letter-spacing:.06em;text-transform:uppercase;opacity:0;animation:fadeSlideUp .8s .9s forwards}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:3}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:all .3s;padding:0}
+.hero-dot.active{background:var(--orange);width:24px;border-radius:4px}
+
+/* ── STICKY CATEGORY NAV ───────────────────────────── */
+#cat-nav{position:sticky;top:72px;z-index:100;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.06);transition:top 0.35s ease}
+.cat-nav-inner{max-width:1280px;margin:0 auto;padding:0 5%;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;justify-content:center}
+@media (max-width: 1024px) { .cat-nav-inner { justify-content: flex-start; } }
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-link{display:inline-flex;align-items:center;gap:.5rem;padding:1.1rem 1.4rem;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;position:relative;transition:all .3s ease;white-space:nowrap;cursor:pointer;border:none;background:transparent;font-family:'Inter',sans-serif}
+.cat-link:hover{color:var(--red)}
+.cat-link.active{color:var(--red)}
+.cat-link::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:4px;background:var(--red);transform:scaleX(0);transition:transform .3s cubic-bezier(0.19, 1, 0.22, 1);border-radius:4px 4px 0 0}
+.cat-link.active::after{transform:scaleX(1)}
+#cat-nav{transition:background 0.3s, border-color 0.3s, top 0.35s ease}
+
+/* ── SECTION HEADERS ───────────────────────────────── */
+.menu-section{padding:80px 5%}
+.menu-section:nth-child(even){background:var(--light)}
+.section-header{max-width:1280px;margin:0 auto 3rem}
+.sec-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.sec-eyebrow::after{content:'';flex:1;max-width:40px;height:1.5px;background:var(--orange)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;color:var(--black);line-height:1.1;margin-bottom:.6rem}
+.sec-divider{width:36px;height:3px;background:var(--red);margin-top:.8rem}
+
+/* ── MENU GRID ─────────────────────────────────────── */
+.menu-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+
+/* ── MENU CARD ─────────────────────────────────────── */
+.menu-card{background:var(--white);border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border);border-top:3px solid var(--orange);display:flex;align-items:center;gap:1rem;padding:1.1rem 1.2rem;transition:transform .3s ease,box-shadow .3s ease;overflow:hidden}
+.menu-card:hover{transform:translateY(-5px);box-shadow:0 8px 28px rgba(228,39,46,.12)}
+.menu-card:hover .mc-thumb{transform:scale(1.05)}
+.mc-thumb-wrap{width:72px;height:72px;border-radius:8px;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,#fde8cc,#fef3f3)}
+.mc-thumb{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;display:block}
+.mc-thumb-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.mc-body{flex:1;min-width:0}
+.mc-name{font-size:.88rem;font-weight:700;color:var(--black);margin-bottom:.25rem;line-height:1.3}
+.mc-desc{font-size:.75rem;color:var(--gray);line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-tag{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(243,146,10,.3);padding:.15rem .45rem;margin-top:.4rem;border-radius:2px}
+
+/* ── FEATURED STRIP ────────────────────────────────── */
+#featured-strip{background:var(--red);padding:80px 5%;text-align:center}
+.feat-inner{max-width:760px;margin:0 auto}
+.feat-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:1.2rem}
+.feat-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.2rem}
+.feat-underline{width:60px;height:3px;background:var(--orange);margin:0 auto 1.5rem}
+.feat-desc{font-size:.95rem;color:rgba(255,255,255,.8);line-height:1.85;max-width:580px;margin:0 auto}
+
+/* ── FOOTER ────────────────────────────────────────── */
+footer{background:var(--white);border-top:1px solid var(--border);padding:80px 5% 40px}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.8rem;color:var(--gray);line-height:1.75;margin:1rem 0 1.2rem}
+.footer-socials{display:flex;gap:.6rem}
+.fsoc{width:38px;height:38px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(228,39,46,.3);flex-shrink:0}
+.fsoc:hover{background:var(--orange);transform:scale(1.1);box-shadow:0 6px 18px rgba(243,146,10,.4)}
+.fsoc svg{width:16px;height:16px;flex-shrink:0}
+.footer-col h5{font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--black);margin-bottom:1.2rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-col a{font-size:.8rem;color:var(--gray);text-decoration:none;transition:color .25s}
+.footer-col a:hover{color:var(--red)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.72rem;color:var(--gray)}
+.footer-bottom a{font-size:.72rem;color:var(--gray);text-decoration:none}
+.footer-bottom a:hover{color:var(--red)}
+.footer-red-dot{width:6px;height:6px;background:var(--red);border-radius:50%}
+
+/* ── RESPONSIVE ────────────────────────────────────── */
+@media(max-width:1024px){
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  nav{padding:0 4%}
+}
+@media(max-width:640px){
+  .menu-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  nav{padding:0 4%}
+  .nav-center,.nav-right .btn-outline-nav{display:none}
+  .mobile-menu-btn{display:flex}
+  #menu-hero{height:80vh}
+  .cat-link{padding:.7rem .8rem;font-size:.68rem}
+}
+</style>
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ════════════════════════════════════════════════ -->
+<nav id="nav" class="nav-solid">
+  <a href="index.html" class="logo">
+    <img src="madras.svg" alt="Madras Coffee House" loading="eager"/>
+  </a>
+  <ul class="nav-center">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html" class="active">Our Menu</a></li>
+    
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="franchise.html">Franchise</a></li>
+    <li><a href="stores.html">Our Stores</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="stores.html" class="btn-outline-nav">Find a Store</a>
+    <a href="franchise.html" class="btn-solid-nav">Become a Partner</a>
+  </div>
+  <button class="mobile-menu-btn mob-btn" id="mobBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ HERO SLIDER ════════════════════════════════════════════ -->
+<section id="menu-hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content-wrap">
+    <div class="hero-eyebrow">Madras Coffee House</div>
+    <h1 class="hero-title">Our Menu</h1>
+    <div class="hero-underline"></div>
+    <p class="hero-sub">Brewed Fresh · Served Authentic</p>
+  </div>
+  <div class="hero-dots">
+    <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+    <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+  </div>
+</section>
+
+<!-- ══ STICKY CATEGORY NAV ═══════════════════════════════════ -->
+<nav id="cat-nav" aria-label="Menu categories">
+  <div class="cat-nav-inner">
+    <button class="cat-link active" data-target="filter-coffee">☕ FILTER COFFEE</button>
+    <button class="cat-link" data-target="beverages">🥤 BEVERAGES</button>
+    <button class="cat-link" data-target="tiffin">🍽️ TIFFIN</button>
+    <button class="cat-link" data-target="snacks">🥜 SNACKS</button>
+    <button class="cat-link" data-target="meals">🍛 MEALS</button>
+    <button class="cat-link" data-target="combos">🎁 COMBOS</button>
+    <button class="cat-link" data-target="sweets">🍮 SWEETS</button>
+    <button class="cat-link" data-target="specials">⭐ SPECIALS</button>
+  </div>
+</nav>
+
+<!-- ══ FEATURED STRIP ════════════════════════════════════════ -->
+<section id="featured-strip">
+  <div class="feat-inner fade-up">
+    <p class="feat-eyebrow">The Heart of Our Menu</p>
+    <h2 class="feat-title">Authentic Degree Filter Coffee</h2>
+    <div class="feat-underline"></div>
+    <p class="feat-desc">Brewed the traditional way — coarsely ground beans filtered slowly through our proprietary brass filter, poured from height in the classic davara-tumbler ritual. Every cup carries 15 years of heritage in a single sip.</p>
+  </div>
+</section>
+
+<!-- ══ FILTER COFFEE ══════════════════════════════════════════ -->
+<section class="menu-section" id="filter-coffee">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">Signature Category</div>
+    <h2 class="sec-title">Filter Coffee</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Degree Filter Coffee</div>
+        <div class="mc-desc">Classic strong decoction with full-cream milk, davara-tumbler served</div>
+        <span class="mc-tag">Signature</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Madras Filter Coffee</div>
+        <div class="mc-desc">Medium-strong blend, extra frothy pour, the original Madras style</div>
+        <span class="mc-tag">Bestseller</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Strong Filter Coffee</div>
+        <div class="mc-desc">High decoction ratio, robust South Indian blend for a bold kick</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Light Filter Coffee</div>
+        <div class="mc-desc">Mild decoction, smooth and gentle — perfect for a relaxed morning</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Cardamom Filter Coffee</div>
+        <div class="mc-desc">Traditional brew infused with freshly ground cardamom for warm spice</div>
+        <span class="mc-tag">Heritage</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d3">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Jaggery Coffee</div>
+        <div class="mc-desc">Filter decoction sweetened with pure cane jaggery — nostalgic & earthy</div>
+        <span class="mc-tag">Traditional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BEVERAGES ══════════════════════════════════════════════ -->
+<section class="menu-section" id="beverages">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">Cold & Hot Drinks</div>
+    <h2 class="sec-title">Beverages</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🧋</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Cold Coffee</div>
+        <div class="mc-desc">Chilled decoction blended with chilled milk and a hint of vanilla</div>
+        <span class="mc-tag">Cold</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥛</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Badam Milk</div>
+        <div class="mc-desc">Rich warm milk infused with almond paste, saffron, and cardamom</div>
+        <span class="mc-tag">Hot</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🫖</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Masala Tea</div>
+        <div class="mc-desc">Ginger, tulsi & spice-blended chai brewed the traditional way</div>
+        <span class="mc-tag">Hot</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍵</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Ginger Tea</div>
+        <div class="mc-desc">Strong ginger-forward tea, warming and rejuvenating</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥤</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Mango Lassi</div>
+        <div class="mc-desc">Thick Alphonso mango pulp blended with fresh curd and cardamom</div>
+        <span class="mc-tag">Cold</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍋</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Lemon Soda</div>
+        <div class="mc-desc">Fresh lime, black salt, and chilled soda — crisp and citrusy</div>
+        <span class="mc-tag">Cold</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIFFIN ═════════════════════════════════════════════════ -->
+<section class="menu-section" id="tiffin">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">South Indian Classics</div>
+    <h2 class="sec-title">Tiffin</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🫓</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Plain Dosa</div>
+        <div class="mc-desc">Crispy thin rice-lentil crepe served with sambar and coconut chutney</div>
+        <span class="mc-tag">Classic</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥙</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Masala Dosa</div>
+        <div class="mc-desc">Golden dosa filled with spiced potato masala, served with chutneys</div>
+        <span class="mc-tag">Bestseller</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🧇</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Onion Rava Dosa</div>
+        <div class="mc-desc">Crispy semolina crepe with onion, green chilli, and cumin</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥟</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Idli (2 pcs)</div>
+        <div class="mc-desc">Soft steamed rice cakes served with sambar, tomato & coconut chutney</div>
+        <span class="mc-tag">Classic</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥘</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Pongal</div>
+        <div class="mc-desc">Comforting rice-lentil porridge with ghee, pepper, cumin, and cashew</div>
+        <span class="mc-tag">Heritage</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍲</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Upma</div>
+        <div class="mc-desc">Tempered semolina with mustard, curry leaf, and vegetables</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SNACKS ═════════════════════════════════════════════════ -->
+<section class="menu-section" id="snacks">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">Perfect with Coffee</div>
+    <h2 class="sec-title">Snacks</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥐</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Vada (2 pcs)</div>
+        <div class="mc-desc">Crispy lentil doughnuts served with coconut chutney and sambar</div>
+        <span class="mc-tag">Classic</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🧆</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Samosa (2 pcs)</div>
+        <div class="mc-desc">Flaky pastry filled with spiced potato and green peas, fried golden</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🫔</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Bajji Platter</div>
+        <div class="mc-desc">Assorted fritters — onion, chilli, and banana — with green chutney</div>
+        <span class="mc-tag">Shareable</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍞</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Bread Bajji</div>
+        <div class="mc-desc">Bread slices dipped in spiced gram flour batter, deep fried crispy</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🌽</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Murukku</div>
+        <div class="mc-desc">Traditional South Indian spiral rice crackers — crunchy and savoury</div>
+        <span class="mc-tag">Traditional</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥨</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Mixture</div>
+        <div class="mc-desc">House blend of savoury fried snacks with peanuts, sev, and poha</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEALS ══════════════════════════════════════════════════ -->
+<section class="menu-section" id="meals">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">Full & Filling</div>
+    <h2 class="sec-title">Meals</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍛</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Mini Meals</div>
+        <div class="mc-desc">Rice, sambar, rasam, 2 veg curries, papad, curd — balanced & wholesome</div>
+        <span class="mc-tag">Value</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥗</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Full Meals</div>
+        <div class="mc-desc">Unlimited rice, sambar, rasam, 3 curries, kootu, pickle, papad, curd</div>
+        <span class="mc-tag">Unlimited</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍚</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Curd Rice</div>
+        <div class="mc-desc">Tempered curd rice with mustard, curry leaf, ginger, and pomegranate</div>
+        <span class="mc-tag">Comfort</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥣</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Sambar Rice</div>
+        <div class="mc-desc">Slow-cooked sambar ladled over soft-boiled rice with a dollop of ghee</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🫙</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Lemon Rice</div>
+        <div class="mc-desc">Turmeric-tossed rice with lemon, peanuts, mustard and curry leaves</div>
+        <span class="mc-tag">Light</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍱</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Tamarind Rice</div>
+        <div class="mc-desc">Puliyodarai — tangy tamarind rice with sesame and groundnut tempering</div>
+        <span class="mc-tag">Heritage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMBOS ═════════════════════════════════════════════════ -->
+<section class="menu-section" id="combos">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">Best Value</div>
+    <h2 class="sec-title">Combos</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Coffee + Idli Combo</div>
+        <div class="mc-desc">Degree filter coffee with 2 soft idlis, sambar and 2 chutneys</div>
+        <span class="mc-tag">Morning Deal</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥙</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Coffee + Dosa Combo</div>
+        <div class="mc-desc">Filter coffee paired with a crispy masala dosa and two chutneys</div>
+        <span class="mc-tag">Bestseller</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥜</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Coffee + Vada Combo</div>
+        <div class="mc-desc">Hot filter coffee with 2 medhu vadas and coconut chutney</div>
+        <span class="mc-tag">Snack Pack</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍽️</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Tiffin + Coffee Combo</div>
+        <div class="mc-desc">Choice of any tiffin item + degree filter coffee at combo price</div>
+        <span class="mc-tag">Flexible</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🎁</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Full Breakfast Combo</div>
+        <div class="mc-desc">Idli, vada, pongal + 2 coffees — the complete South Indian breakfast</div>
+        <span class="mc-tag">Value Pack</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">☕</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Evening Snack Combo</div>
+        <div class="mc-desc">Masala tea or coffee with bajji platter — perfect 5 PM ritual</div>
+        <span class="mc-tag">Evening</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SWEETS ═════════════════════════════════════════════════ -->
+<section class="menu-section" id="sweets">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">Traditional Indulgences</div>
+    <h2 class="sec-title">Sweets</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍮</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Kesari</div>
+        <div class="mc-desc">Semolina halwa with saffron, ghee, cashew and golden raisins</div>
+        <span class="mc-tag">Classic</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍯</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Mysore Pak</div>
+        <div class="mc-desc">Melt-in-mouth gram flour sweet with generous amounts of pure ghee</div>
+        <span class="mc-tag">Heritage</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍬</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Halwa</div>
+        <div class="mc-desc">Wheat or carrot halwa slow-cooked with ghee, dry fruits, and cardamom</div>
+      </div>
+    </div>
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥛</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Payasam</div>
+        <div class="mc-desc">Creamy rice or vermicelli kheer with condensed milk, saffron, cashew</div>
+        <span class="mc-tag">Festival</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍡</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Kozhukattai</div>
+        <div class="mc-desc">Steamed rice flour dumplings filled with coconut-jaggery stuffing</div>
+        <span class="mc-tag">Traditional</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🍭</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Ladoo</div>
+        <div class="mc-desc">Soft besan ladoos rolled with cardamom, ghee, and powdered sugar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPECIALS ═══════════════════════════════════════════════ -->
+<section class="menu-section" id="specials">
+  <div class="section-header fade-up">
+    <div class="sec-eyebrow">Chef's Picks</div>
+    <h2 class="sec-title">Specials</h2>
+    <div class="sec-divider"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">⭐</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Ghee Roast Dosa</div>
+        <div class="mc-desc">Extra crispy dosa lavishly roasted with pure clarified butter</div>
+        <span class="mc-tag">Chef's Special</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🌟</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Set Dosa (3 pcs)</div>
+        <div class="mc-desc">Soft, spongy mini dosas served with saagu and coconut chutney</div>
+        <span class="mc-tag">Karnataka Style</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">💫</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Filter Coffee Ice Cream</div>
+        <div class="mc-desc">House-made vanilla bean ice cream with a cold filter decoction drizzle</div>
+        <span class="mc-tag">New</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🎯</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Kongu Pongal</div>
+        <div class="mc-desc">Regional Kongu Nadu style pongal with extra ghee and pepper seasoning</div>
+        <span class="mc-tag">Regional</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d1">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🏆</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Kuzhi Paniyaram</div>
+        <div class="mc-desc">Spiced fermented rice-lentil balls cooked in cast iron, crispy outside</div>
+        <span class="mc-tag">Heritage</span>
+      </div>
+    </div>
+    <div class="menu-card fade-up d2">
+      <div class="mc-thumb-wrap"><div class="mc-thumb-fallback">🥞</div></div>
+      <div class="mc-body">
+        <div class="mc-name">Adai Dosa</div>
+        <div class="mc-desc">Thick mixed lentil pancake, protein-rich, served with aviyal and butter</div>
+        <span class="mc-tag">Nutritious</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:.8rem">
+          <img src="madras.svg" alt="Madras Coffee House" style="height:54px"/>
+        </div>
+        <p>Authentic South Indian filter coffee and snacks served in a modern, premium café environment. 180+ stores across India.</p>
+        <div class="footer-socials">
+          <a class="fsoc" href="https://www.facebook.com/madrascoffeehouseofficial/" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a class="fsoc" href="https://www.instagram.com/madrascoffeehouseofficial/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg>
+          </a>
+          <a class="fsoc" href="https://www.youtube.com/@madrascoffeehouseofficial" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.96-1.96C18.88 4 12 4 12 4s-6.88 0-8.58.46a2.78 2.78 0 00-1.96 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.96 1.96C5.12 20 12 20 12 20s6.88 0 8.58-.46a2.78 2.78 0 001.96-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="#e4272e"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Brand</h5><ul>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="menu.html">Our Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Stores</h5><ul>
+        <li><a href="stores.html">Find a Store</a></li>
+        <li><a href="index.html#store-format">Store Format</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Franchise</h5><ul>
+        <li><a href="franchise.html">Why Partner With Us</a></li>
+        <li><a href="https://madrascoffeehouse.com/wp-content/uploads/2025/10/MCH-PRESENTATION-new-final-.pdf" target="_blank">Brochure</a></li>
+        <li><a href="https://madrascoffeehouse.com/wp-content/uploads/2023/06/MCH-PROFILE.pdf" target="_blank">Company Profile</a></li>
+        <li><a href="mailto:prasanna@madrascoffeehouse.com">Enquire Now</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:info@madrascoffeehouse.com">info@madrascoffeehouse.com</a></li>
+        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+        <li><span style="font-size:.8rem;color:var(--gray)">Chennai, Tamil Nadu</span></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Madras Coffee House Pvt. Ltd. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:.5rem"><div class="footer-red-dot"></div><p>Chennai, Tamil Nadu, India</p></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── GLOBAL VARIABLES ────────────────────────────────
+const NAV = document.getElementById('nav');
+const catNav = document.getElementById('cat-nav');
+const catLinks = document.querySelectorAll('.cat-link');
+const menuSections = document.querySelectorAll('.menu-section');
+let isManualScrolling = false;
+
+// ── CATEGORY NAV LOGIC (Run First) ──────────────────
+const getScrollOffset = () => {
+  const navH = (NAV && NAV.classList.contains('scrolled')) ? 64 : 72;
+  const catH = catNav ? catNav.offsetHeight : 0;
+  return navH + catH - 2;
+};
+
+// Click handling for categories
+catLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.dataset.target;
+    const targetSec = document.getElementById(targetId);
+    if (targetSec) {
+      isManualScrolling = true;
+      // Immediate active update for responsiveness
+      catLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+      const targetTop = targetSec.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+      // Re-enable observer highlight after scroll ends
+      setTimeout(() => { isManualScrolling = false; }, 1000);
+    }
+  });
+});
+
+// Scroll Spy for highlights
+if ('IntersectionObserver' in window && menuSections.length) {
+  const spyObs = new IntersectionObserver((entries) => {
+    if (isManualScrolling) return;
+    
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        catLinks.forEach(link => {
+          if (link.dataset.target === id) {
+            link.classList.add('active');
+            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: '-15% 0px -75% 0px', // Detects section in upper 10% of viewport
+    threshold: 0
+  });
+
+  menuSections.forEach(s => spyObs.observe(s));
+}
+
+// ── NAVBAR & HEADER ─────────────────────────────────
+if (NAV) {
+  window.addEventListener('scroll', () => {
+    const isScrolled = window.scrollY > 40;
+    NAV.classList.toggle('scrolled', isScrolled);
+    NAV.classList.toggle('nav-solid', !isScrolled);
+    if (catNav) {
+      catNav.style.top = isScrolled ? '64px' : '72px';
+    }
+  }, { passive: true });
+}
+
+// ── MOBILE MENU ──────────────────────────────────────
+const mobBtn = document.getElementById('mobBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobClose = document.getElementById('mobileNavClose');
+
+if (mobBtn && mobileNav) {
+  mobBtn.addEventListener('click', () => mobileNav.classList.add('open'));
+  if (mobClose) mobClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileNav.classList.remove('open'));
+  });
+}
+
+// ── HERO SLIDER ──────────────────────────────────────
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+let curSlide = 0;
+let slideInterval;
+
+function setSlide(n) {
+  if (!slides.length) return;
+  slides[curSlide].classList.remove('active');
+  if (dots[curSlide]) dots[curSlide].classList.remove('active');
+  curSlide = (n + slides.length) % slides.length;
+  slides[curSlide].classList.add('active');
+  if (dots[curSlide]) dots[curSlide].classList.add('active');
+}
+
+if (dots.length) {
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      setSlide(+dot.dataset.slide);
+      startLoop();
+    });
+  });
+}
+
+function startLoop() {
+  if (slides.length > 1) {
+    slideInterval = setInterval(() => setSlide(curSlide + 1), 4500);
+  }
+}
+if (slides.length) startLoop();
+
+// ── REVEAL SYSTEM ───────────────────────────────────
+if ('IntersectionObserver' in window) {
+  const revObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up, .fade-in, .reveal').forEach(el => revObs.observe(el));
+}
+</script>
+  <script src="mobile.js" defer></script>
+</body>
+</html>
+
