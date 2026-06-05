@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -292,9 +292,6 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:80px 5
 <script>
 const NAV=document.getElementById('nav');
 window.addEventListener('scroll',()=>NAV.classList.toggle('scrolled',scrollY>40),{passive:true});
-document.getElementById('mobBtn').addEventListener('click',()=>document.getElementById('mobNav').classList.add('open'));
-document.getElementById('mobClose').addEventListener('click',()=>document.getElementById('mobNav').classList.remove('open'));
-document.querySelectorAll('.mob-nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mobNav').classList.remove('open')));
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 const tocLinks=document.querySelectorAll('.toc-list a');

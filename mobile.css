@@ -28,7 +28,7 @@
   #strip, .authority-strip { padding: 40px 5% !important; }
 
   /* ── GLOBAL BUTTONS ───────────────────────────────────────── */
-  .btn-primary, .btn-outline, .inv-cta, .eq-submit, .btn-onav {
+  .btn-primary, .btn-secondary, .btn-orange, .btn-red, .btn-outline, .inv-cta, .eq-submit, .btn-map, .btn-submit, .btn-gold, .hero-btn, #detectBtn, .btn-outline-nav, .btn-solid-nav {
     width: 100% !important;
     text-align: center !important;
     justify-content: center !important;
@@ -39,11 +39,10 @@
     align-items: center !important;
   }
   .hero-btns, .cta-contacts { flex-direction: column !important; gap: 10px !important; width: 100%; }
-  .hero-btns a, .cta-contacts a { width: 100% !important; text-align: center !important; justify-content: center !important; }
+  .hero-btns a, .cta-contacts a, .hero-btns button, .cta-contacts button { width: 100% !important; text-align: center !important; justify-content: center !important; }
 
   /* ── HAMBURGER NAV SYSTEM ─────────────────────────────────── */
-  .nav-center { display: none !important; }
-  .nav-right .btn-onav { display: none !important; }
+  .nav-center, .nav-right { display: none !important; }
   .mob-btn { display: flex !important; }
 
   /* Hamburger icon */
@@ -89,22 +88,52 @@
   /* Hero */
   #hero, #contact-hero, #menu-hero, #stores-hero { min-height: 420px !important; height: auto !important; padding: 80px 5% 50px !important; }
   .hero-inner { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: left; }
-  .hero-visual { order: -1 !important; height: 260px !important; overflow: hidden !important; }
-  .hero-img-main, .hero-img-fallback { height: 260px !important; }
+  .hero-visual { order: -1 !important; height: auto !important; overflow: visible !important; display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+  .hero-img-wrap { display: flex !important; flex-direction: column !important; gap: 10px !important; position: relative !important; width: 100% !important; }
+  .hero-img-main, .hero-img-fallback { height: 260px !important; width: 100% !important; object-fit: cover !important; }
+  .hero-badge, .hero-badge-2 {
+    position: relative !important;
+    inset: auto !important;
+    display: inline-block !important;
+    width: fit-content !important;
+    margin: 5px 0 0 0 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important;
+    transform: none !important;
+  }
 
   /* Authority strip */
-  .sp-inner { flex-wrap: wrap !important; gap: 1.2rem !important; }
-  .sp-item { min-width: 40% !important; }
+  .strip-inner {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    text-align: left !important;
+  }
+  .strip-headline {
+    text-align: center !important;
+    font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+  }
+  .strip-headline span {
+    text-align: center !important;
+    margin-top: 0.5rem !important;
+  }
+  .strip-points {
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+  .strip-point {
+    gap: 1rem !important;
+    text-align: left !important;
+  }
 
   /* Heritage / Our Coffee — diagonal split → vertical stack */
-  #heritage .heritage-inner { grid-template-columns: 1fr !important; }
-  #heritage .heritage-img { min-height: 280px !important; }
-  #heritage .heritage-img-main { height: 280px !important; }
-  #heritage .heritage-text { padding: 36px 5% !important; }
+  #heritage .heritage-inner { flex-direction: column !important; gap: 2rem !important; padding: 40px 20px !important; text-align: left !important; }
+  #heritage .heritage-img { width: 100% !important; max-width: 100% !important; min-height: 280px !important; }
+  #heritage .heritage-img-main { height: 280px !important; width: 100% !important; object-fit: cover !important; }
+  #heritage .heritage-text { padding: 0 !important; text-align: left !important; }
   #heritage .heritage-text::before { display: none !important; }
   #heritage .h-diag { display: none !important; }
-  .heritage-pillars { display: grid !important; grid-template-columns: 1fr !important; gap: 0 !important; }
-  .pillar { padding: 0.75rem 0 !important; }
+  #heritage .sec-eyebrow, #heritage .sec-title, #heritage .sec-divider { text-align: left !important; margin-left: 0 !important; }
+  .heritage-pillars { display: grid !important; grid-template-columns: 1fr !important; gap: 1rem !important; }
+  .pillar { padding: 1rem !important; }
   .heritage-badge { margin-bottom: 0.8rem !important; }
 
   /* Store Format — stepped layout → single column */
@@ -129,7 +158,10 @@
 
   /* Expansion */
   .expansion-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
-  .city-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .city-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
+  @media (max-width: 480px) {
+    .city-grid { grid-template-columns: 1fr !important; }
+  }
   .exp-stats-grid { grid-template-columns: 1fr 1fr !important; }
 
   /* Testimonials — touch scroll-friendly */
@@ -147,8 +179,8 @@
   #franchise-cta .expansion-inner, #franchise-cta .cta-inner { grid-template-columns: 1fr !important; }
 
   /* Footer */
-  footer .ft { grid-template-columns: 1fr !important; gap: 2rem !important; }
-  footer .fbot { flex-direction: column !important; text-align: center !important; gap: 0.5rem !important; }
+  footer .ft, footer .footer-top { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  footer .fbot, footer .footer-bottom { flex-direction: column !important; text-align: center !important; gap: 0.5rem !important; }
 
   /* ─────────────────────────────────────────────────────────── */
   /* FRANCHISE PAGE                                             */
@@ -156,6 +188,9 @@
 
   /* Why Partner — circle grid 2 per row */
   .why-circle-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+  @media (max-width: 480px) {
+    .why-circle-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  }
   .why-circ-icon { width: 70px !important; height: 70px !important; font-size: 1.8rem !important; }
   .why-circ h4 { font-size: 0.85rem !important; }
   .why-circ p { font-size: 0.78rem !important; }
@@ -208,16 +243,16 @@
   /* ─────────────────────────────────────────────────────────── */
   /* OUR STORES PAGE                                            */
   /* ─────────────────────────────────────────────────────────── */
-  .stores-layout { flex-direction: column !important; grid-template-columns: 1fr !important; }
-  .stores-sidebar { width: 100% !important; order: 1; }
-  .stores-map-wrap, #storesMap, .map-container { height: 320px !important; max-height: 360px !important; order: 2; }
-  .stores-list { order: 3; max-height: none !important; overflow-y: auto !important; }
-  .store-card { padding: 1.2rem 1rem !important; }
-  .detect-btn, .loc-detect-btn {
+  #main { flex-direction: column !important; padding: 40px 5% !important; }
+  #list-side { width: 100% !important; }
+  .map-sidebar { width: 100% !important; position: relative !important; top: 0 !important; }
+  .map-frame-wrapper { height: 320px !important; max-height: 360px !important; }
+  .bc { padding: 1.2rem 1rem !important; border-radius: 4px !important; }
+  #detectBtn {
     width: 100% !important; min-height: 48px !important; font-size: 0.9rem !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
   }
-  .stores-search input { font-size: 16px !important; }
+  .search-box input { font-size: 16px !important; }
 
   /* ─────────────────────────────────────────────────────────── */
   /* GALLERY PAGE                                               */

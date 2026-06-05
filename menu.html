@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -803,18 +803,6 @@ if (NAV) {
   }, { passive: true });
 }
 
-// ── MOBILE MENU ──────────────────────────────────────
-const mobBtn = document.getElementById('mobBtn');
-const mobileNav = document.getElementById('mobileNav');
-const mobClose = document.getElementById('mobileNavClose');
-
-if (mobBtn && mobileNav) {
-  mobBtn.addEventListener('click', () => mobileNav.classList.add('open'));
-  if (mobClose) mobClose.addEventListener('click', () => mobileNav.classList.remove('open'));
-  mobileNav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => mobileNav.classList.remove('open'));
-  });
-}
 
 // ── HERO SLIDER ──────────────────────────────────────
 const slides = document.querySelectorAll('.hero-slide');
